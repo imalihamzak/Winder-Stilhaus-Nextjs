@@ -362,7 +362,7 @@ export default function HeroSection() {
               className="
                 object-contain object-right object-bottom
                 opacity-100
-                translate-x-[12%] translate-y-[18%]
+                translate-x-[11%] translate-y-[18%]
                 scale-[1.11]
               "
             />
