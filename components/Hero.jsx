@@ -362,9 +362,10 @@ export default function HeroSection() {
               className="
                 object-contain object-right object-bottom
                 opacity-100
-                translate-x-[9%] translate-y-[18%]
-                scale-[1.11]
               "
+              style={{
+                transform: 'translateX(1%) translateY(18%) scale(1.11)'
+              }}
             />
           </div>
         </motion.div>
