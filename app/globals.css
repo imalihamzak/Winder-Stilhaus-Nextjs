@@ -1,0 +1,211 @@
+@import "tailwindcss";
+
+/* Optimize font loading - prevent layout shift */
+@font-face {
+  font-family: 'Noto Serif';
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url('https://fonts.gstatic.com/s/notoserif/v23/ga6iaw1J5X9T9RW6j9bNVls-hfgvz8JcMofYTa32J4wsL2JAlAhZqFGjwM0LhqM.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'DM Sans';
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url('https://fonts.gstatic.com/s/dmsans/v14/rP2Hp2ywxg089UriCZOIHQ.woff2') format('woff2');
+}
+
+ :root {
+  /* --background: #ffffff;
+  --foreground: #171717; */
+
+  /*  */
+}
+
+@theme inline {
+  /* ========== PRIMARY COLORS (Brand Guidelines) ========== */
+  --color-ocean-blue: #214B57;        /* Ocean Blue (RAL 5020) - Dominant Hero */
+  --color-crisp-white: #FFFFFF;        /* Crisp White - Contrast Base */
+  --color-charcoal: #1D1D1D;          /* Charcoal - Grounding Base */
+
+  /* ========== SECONDARY COLORS ========== */
+  --color-regent-grey: #85929D;       /* Regent Grey - Secondary Base */
+  --color-iron: #CED3D7;              /* Iron - Secondary Hero */
+  --color-orange: #F04E22;            /* Orange Accent - Use sparingly (<2%) */
+
+  /* ========== LEGACY COLORS (for backward compatibility during transition) ========== */
+  --color-primary: #214B57;           /* Ocean Blue */
+  --color-primary-light: #66B2B2;     /* Keep for now */
+  --color-white: #FFFFFF;
+  --color-secondary: #85929D;         /* Regent Grey */
+  --color-dark: #1D1D1D;              /* Charcoal */
+  --color-muted: #85929D;             /* Regent Grey */
+  --color-accent: #F04E22;            /* Orange */
+
+  /* ========== UI STATE COLORS ========== */
+  --color-focus: #214B57;             /* Ocean Blue for focus */
+  --color-highlight: #214B57;         /* Ocean Blue for highlight */
+  --color-error: #D54B3D;             /* Error */
+
+  /* ========== TYPOGRAPHY ========== */
+  --font-noto-serif: 'Noto Serif', serif;
+  --font-dm-sans: 'DM Sans', sans-serif;
+}
+
+/* @media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+} */
+
+/* body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+} */
+
+
+
+.font-noto-serif {
+  font-family: var(--font-noto-serif);
+}
+
+.font-dm-sans {
+  font-family: var(--font-dm-sans);
+}
+
+/* Brand Typography Hierarchy */
+.typography-headline {
+  font-family: var(--font-noto-serif);
+  font-weight: 600; /* Semi Bold */
+  font-size: 80pt; /* 80pt = 106.67px = 6.67rem at 16px base */
+  line-height: 120%; /* 1.2 */
+  letter-spacing: 0;
+  text-transform: capitalize; /* Title Case */
+  color: #214B57; /* Ocean Blue - Dominant Hero color */
+}
+
+.typography-subhead {
+  font-family: var(--font-noto-serif);
+  font-weight: 400; /* Regular */
+  font-size: 50pt; /* 50pt = ~66.67px */
+  line-height: 120%; /* 1.2 */
+  letter-spacing: 0;
+  text-transform: none; /* Sentence Case */
+}
+
+.typography-body-copy {
+  font-family: var(--font-dm-sans);
+  font-weight: 400; /* Regular */
+  font-size: 32pt; /* 32pt = ~42.67px */
+  line-height: 120%; /* 1.2 */
+  letter-spacing: 0;
+  text-transform: none; /* Sentence Case */
+}
+
+.typography-intro-copy {
+  font-family: var(--font-dm-sans);
+  font-weight: 600; /* Semi Bold */
+  font-size: 26pt; /* 26pt = ~34.67px */
+  line-height: 120%; /* 1.2 */
+  letter-spacing: 0;
+  text-transform: capitalize; /* Title Case */
+}
+
+button {
+  cursor: pointer;
+}
+
+/* Brand Button Styles - Ensure Orange buttons display correctly */
+.btn-primary {
+  background-color: #F04E22 !important;
+  color: #FFFFFF !important;
+  min-width: 122px;
+  min-height: 31px;
+  border-radius: 4px;
+  transition: all 150ms ease-out;
+}
+
+.btn-primary:hover {
+  background-color: #214B57 !important;
+}
+
+.btn-primary:active {
+  background-color: #FFFFFF !important;
+  color: #214B57 !important;
+  border: 2px solid #214B57 !important;
+}
+
+.btn-primary:disabled {
+  background-color: #CED3D7 !important;
+  color: #85929D !important;
+  cursor: not-allowed;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-noto-serif);
+  font-weight: 400; /* Regular weight for headings per brand guidelines */
+}
+
+p, li, span, a {
+  font-family: var(--font-dm-sans);
+}
+
+html, body {
+  background: #fff;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+html::-webkit-scrollbar,
+body::-webkit-scrollbar,
+*::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+html,
+body,
+* {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+/* Accessibility: Visible focus styles for keyboard navigation */
+*:focus-visible {
+  outline: 3px solid #214B57; /* Ocean Blue */
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* Screen reader only class */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* Skip to content link - hidden by default, visible on focus */
+.skip-to-content {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: #214B57; /* Ocean Blue */
+  color: white;
+  padding: 8px 16px;
+  text-decoration: none;
+  z-index: 1000;
+  border-radius: 4px;
+}
+
+.skip-to-content:focus {
+  top: 0;
+}

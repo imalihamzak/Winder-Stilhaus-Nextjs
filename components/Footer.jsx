@@ -1,0 +1,231 @@
+"use client";
+
+import React from "react";
+import Link from "next/link";
+import { Facebook, Instagram, Twitter, Linkedin } from "lucide-react";
+
+const FooterSection = () => {
+  return (
+    <footer className="bg-white text-[#101423] px-3 sm:px-4 md:px-6 pt-6">
+      <div className="max-w-7xl mx-auto">
+        {/* Premium glass container */}
+        <div className="">
+          {/* subtle shine */}
+          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(70%_55%_at_20%_0%,rgba(255,255,255,0.20),transparent_60%)]" />
+
+          <div className="relative p-6 sm:p-8 md:p-10">
+            <div className="grid grid-cols-1 md:grid-cols-[1.2fr_0.9fr_0.9fr_1fr] gap-10 md:gap-12">
+              {/* Brand */}
+              <div className="space-y-5">
+                <div>
+                  <p className="text-xs uppercase tracking-[0.32em] text-[#85929D] font-dm-sans">
+                    Premium interiors
+                  </p>
+                  <div className="mt-2">
+                    <img
+                      src="/assets/Primary Logo – Teal & GreyF.png"
+                      alt="Winder & Stilhaus logo"
+                      width={150}
+                      height={40}
+                      className="h-8 sm:h-10 md:h-12 w-auto shrink-0"
+                      loading="lazy"
+                    />
+                  </div>
+                </div>
+
+                <p className="text-[#85929D] max-w-md font-dm-sans" style={{ fontSize: 'clamp(0.875rem, 1.5vw, 1.5rem)', fontWeight: 400, lineHeight: '1.2', letterSpacing: '0px', fontFamily: 'DM Sans, sans-serif' }}>
+                  Luxury interiors crafted with precision, transparency, and on-time delivery —
+                  designed to feel timeless, not trendy.
+                </p>
+
+                <div className="flex items-center gap-3">
+                  <Link
+                    href="#"
+                    className="w-11 h-11 rounded-full border border-black/10 bg-white/70 backdrop-blur flex items-center justify-center text-[#214B57] shadow-[0_12px_30px_rgba(33,75,87,0.04)] hover:bg-white transition"
+                    aria-label="Facebook"
+                  >
+                    <Facebook size={18} />
+                  </Link>
+                  <Link
+                    href="#"
+                    className="w-11 h-11 rounded-full border border-black/10 bg-white/70 backdrop-blur flex items-center justify-center text-[#214B57] shadow-[0_12px_30px_rgba(33,75,87,0.04)] hover:bg-white transition"
+                    aria-label="Instagram"
+                  >
+                    <Instagram size={18} />
+                  </Link>
+                  <Link
+                    href="#"
+                    className="w-11 h-11 rounded-full border border-black/10 bg-white/70 backdrop-blur flex items-center justify-center text-[#214B57] shadow-[0_12px_30px_rgba(33,75,87,0.04)] hover:bg-white transition"
+                    aria-label="Twitter"
+                  >
+                    <Twitter size={18} />
+                  </Link>
+                  <Link
+                    href="#"
+                    className="w-11 h-11 rounded-full border border-black/10 bg-white/70 backdrop-blur flex items-center justify-center text-[#214B57] shadow-[0_12px_30px_rgba(33,75,87,0.04)] hover:bg-white transition"
+                    aria-label="LinkedIn"
+                  >
+                    <Linkedin size={18} />
+                  </Link>
+                </div>
+
+                <div className="flex flex-wrap gap-2 pt-1">
+                  <span className="px-3 py-1 rounded-full bg-black/5 border border-black/10 text-xs font-semibold text-[#214B57] font-dm-sans">
+                    Premium finish
+                  </span>
+                  <span className="px-3 py-1 rounded-full bg-black/5 border border-black/10 text-xs font-semibold text-[#214B57] font-dm-sans">
+                    Transparent scope
+                  </span>
+                  <span className="px-3 py-1 rounded-full bg-black/5 border border-black/10 text-xs font-semibold text-[#214B57] font-dm-sans">
+                    On-time delivery
+                  </span>
+                </div>
+              </div>
+
+              {/* Company */}
+              <div className="space-y-4">
+                <h4 className="text-sm font-semibold uppercase tracking-[0.22em] text-[#214B57] font-noto-serif">
+                  Company
+                </h4>
+
+                <ul className="space-y-3 text-sm text-[#85929D] font-dm-sans">
+                  <li>
+                    <Link className="hover:text-[#214B57] transition" href="/">
+                      Home
+                    </Link>
+                  </li>
+                  <li>
+                    <Link className="hover:text-[#214B57] transition" href="/about">
+                      About
+                    </Link>
+                  </li>
+                  <li>
+                    <Link className="hover:text-[#214B57] transition" href="/services">
+                      Services
+                    </Link>
+                  </li>
+                  <li>
+                    <Link className="hover:text-[#214B57] transition" href="/project">
+                      Portfolio
+                    </Link>
+                  </li>
+                  <li>
+                    <Link className="hover:text-[#214B57] transition" href="/blog">
+                      Blog
+                    </Link>
+                  </li>
+                </ul>
+              </div>
+
+              {/* Support */}
+              <div className="space-y-4">
+                <h4 className="text-sm font-semibold uppercase tracking-[0.22em] text-[#214B57] font-noto-serif">
+                  Support
+                </h4>
+
+                <ul className="space-y-3 text-sm text-[#85929D] font-dm-sans">
+                  <li>
+                    <Link className="hover:text-[#214B57] transition" href="/contact-us">
+                      Contact
+                    </Link>
+                  </li>
+                  <li>
+                    <Link className="hover:text-[#214B57] transition" href="/availability-check">
+                      Availability
+                    </Link>
+                  </li>
+                  <li>
+                    <Link className="hover:text-[#214B57] transition" href="/location/leeds">
+                      Locations
+                    </Link>
+                  </li>
+                  <li>
+                    <Link className="hover:text-[#214B57] transition" href="/testimonials">
+                      Testimonials
+                    </Link>
+                  </li>
+                  <li>
+                    <Link className="hover:text-[#214B57] transition" href="/aftercare">
+                      Aftercare
+                    </Link>
+                  </li>
+                  <li>
+                    <Link className="hover:text-[#214B57] transition" href="/privacy">
+                      Privacy Policy
+                    </Link>
+                  </li>
+                  <li>
+                    <Link className="hover:text-[#214B57] transition" href="/cookies">
+                      Cookie Policy
+                    </Link>
+                  </li>
+                  <li>
+                    <Link className="hover:text-[#214B57] transition" href="/terms">
+                      Terms
+                    </Link>
+                  </li>
+                </ul>
+              </div>
+
+{/* Newsletter (simple) */}
+<div className="space-y-4">
+  <div>
+    <h4 className="text-sm font-semibold uppercase tracking-[0.22em] text-[#214B57] font-noto-serif">
+      Stay updated
+    </h4>
+    <p className="mt-2 text-sm text-[#85929D] leading-relaxed font-dm-sans">
+      Monthly design notes and material insights.
+    </p>
+  </div>
+
+  <div className="flex items-center gap-3 rounded-full border border-black/10 bg-white/50 px-3 py-2">
+    <input
+      type="email"
+      placeholder="Enter your email"
+      className="flex-1 bg-transparent px-2 py-2 text-sm text-[#214B57] placeholder:text-[#85929D] outline-none font-dm-sans"
+    />
+    <button className="shrink-0 px-4 py-2 rounded-md min-w-[122px] min-h-[31px] text-white text-sm font-normal font-dm-sans hover:bg-[#214B57] transition-all duration-150" style={{ backgroundColor: '#F04E22' }}>
+      Subscribe
+    </button>
+  </div>
+
+  <p className="text-xs text-[#85929D] font-dm-sans">No spam. Unsubscribe anytime.</p>
+
+  <div className="text-sm text-[#85929D] space-y-1 font-dm-sans">
+    <p className="font-semibold text-[#214B57] font-noto-serif">Contact</p>
+    <p>+123 456 7890</p>
+    <p>hello@luxuryinteriors.com</p>
+  </div>
+</div>
+
+            </div>
+
+            {/* Bottom bar */}
+            <div className="mt-10 pt-6 border-t border-black/10 flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-[#85929D] font-dm-sans">
+              <div className="flex flex-col gap-2">
+                <p>© 2025 Winder & Stilhaus. All rights reserved.</p>
+                <p className="text-xs italic">Visual concept images may be used for illustration.</p>
+              </div>
+              <div className="flex items-center gap-4 flex-wrap">
+                <Link href="/terms" className="hover:text-[#214B57] transition">
+                  Terms
+                </Link>
+                <Link href="/privacy" className="hover:text-[#214B57] transition">
+                  Privacy
+                </Link>
+                <Link href="/cookies" className="hover:text-[#214B57] transition">
+                  Cookies
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Tiny extra spacing so footer doesn't feel cramped */}
+        <div className="h-8" />
+      </div>
+    </footer>
+  );
+};
+
+export default FooterSection;

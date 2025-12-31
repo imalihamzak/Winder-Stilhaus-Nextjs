@@ -1,0 +1,328 @@
+
+## 1️⃣ **Service Pages (Individual Page for Each Service)** //done
+
+*(Example: Luxury Interior Design, Renovations, Turnkey, etc.)*
+
+### ✅ Page Purpose
+
+To explain one service in detail and convert visitors into leads.
+
+### ✅ Hero Section
+
+* Service Title (H1)
+* Short luxury-focused tagline
+* Background image related to that service
+* Primary CTA button (“Get Free Consultation”)
+
+### ✅ Service Overview
+
+* 2–3 paragraph description
+* Key benefits in bullet points
+* Who this service is for
+
+### ✅ Process / How It Works
+
+* Step 1: Consultation
+* Step 2: Design & Planning
+* Step 3: Execution
+* Step 4: Final Handover
+  (With icons or timeline layout)
+
+### ✅ What’s Included
+
+* Material quality
+* Design scope
+* Project management
+* Custom furniture
+* Lighting & layout
+* After-service support
+
+### ✅ Mini Portfolio (Related to This Service)
+
+* 4–6 project images
+* Project name + location
+* View Project button
+
+### ✅ FAQ (Service-Specific)
+
+* 4–6 common questions for that service
+
+### ✅ CTA
+
+* Strong conversion CTA
+* Button: “Book Free Design Call”
+
+---
+
+## 2️⃣ **Location Pages (Targeted SEO – Towns & Postcodes)** //done
+
+*(Example: Interior Design in Lahore, DHA, Gulberg, etc.)*
+
+### ✅ Hero Section
+
+* H1: “Luxury Interior Design in [Location]”
+* Short trust-building line
+* CTA button: “Get a Free Quote”
+
+### ✅ Local Service Description
+
+* 300–500 words optimized for SEO
+* Mention:
+
+  * Area name
+  * Property types
+  * Local client needs
+
+### ✅ Services Available in This Area
+
+* Service cards (same as main services)
+
+### ✅ Local Projects / Portfolio
+
+* 3–5 nearby projects
+* Photos + short descriptions
+
+### ✅ Why Choose Us in [Location]
+
+* Local experience
+* Fast site visits
+* Area-specific expertise
+* Trusted vendors
+
+### ✅ Reviews from That Area
+
+* 2–4 client testimonials tagged with location
+
+### ✅ CTA
+
+* “Schedule Free Site Visit in [Location]”
+
+---
+
+## 3️⃣ **AI Pricing Guide (Multi-Step Calculator)** //done
+
+### ✅ Step 1 – Property Info
+
+* Property type (Apartment, Villa, Office)
+* Area in sq.ft
+* Number of rooms
+
+### ✅ Step 2 – Design Level
+
+* Standard / Premium / Luxury
+* Custom furniture (Yes/No)
+* Smart lighting (Yes/No)
+
+### ✅ Step 3 – Budget Range
+
+* Slider or range buttons
+* Timeline preference
+
+### ✅ Results Screen
+
+* Estimated project cost range
+* Timeline estimate
+* What’s included
+* Downloadable PDF summary
+
+### ✅ Lead Capture
+
+* Name
+* Email
+* Phone
+* Button: “Get Detailed Proposal”
+
+---
+
+## 4️⃣ **Interactive Gallery / Portfolio**  // done
+
+### ✅ Filter Bar
+
+* All
+* Living Rooms
+* Bedrooms
+* Kitchens
+* Offices
+* Villas
+
+### ✅ Project Cards
+
+Each card must have:
+
+* Project Image
+* Project Title
+* Location
+* Property Type
+* View Project button
+
+### ✅ Project Detail Page
+
+* Image gallery / slider
+* Client brief
+* Challenges & solution
+* Materials used
+* Final outcome
+* Before vs After
+* CTA: “Start Similar Project”
+
+---
+
+## 5️⃣ **About Page & Team Info**  //done
+
+### ✅ Brand Story
+
+* Who you are
+* Mission & vision
+* Design philosophy
+* Years of experience
+
+### ✅ Founder / Leadership
+
+* Founder photo
+* Name & role
+* Short bio
+
+### ✅ Team Section
+
+* Team member photos
+* Name
+* Designation
+* Expertise
+
+### ✅ Why Choose Us
+
+* Awards
+* Certifications
+* Client count
+* Projects completed
+* Vendor network
+
+### ✅ Values
+
+* Quality
+* Transparency
+* Innovation
+* Client-first approach
+
+---
+
+## 6️⃣ **Contact Page (GA4 + CRM Integration)** //done
+
+### ✅ Contact Form
+
+* Full Name
+* Email
+* Phone
+* City
+* Service Interested
+* Message
+* Submit button
+
+### ✅ Contact Info
+
+* Phone number
+* Email
+* Office address
+* Business hours
+
+### ✅ Map Integration
+
+* Google Map embed (office location)
+
+### ✅ Tracking & Automation
+
+* GA4 event tracking on submit
+* CRM lead auto-push
+* Thank-you confirmation screen
+* Auto email + WhatsApp confirmation
+
+---
+
+## 7️⃣ **Blog for SEO Growth**  //done
+
+### ✅ Blog Listing Page
+
+Each Blog Card Contains:
+
+* Featured Image
+* Category
+* Blog Title
+* Short Excerpt (2 lines)
+* Author Name
+* Date
+* Read More button
+
+### ✅ Blog Detail Page
+
+* H1 Title
+* Author + date
+* Featured image
+* Table of contents
+* SEO-optimized content
+* Internal links
+* Share buttons
+* Related posts
+* CTA at bottom
+
+### ✅ Blog Categories
+
+* Design Tips
+* Renovation Guides
+* Luxury Trends
+* Budget Planning
+* Materials & Finishes
+
+---
+
+## 8️⃣ **Postcode Gate (Service Availability Checker)** //done
+
+### ✅ Input Section
+
+* Zip / Postcode input field
+* Button: “Check Availability”
+
+### ✅ Logic Result
+
+* ✅ Service available in your area
+  OR
+* ❌ Currently not available, leave details
+
+### ✅ Lead Capture if Not Available
+
+* Name
+* Phone
+* Email
+* City
+* Notify Me button
+
+### ✅ Auto Routing
+
+* If available → Redirect to location page
+* If not → Save lead for expansion
+
+---
+
+## 9️⃣ **Testimonials Slider**   //done
+
+### ✅ Testimonial Card Must Have
+
+* Client photo (optional)
+* Client name
+* Location
+* Property type
+* Star rating
+* Review text
+
+### ✅ Slider Features
+
+* Auto sliding
+* Manual arrows
+* Pagination dots
+* Mobile swipe support
+
+### ✅ Trust Boosters Below Slider
+
+* “500+ Happy Clients”
+* “10+ Years Experience”
+* “1000+ Projects Delivered”
+
