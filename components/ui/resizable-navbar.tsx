@@ -227,7 +227,7 @@ export const NavbarLogo = () => {
 
 interface NavbarButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   href?: string;
-  as?: keyof JSX.IntrinsicElements;
+  as?: keyof React.JSX.IntrinsicElements;
   children: ReactNode;
   className?: string;
   variant?: "primary" | "secondary" | "gradient";
@@ -257,7 +257,7 @@ export const NavbarButton = ({
     <Tag
       href={href || undefined}
       className={cn(baseStyles, variantStyles[variant], className)}
-      {...props}>
+      {...(props as any)}>
       {children}
     </Tag>
   );

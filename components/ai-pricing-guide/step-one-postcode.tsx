@@ -56,7 +56,7 @@ export default function StepOnePostcode({ data, setData, next }: StepOnePostcode
     // For now, simulate lookup
     setTimeout(() => {
       // Mock: If postcode starts with LS, assume we found EPC data
-      const foundEPC = data.postcode.toUpperCase().startsWith("LS");
+      const foundEPC = data.postcode?.toUpperCase().startsWith("LS") ?? false;
       
       if (foundEPC) {
         setLookupResult({

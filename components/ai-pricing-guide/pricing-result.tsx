@@ -70,12 +70,34 @@ export default function PricingResult({ data, next }: PricingResultProps) {
     const finishTier = data.finishTier;
     
     if (!project || !finishTier) {
-      return { min: 0, max: 0 };
+      return { 
+        min: 0, 
+        max: 0,
+        breakdown: {
+          cabinetry: { min: 0, max: 0 },
+          mep: { min: 0, max: 0 },
+          surfaces: { min: 0, max: 0 },
+          labour: { min: 0, max: 0 },
+          contingency: { min: 0, max: 0 },
+          options: { min: 0, max: 0 }
+        }
+      };
     }
 
     const base = PRICING_MATRIX[project]?.[finishTier];
     if (!base) {
-      return { min: 0, max: 0 };
+      return { 
+        min: 0, 
+        max: 0,
+        breakdown: {
+          cabinetry: { min: 0, max: 0 },
+          mep: { min: 0, max: 0 },
+          surfaces: { min: 0, max: 0 },
+          labour: { min: 0, max: 0 },
+          contingency: { min: 0, max: 0 },
+          options: { min: 0, max: 0 }
+        }
+      };
     }
 
     let min = base.min;

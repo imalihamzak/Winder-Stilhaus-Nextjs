@@ -7,13 +7,12 @@ import {
   FaBed,
   FaBox,
   FaDoorOpen,
-  IconType,
 } from "react-icons/fa";
 
 interface Section {
   id: string;
   title: string;
-  icon: IconType;
+  icon: React.ComponentType<{ className?: string }>;
   description: string;
   features: string[];
   image: string;

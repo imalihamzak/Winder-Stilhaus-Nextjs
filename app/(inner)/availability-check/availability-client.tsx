@@ -3,7 +3,7 @@
 import { useState, FormEvent, KeyboardEvent } from "react";
 import { useRouter } from "next/navigation";
 import FadeIn from "@/components/FadeIn";
-import { isWithinServiceArea } from "@/lib/postcode-checker";
+import { isWithinServiceArea, extractOutcode } from "@/lib/postcode-checker";
 
 interface ServiceArea {
   city: string;
@@ -29,7 +29,9 @@ export default function PostcodeGatePageClient() {
     if (!postcode) return;
     setLoading(true);
 
-    const { inArea, outcode } = isWithinServiceArea(postcode);
+    const result = await isWithinServiceArea(postcode);
+    const { inArea } = result;
+    const outcode = extractOutcode(postcode);
 
     // Track postcode check
     if (typeof window !== "undefined" && (window as any).gtag) {

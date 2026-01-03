@@ -50,7 +50,7 @@ export default function ServiceLayout({ service }: ServiceLayoutProps) {
       <WhatsIncluded service={service} />
       <ServiceMiniPortfolio service={service} />
       <ServiceFAQ service={service} />
-      <ServiceCTA service={service} />
+      <ServiceCTA />
     </main>
   );
 }

@@ -58,6 +58,7 @@ type FadeInProps = {
   delay?: number;
   duration?: number;
   direction?: "up" | "down" | "left" | "right" | "scale";
+  id?: string;
 };
 
 export default function FadeIn({ 
@@ -65,7 +66,8 @@ export default function FadeIn({
   className,
   delay = 0,
   duration = 0.6,
-  direction = "up"
+  direction = "up",
+  id
 }: FadeInProps) {
   const ref = useRef(null);
   // Trigger animation much earlier while scrolling - margin: "300px" means trigger 300px before element enters viewport
@@ -88,15 +90,15 @@ export default function FadeIn({
   const contentVariant = {
     hidden: { 
       opacity: 0, 
-      ...(variant.hidden.x !== undefined ? { x: variant.hidden.x } : {}),
-      ...(variant.hidden.y !== undefined ? { y: variant.hidden.y } : {}),
-      ...(variant.hidden.scale !== undefined ? { scale: variant.hidden.scale } : {})
+      ...('x' in variant.hidden && variant.hidden.x !== undefined ? { x: variant.hidden.x } : {}),
+      ...('y' in variant.hidden && variant.hidden.y !== undefined ? { y: variant.hidden.y } : {}),
+      ...('scale' in variant.hidden && variant.hidden.scale !== undefined ? { scale: variant.hidden.scale } : {})
     },
     visible: { 
       opacity: 1,
-      ...(variant.visible.x !== undefined ? { x: variant.visible.x } : {}),
-      ...(variant.visible.y !== undefined ? { y: variant.visible.y } : {}),
-      ...(variant.visible.scale !== undefined ? { scale: variant.visible.scale } : {})
+      ...('x' in variant.visible && variant.visible.x !== undefined ? { x: variant.visible.x } : {}),
+      ...('y' in variant.visible && variant.visible.y !== undefined ? { y: variant.visible.y } : {}),
+      ...('scale' in variant.visible && variant.visible.scale !== undefined ? { scale: variant.visible.scale } : {})
     }
   };
 
@@ -104,6 +106,7 @@ export default function FadeIn({
     <div 
       ref={ref} 
       className={className}
+      id={id}
       style={{ 
         position: 'relative',
         // Background colors from children (like bg-white) should always be visible

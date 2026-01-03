@@ -4,7 +4,7 @@ import FadeIn from "@/components/FadeIn";
 import { Shield, Award, CheckCircle } from "lucide-react";
 
 interface Badge {
-  icon: React.ComponentType<{ className?: string }>;
+  icon: React.ComponentType<{ className?: string; size?: number }>;
   title: string;
   description: string;
 }
