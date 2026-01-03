@@ -4,6 +4,7 @@ import { ReactNode, useRef, useEffect } from "react";
 import { motion, useInView, useAnimation } from "framer-motion";
 
 // Animation variants - matching SettleQuick exactly
+// Note: We animate content, not background - background should always be visible
 const fadeInUp = {
   hidden: { opacity: 0, y: 30 },
   visible: { 
@@ -67,8 +68,9 @@ export default function FadeIn({
   direction = "up"
 }: FadeInProps) {
   const ref = useRef(null);
-  // Matching SettleQuick exactly: once: false, margin: "-100px"
-  const isInView = useInView(ref, { once: false, margin: "-100px" });
+  // Trigger animation much earlier while scrolling - margin: "300px" means trigger 300px before element enters viewport
+  // This ensures large sections like blog appear while scrolling, not after stopping
+  const isInView = useInView(ref, { once: false, margin: "300px 0px" });
   const controls = useAnimation();
 
   useEffect(() => {
@@ -81,17 +83,46 @@ export default function FadeIn({
 
   const variant = variantsMap[direction];
 
+  // Create a modified variant that doesn't affect background visibility
+  // The wrapper div will always be visible, only inner content animates
+  const contentVariant = {
+    hidden: { 
+      opacity: 0, 
+      ...(variant.hidden.x !== undefined ? { x: variant.hidden.x } : {}),
+      ...(variant.hidden.y !== undefined ? { y: variant.hidden.y } : {}),
+      ...(variant.hidden.scale !== undefined ? { scale: variant.hidden.scale } : {})
+    },
+    visible: { 
+      opacity: 1,
+      ...(variant.visible.x !== undefined ? { x: variant.visible.x } : {}),
+      ...(variant.visible.y !== undefined ? { y: variant.visible.y } : {}),
+      ...(variant.visible.scale !== undefined ? { scale: variant.visible.scale } : {})
+    }
+  };
+
   return (
-    <motion.div
-      ref={ref}
-      initial="hidden"
-      animate={controls}
-      variants={variant}
-      transition={{ delay, duration, ease: "easeOut" }}
+    <div 
+      ref={ref} 
       className={className}
+      style={{ 
+        position: 'relative',
+        // Background colors from children (like bg-white) should always be visible
+        // This wrapper doesn't animate, preserving background visibility
+      }}
     >
-      {children}
-    </motion.div>
+      <motion.div
+        initial="hidden"
+        animate={controls}
+        variants={contentVariant}
+        transition={{ delay, duration, ease: "easeOut" }}
+        style={{ 
+          willChange: 'opacity, transform',
+          // Inner content animates, but background stays visible on parent
+        }}
+      >
+        {children}
+      </motion.div>
+    </div>
   );
 }
 

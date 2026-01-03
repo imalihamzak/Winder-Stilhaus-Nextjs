@@ -60,38 +60,49 @@ const Page = () => {
         strategy="afterInteractive"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
       />
-      <main id="main-content" className="relative min-h-screen bg-white text-[#1D1D1D] overflow-hidden" suppressHydrationWarning>
+      <main id="main-content" className="relative min-h-screen bg-[#1D1D1D] text-white overflow-hidden" suppressHydrationWarning>
         <div className="relative z-10">
           <HeroSection />
 
-          <FadeIn direction="up" delay={0} duration={0.6}>
-            <ServicesAbout />
-          </FadeIn>
+          {/* Services section - background always visible, only content animates */}
+          <div className="bg-white">
+            <FadeIn direction="up" delay={0} duration={0.6}>
+              <ServicesAbout />
+            </FadeIn>
+          </div>
 
-          <FadeIn direction="up" delay={0} duration={0.6}>
-            <Suspense fallback={
-              <div className="min-h-[400px] flex items-center justify-center">
-                <div className="text-center">
-                  <div className="w-8 h-8 border-2 border-[#214B57] border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
-                  <p className="text-[#85929D] font-dm-sans">Loading pricing guide...</p>
+          {/* Pricing guide - background always visible, only content animates */}
+          <div className="bg-white">
+            <FadeIn direction="up" delay={0} duration={0.6}>
+              <Suspense fallback={
+                <div className="min-h-[400px] flex items-center justify-center">
+                  <div className="text-center">
+                    <div className="w-8 h-8 border-2 border-[#214B57] border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
+                    <p className="text-[#7F8C8D] font-dm-sans">Loading pricing guide...</p>
+                  </div>
                 </div>
-              </div>
-            }>
-              <InstantPricingGuide />
-            </Suspense>
-          </FadeIn>
+              }>
+                <InstantPricingGuide />
+              </Suspense>
+            </FadeIn>
+          </div>
 
-          <FadeIn direction="up" delay={0} duration={0.6}>
-            <Testimonials />
-          </FadeIn>
+          {/* Testimonials - background always visible, only content animates */}
+          <div className="bg-white">
+            <FadeIn direction="up" delay={0} duration={0.6}>
+              <Testimonials />
+            </FadeIn>
+          </div>
 
-          <FadeIn direction="up" delay={0} duration={0.6}>
-            <FAQSection />
-          </FadeIn>
+          {/* FAQ - background always visible, only content animates */}
+          <div className="bg-white">
+            <FadeIn direction="up" delay={0} duration={0.6}>
+              <FAQSection />
+            </FadeIn>
+          </div>
 
-          <FadeIn direction="up" delay={0} duration={0.6}>
-            <BlogLayout />
-          </FadeIn>
+          {/* Blog section handles its own animations internally */}
+          <BlogLayout />
 
           <FadeIn direction="up" delay={0} duration={0.6}>
             <FooterSection />

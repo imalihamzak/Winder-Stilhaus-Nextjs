@@ -1,0 +1,232 @@
+Winder&Stilhaus — Website Adjustments
+
+Date: 31 December 2025
+
+Purpose: Align the live Next.js build with brand guidelines, the original brief, and the hard rules from 22 Dec 2025. Each section lists precise outcomes and an acceptance summary. Placeholders are permitted for assets I supply later.
+
+1) Branding Implementation (Global) — Priority: P0
+
+Outcomes
+	•	Header uses the official horizontal lockup (WS monogram + “Winder&Stilhaus” wordmark), respecting the clear-space/min-size rules from the brand pack.
+	•	Full brand palette applied site-wide. Use Ocean Blue (RAL 5020; use the exact HEX from the brand pack), Crisp White, Charcoal for type; Regent Grey and Iron for subtle UI; Orange as a micro-accent only (<2%). Hover state = subtle darken of Ocean Blue.
+	•	Typography: Noto Serif for headings (H1 Bold; H2 Semibold; H3+ Regular). DM Sans for body/UI (Regular; buttons/labels Medium). Base 16–18 px, 1.5–1.6 line height.
+	•	Favicon set derived from the WS monogram.
+	•	Monogram “ring” underlays on hero and key banners: 4–7% opacity, 1.5–2.5× viewport scale, subtle motion (very low amplitude, gentle easing). Maintain AA contrast.
+
+Acceptance
+	•	Header shows the lockup crisply at 1×/2×.
+	•	Fonts render exactly as specified.
+	•	Only brand colours are visible in UI components.
+	•	Favicon present.
+	•	Monogram rings add depth without harming readability (contrast passes WCAG AA).
+
+⸻
+
+2) Information Architecture & Navigation — Priority: P0
+
+Outcomes
+	•	Primary nav (desktop): Home, Kitchens, Bathrooms, Interiors, How we work, Pricing, Who we are, Contact.
+	•	Single primary CTA in the header (top-right): “Book a consultation”.
+	•	Hero secondary CTA “Start instant quote” smooth-scrolls to the on-page Pricing Guide block and moves keyboard focus to its heading.
+	•	Mobile: hamburger menu with focus trap and correct ARIA; sticky mobile action bar (Call, WhatsApp, Book) appears on scroll.
+
+Acceptance
+	•	Exact nav order on desktop and in mobile menu.
+	•	Only one “Book a consultation” button in the header.
+	•	Smooth-scroll + focus verified via keyboard.
+	•	Sticky mobile bar visible, tappable (≥44 px targets), no content overlap.
+
+⸻
+
+3) Pages & Content Blocks — Priority: P1
+
+Outcomes
+	•	/kitchens, /bathrooms, /interiors: 150–200-word intro; 3–5 benefits; regulations note (Kitchens: electrics Part P, extraction, fire, gas competence. Bathrooms: IP zones, Part G/WRAS. Interiors: relevant standards); “Design Concepts” grid (tiles open a lightbox: intent line, palette, materials set, signature detail, 3–5 images, CTA “Use this palette in my estimate”); 6–8 FAQs; end-CTA.
+	•	/interiors includes sub-sections: Living Spaces, Utility Rooms, Bedrooms, Hall & Stairs, Bespoke Storage (each 100–150 words + image placeholder).
+	•	/how-we-work: 5-step ribbon (Consultation → Design & Quote → Technical Survey → Build Programme → Aftercare). Each step expands with detail, indicative programme weeks, client responsibilities; CTA at end.
+	•	/who-we-are: brand story (200–300 words), values (3–5 bullets), trust badges (insurance/accreditations), placeholders for team/workshop images. No street address.
+	•	/contact: short form (name, email, phone [tel], postcode, service dropdown, brief), inline validation with ARIA alerts, click-to-call and WhatsApp deep link, optional calendar embed.
+	•	/areas-we-cover: landing with sections for Leeds, Harrogate, Ilkley, York corridor, Bradford, Huddersfield, Wakefield (150–300 words each, 2–3 image placeholders), internal anchors.
+	•	/blog: index with at least 6 seed posts (feature image placeholder, author “Winder&Stilhaus Team”, read time, category). Service pages link internally to relevant posts.
+
+Acceptance
+	•	All URLs exist and are reachable from the header/footer.
+	•	Blocks match the descriptions (placeholders allowed where I haven’t delivered assets).
+	•	FAQs expand/collapse.
+	•	No postal address anywhere.
+
+⸻
+
+4) Instant Pricing Guide (embedded on Home and at /pricing) — Priority: P2
+
+Outcomes
+	•	Flow (6–8 steps):
+	1.	Address (UK postcode + house number for UPRN/EPC lookup).
+	2.	Project type (Kitchen / Bathroom / Interior Package).
+	3.	Property era (Pre-1945 / 1945–1999 / 2000+).
+	4.	Finish tier (Standard / Premium / Luxury).
+	5.	Complexity (Standard / Reconfigure / Structural).
+	6.	MEP intensity (Light / Medium / Heavy).
+	7.	Options (adders) multi-select.
+	8.	Contact details → Results.
+	•	If EPC/GIA not found, auto-fallback to a Bedrooms question (1–5+ as a size proxy).
+	•	No chatbot UI; use a clear multi-step form with progress indicator.
+	•	Service-area soft-gate: Centre LS16; radius 22.5 miles; out-of-area shows a polite, non-blocking banner.
+	•	Admin must allow outcode-level controls (first part of postcode, e.g., LS16) with Allow/Block lists in addition to the radius.
+	•	Results: Price range (min–max), short breakdown (Cabinetry/Joinery, MEP, Surfaces/Fixtures, Labour/PM, Contingency), programme weeks, micro-disclaimer “Guide only. Final price subject to survey and design sign-off.”
+	•	CTAs: Book consultation; Request a call; Email me this guide (sends a well-formatted summary).
+	•	VAT toggle (Admin) affects all displayed totals and labels (“incl. VAT” vs “ex VAT”) across the estimator.
+
+Acceptance
+	•	All steps present; progress indicator visible; EPC fallback works.
+	•	Soft-gate triggers outside radius but allows continue. Outcode allow/block is configurable.
+	•	Changing inputs meaningfully changes the range and breakdown.
+	•	VAT toggle works globally for estimator outputs and labels.
+
+⸻
+
+5) Admin Panels — Priority: P2
+
+Outcomes
+	•	Pricing Settings:
+	•	PriceMatrix (base ex-VAT values by service/size).
+	•	Multipliers (Finish, Complexity, MEP, Property Era, optional Location factor).
+	•	Adders (fixed ex-VAT add-ons).
+	•	Contingency % (default 10%; editable).
+	•	VAT toggle (on/off; default on).
+	•	Display Range setting (± percentage for min–max).
+	•	Rounding rule (e.g., round to nearest £250).
+	•	Service Area:
+	•	Centre postcode (LS16 by default), radius in miles (22.5 default).
+	•	Outcode-level allow/block lists (editable; e.g., LS16, LS18…); these lists override radius calculations.
+	•	Preview map optional.
+	•	Content Models: FAQs, Design Concepts, Locations (for Areas We Cover), Testimonials, Blog posts, CTAs.
+
+Seed values (enter now; changeable later via Admin)
+	•	Kitchens base (ex-VAT): Small £18k / Medium £26k / Large £36k / XL £48k.
+	•	Bathrooms base (ex-VAT): Compact £7.5k / Standard £10.5k / Luxury/Ensuite £14.5k.
+	•	Interior packages base (ex-VAT): Small home £12k / Medium £18k / Large £28k.
+	•	Finish: Standard 1.00 / Premium 1.18 / Luxury 1.35.
+	•	Complexity: Standard 1.00 / Reconfigure 1.15 / Structural 1.35.
+	•	MEP: Light 0.95 / Medium 1.00 / Heavy 1.15.
+	•	Era: 2000+ 0.96 / 1945–1999 1.00 / Pre-1945 1.07.
+	•	Adders (ex-VAT): Island £2,800; Quartz £1,500; Larder/feature £1,200; Bifold/slider £3,800; Appliance pack (mid) £2,400; Wet-room £750; UFH bath £650; UFH kitchen £1,200; Shower niche (repeatable) £200; Herringbone flooring £600; Glass/splashback £500.
+	•	Contingency: 10% default.
+	•	Display Range: ±10% default.
+	•	Bedrooms fallback (proxy m²): 1b 45–55; 2b 60–75; 3b 80–100; 4b 100–130; 5b+ 130–160.
+
+Acceptance
+	•	A non-technical user can change any pricing variable or service-area control in Admin and see the estimator reflect it immediately.
+	•	No pricing values are hard-coded in the front-end.
+
+⸻
+
+6) Conversion & Mobile UX — Priority: P1
+
+Outcomes
+	•	Sticky mobile action bar (≤768 px): Call (tel:), WhatsApp (wa.me/), Book (to Contact).
+	•	Forms: visible labels, correct input types (email/tel), inline validation with ARIA alerts.
+	•	Hero secondary CTA scroll behaviour works on mobile and desktop.
+
+Acceptance
+	•	Bar is always available on scroll, tap targets ≥44 px, no overlap.
+	•	Keyboard and screen-reader flows are smooth, with clear error messaging.
+
+⸻
+
+7) Analytics, Consent, and Events — Priority: P0
+
+Outcomes
+	•	Cookie banner with Consent Mode v2. GA4/GTM blocked until accept.
+	•	Use the provided IDs (NEXT_PUBLIC_GTM_ID, NEXT_PUBLIC_GA4_ID).
+	•	Events (after consent only):
+	•	pricing_start, pricing_step_complete(step_name), pricing_complete.
+	•	postcode_gate_checked(postcode, in_area), postcode_gate_blocked(postcode).
+	•	cta_book_click, cta_call_click, cta_email_guide_click.
+	•	form_submit_contact, form_submit_pricing.
+
+Acceptance
+	•	First visit: tags are blocked until consent.
+	•	GA4 DebugView shows events with sensible params once consented.
+
+⸻
+
+8) SEO & Schema — Priority: P1
+
+Outcomes
+	•	Unique <title> and meta description on every page; canonical tags; robots.txt; sitemap.xml includes all main and section/town URLs.
+	•	Schema:
+	•	/how-we-work: HowTo (5 steps).
+	•	Service pages: FAQPage for FAQs.
+	•	Site-wide: LocalBusiness/Organization with name, phone, serviceArea only (no street address).
+
+Acceptance
+	•	No duplicate titles/metas; sitemap valid; Rich Results test passes for HowTo/FAQ/Organization.
+
+⸻
+
+9) Accessibility & Performance — Priority: P3
+
+Outcomes
+	•	Alt text for all meaningful images; “Skip to content”; visible focus states; focus trap in mobile nav; scroll-to-guide also moves focus to guide heading.
+	•	Performance budgets on Home: LCP ≤ 2.0 s, CLS < 0.1. Optimise hero media, reserve image dimensions, lazy-load below-the-fold, code-split estimator.
+
+Acceptance
+	•	Lighthouse Accessibility ≥ 90; Performance ≥ 90 on Home.
+
+⸻
+
+10) Legal & Trust — Priority: P3
+
+Outcomes
+	•	Footer footnote globally: “Visual concept images may be used for illustration.”
+	•	/guarantees-aftercare page with workmanship/manufacturer warranty principles and maintenance expectations.
+	•	Privacy, Cookies, Terms linked in footer.
+	•	No physical address displayed anywhere on site or schema.
+
+Acceptance
+	•	All legal links exist; footnote present; no addresses visible.
+
+⸻
+
+Definition of Done (site-wide)
+	•	Hard rules met:
+	•	“Instant Pricing Guide” phrasing only (no “AI”).
+	•	Single “Book a consultation” in header; hero secondary CTA scrolls/focuses the guide.
+	•	No postal address anywhere.
+	•	Sticky mobile actions live.
+	•	UK English across all copy.
+	•	Brand system applied consistently (logo/lockup, palette, type, monogram underlays).
+	•	Admin controls fully drive pricing and service-area logic (incl. VAT toggle).
+	•	Consent-gated analytics with events.
+	•	WCAG AA practices implemented; performance budgets achieved.
+
+⸻
+
+Items I will supply (placeholders acceptable until then)
+	•	Final phone number and WhatsApp number.
+	•	6 blog titles + one-line outlines.
+	•	8–10 testimonials (initials + optional town).
+	•	CGI/photography: 2 kitchens, 2 bathrooms, 2 interiors — each with 3 images (hero, alternate, close-up feature).
+	•	Guarantees & Aftercare copy.
+	•	Social links (handles/URLs).
+	•	Any out-of-area Allow exceptions at outcode level.
+
+⸻
+
+Milestones & Sign-off
+	•	Milestone A (P0): Branding + nav/CTAs + footer footnote + consent gating live.
+	•	Milestone B (P1): All core pages/blocks + sticky mobile bar + SEO basics + a11y baseline.
+	•	Milestone C (P2): Estimator MVP (admin-driven, VAT toggle, soft-gate, CTAs, events).
+	•	Milestone D (P3): Areas-we-cover, schema live; performance & a11y budgets met.
+
+Payment releases at A–D upon demonstration on staging that the acceptance bullets are met.
+
+⸻
+
+Notes
+	•	You already have the full brand assets.
+	•	Use only the brand-pack HEX values for colours (do not invent new HEX codes).
+	•	If an asset is missing, drop a clearly marked placeholder, and proceed; do not block other tasks. You may provide me with a list of the assets needed.
+
+⸻

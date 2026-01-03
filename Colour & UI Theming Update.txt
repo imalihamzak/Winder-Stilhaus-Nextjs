@@ -1,0 +1,67 @@
+Winder&Stilhaus
+Colour & UI Theming Update
+
+Scope: Apply a darker, bolder “dark-luxe” theme using brand colours and monogram underlays. Keep typography (Noto Serif / DM Sans) as specified.
+
+Palette & Ratios
+	•	Primary: Ocean Blue #00487C
+	•	Base: Crisp White #FFFFFF
+	•	Text/Dark UI: Charcoal #1D1D1D
+	•	Neutrals: Iron #4A4A4A, Regent Grey #7F8C8D
+	•	Accent (micro only): Orange #F06434 (≤2% of any screen)
+	•	Chrome ratio guideline: Ocean Blue 50–60%, Charcoal 25–30%, Iron 10–15%, Regent Grey 5–10%; white reserved for content surfaces.
+
+Global
+	•	Page canvas: Charcoal background.
+	•	Content containers: White cards with 24–32px padding; 1px Iron border (or soft shadow).
+	•	Dividers: 1px Regent Grey (or Iron→Charcoal subtle gradient).
+
+Header & Footer
+	•	Header: solid Ocean Blue; white logo/wordmark; single primary CTA styled per “Buttons.”
+	•	Footer: solid Charcoal; headings white; links Regent Grey → white on hover; include the standard image-disclosure line in Regent Grey.
+
+Hero & Underlays
+	•	Hero background: Ocean Blue with oversized WS monogram rings at 4–7% opacity, scaled 1.8–2.2× viewport.
+	•	Optional vertical gradient overlay (very light) for depth. Ensure WCAG AA contrast for headline/subhead.
+
+Section Rhythm
+	•	Alternate dark and light: dark (Ocean Blue or Charcoal) for process, CTAs, pricing bands; light (White) for longer copy, galleries, FAQs.
+
+Cards & Tiles
+	•	White surface, Iron 1px border; on hover: subtle lift + Orange 2px top rule.
+
+Buttons & States
+	•	Primary: Ocean Blue fill, white text; hover darken ~8–10%; focus ring Orange 2px outside.
+	•	Secondary (on dark): ghost (white text + 1px white outline); hover to white fill + Charcoal text.
+	•	Tertiary links: white/Regent Grey with underline on hover.
+
+Forms (Pricing/Contact)
+	•	On dark: Iron inputs, white labels, Regent Grey placeholders, Orange focus ring.
+	•	On light: white inputs, Iron text, Ocean Blue focus ring.
+	•	Keep label visibility and ARIA/error handling as per a11y.
+
+Typography
+	•	Headings (Noto Serif): white on dark; Charcoal on light.
+	•	Body (DM Sans): Regent Grey on light; white on dark.
+
+Imagery
+	•	On dark sections, add thin Iron frame or soft inner shadow to “float” images; keep image tones restrained so Ocean Blue and white typography lead.
+
+Mobile
+	•	Sticky bottom bar: Ocean Blue background, white icons/text, active underline Orange.
+
+Motion (subtle)
+	•	Micro-interactions at 100–150ms; gentle parallax on monogram rings (<10px). No flashy effects.
+
+Accessibility & QA
+	•	All text vs background must meet WCAG AA (≥4.5:1).
+	•	Orange only for focus lines/micro accents; never for body text blocks or large fills.
+	•	No non-brand colours introduced.
+
+Acceptance Checklist
+	•	Header/footer colours applied; hero shows monogram rings (4–7% opacity) with AA contrast.
+	•	Alternating dark/light sections implemented as described.
+	•	Buttons render with correct hover/focus; Orange usage within micro-accent limits.
+	•	Forms show correct focus rings and readable labels on dark and light.
+	•	Sticky mobile bar present on ≤768px.
+	•	No non-brand colours; Lighthouse/WAVE shows AA contrast passes.
