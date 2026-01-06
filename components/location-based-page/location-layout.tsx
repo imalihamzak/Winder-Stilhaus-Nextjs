@@ -3,7 +3,7 @@ import LocationSEOContent from "@/components/location-based-page/location-seo-co
 import LocationServices from "@/components/location-based-page/location-services";
 import LocationPortfolio from "@/components/location-based-page/location-portfolio";
 import LocationWhyChooseUs from "@/components/location-based-page/location-why-choose-us";
-import LocationCTA from "@/components/location-based-page/location-cta";
+import UnifiedCTA from "@/components/UnifiedCTA";
 import TestimonialsLayout from "@/components/location-based-page/testimonials/testi-layout";
 
 interface LocationLayoutProps {
@@ -21,7 +21,12 @@ export default function LocationLayout({location}: LocationLayoutProps) {
       <LocationPortfolio location={location} />
       <LocationWhyChooseUs location={location} />
       <TestimonialsLayout location={location}/>
-      <LocationCTA location={location} />
+      <UnifiedCTA 
+        heading={`Schedule Free Site Visit in ${location}`}
+        description="Book a free design consultation and site inspection with our specialist team today."
+        buttonText="Schedule Now"
+        delay={0.8}
+      />
     </>
   );
 }

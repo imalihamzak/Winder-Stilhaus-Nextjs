@@ -6,19 +6,16 @@ import { Facebook, Instagram, Twitter, Linkedin } from "lucide-react";
 
 const FooterSection = () => {
   return (
-    <footer className="bg-white text-[#1D1D1D] px-3 sm:px-4 md:px-6 pt-6">
+    <footer className="text-white px-3 sm:px-4 md:px-6 pt-6 bg-[#1D1D1D]">
       <div className="max-w-7xl mx-auto">
         {/* Premium glass container */}
         <div className="">
-          {/* subtle shine */}
-          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(70%_55%_at_20%_0%,rgba(255,255,255,0.20),transparent_60%)]" />
-
           <div className="relative p-6 sm:p-8 md:p-10">
             <div className="grid grid-cols-1 md:grid-cols-[1.2fr_0.9fr_0.9fr_1fr] gap-10 md:gap-12">
               {/* Brand */}
               <div className="space-y-5">
                 <div>
-                  <p className="text-xs uppercase tracking-[0.32em] text-[#7F8C8D] font-dm-sans">
+                  <p className="text-xs uppercase tracking-[0.32em] text-white/70 font-dm-sans">
                     Premium interiors
                   </p>
                   <div className="mt-2">
@@ -34,7 +31,7 @@ const FooterSection = () => {
                   </div>
                 </div>
 
-                <p className="text-[#7F8C8D] max-w-md font-dm-sans" style={{ fontSize: 'clamp(0.875rem, 1.5vw, 1.5rem)', fontWeight: 400, lineHeight: '1.2', letterSpacing: '0px', fontFamily: 'DM Sans, sans-serif' }}>
+                <p className="text-white/80 max-w-md font-dm-sans" style={{ fontSize: 'clamp(0.875rem, 1.5vw, 1.5rem)', fontWeight: 400, lineHeight: '1.2', letterSpacing: '0px', fontFamily: 'DM Sans, sans-serif' }}>
                   Luxury interiors crafted with precision, transparency, and on-time delivery —
                   designed to feel timeless, not trendy.
                 </p>
@@ -42,28 +39,28 @@ const FooterSection = () => {
                 <div className="flex items-center gap-3">
                   <Link
                     href="#"
-                    className="w-11 h-11 rounded-full border border-[#4A4A4A] bg-[#4A4A4A]/5 flex items-center justify-center text-[#1D1D1D] shadow-[0_12px_30px_rgba(0,0,0,0.05)] hover:bg-[#4A4A4A]/10 transition"
+                    className="w-11 h-11 rounded-full border border-white/20 bg-white/10 flex items-center justify-center text-white shadow-[0_12px_30px_rgba(0,0,0,0.2)] hover:bg-white/20 transition"
                     aria-label="Facebook"
                   >
                     <Facebook size={18} />
                   </Link>
                   <Link
                     href="#"
-                    className="w-11 h-11 rounded-full border border-[#4A4A4A] bg-[#4A4A4A]/5 flex items-center justify-center text-[#1D1D1D] shadow-[0_12px_30px_rgba(0,0,0,0.05)] hover:bg-[#4A4A4A]/10 transition"
+                    className="w-11 h-11 rounded-full border border-white/20 bg-white/10 flex items-center justify-center text-white shadow-[0_12px_30px_rgba(0,0,0,0.2)] hover:bg-white/20 transition"
                     aria-label="Instagram"
                   >
                     <Instagram size={18} />
                   </Link>
                   <Link
                     href="#"
-                    className="w-11 h-11 rounded-full border border-[#4A4A4A] bg-[#4A4A4A]/5 flex items-center justify-center text-[#1D1D1D] shadow-[0_12px_30px_rgba(0,0,0,0.05)] hover:bg-[#4A4A4A]/10 transition"
+                    className="w-11 h-11 rounded-full border border-white/20 bg-white/10 flex items-center justify-center text-white shadow-[0_12px_30px_rgba(0,0,0,0.2)] hover:bg-white/20 transition"
                     aria-label="Twitter"
                   >
                     <Twitter size={18} />
                   </Link>
                   <Link
                     href="#"
-                    className="w-11 h-11 rounded-full border border-[#4A4A4A] bg-[#4A4A4A]/5 flex items-center justify-center text-[#1D1D1D] shadow-[0_12px_30px_rgba(0,0,0,0.05)] hover:bg-[#4A4A4A]/10 transition"
+                    className="w-11 h-11 rounded-full border border-white/20 bg-white/10 flex items-center justify-center text-white shadow-[0_12px_30px_rgba(0,0,0,0.2)] hover:bg-white/20 transition"
                     aria-label="LinkedIn"
                   >
                     <Linkedin size={18} />
@@ -71,13 +68,13 @@ const FooterSection = () => {
                 </div>
 
                 <div className="flex flex-wrap gap-2 pt-1">
-                  <span className="px-3 py-1 rounded-full bg-[#4A4A4A]/5 border border-[#4A4A4A] text-xs font-semibold text-[#1D1D1D] font-dm-sans">
+                  <span className="px-3 py-1 rounded-full bg-white/10 border border-white/20 text-xs font-semibold text-white font-dm-sans">
                     Premium finish
                   </span>
-                  <span className="px-3 py-1 rounded-full bg-[#4A4A4A]/5 border border-[#4A4A4A] text-xs font-semibold text-[#1D1D1D] font-dm-sans">
+                  <span className="px-3 py-1 rounded-full bg-white/10 border border-white/20 text-xs font-semibold text-white font-dm-sans">
                     Transparent scope
                   </span>
-                  <span className="px-3 py-1 rounded-full bg-[#4A4A4A]/5 border border-[#4A4A4A] text-xs font-semibold text-[#1D1D1D] font-dm-sans">
+                  <span className="px-3 py-1 rounded-full bg-white/10 border border-white/20 text-xs font-semibold text-white font-dm-sans">
                     On-time delivery
                   </span>
                 </div>
@@ -85,33 +82,33 @@ const FooterSection = () => {
 
               {/* Company */}
               <div className="space-y-4">
-                <h4 className="text-sm font-semibold uppercase tracking-[0.22em] text-[#1D1D1D] font-noto-serif">
+                <h4 className="text-sm font-semibold uppercase tracking-[0.22em] text-white font-noto-serif">
                   Company
                 </h4>
 
-                <ul className="space-y-3 text-sm text-[#7F8C8D] font-dm-sans">
+                <ul className="space-y-3 text-sm text-white/70 font-dm-sans">
                   <li>
-                    <Link className="hover:text-[#1D1D1D] transition" href="/">
+                    <Link className="hover:text-white transition" href="/">
                       Home
                     </Link>
                   </li>
                   <li>
-                    <Link className="hover:text-[#1D1D1D] transition" href="/about">
+                    <Link className="hover:text-white transition" href="/about">
                       About
                     </Link>
                   </li>
                   <li>
-                    <Link className="hover:text-[#1D1D1D] transition" href="/services">
+                    <Link className="hover:text-white transition" href="/services">
                       Services
                     </Link>
                   </li>
                   <li>
-                    <Link className="hover:text-[#1D1D1D] transition" href="/project">
+                    <Link className="hover:text-white transition" href="/project">
                       Portfolio
                     </Link>
                   </li>
                   <li>
-                    <Link className="hover:text-[#1D1D1D] transition" href="/blog">
+                    <Link className="hover:text-white transition" href="/blog">
                       Blog
                     </Link>
                   </li>
@@ -120,53 +117,53 @@ const FooterSection = () => {
 
               {/* Support */}
               <div className="space-y-4">
-                <h4 className="text-sm font-semibold uppercase tracking-[0.22em] text-[#1D1D1D] font-noto-serif">
+                <h4 className="text-sm font-semibold uppercase tracking-[0.22em] text-white font-noto-serif">
                   Support
                 </h4>
 
-                <ul className="space-y-3 text-sm text-[#7F8C8D] font-dm-sans">
+                <ul className="space-y-3 text-sm text-white/70 font-dm-sans">
                   <li>
-                    <Link className="hover:text-[#1D1D1D] transition" href="/contact-us">
+                    <Link className="hover:text-white transition" href="/contact-us">
                       Contact
                     </Link>
                   </li>
                   <li>
-                    <Link className="hover:text-[#1D1D1D] transition" href="/availability-check">
+                    <Link className="hover:text-white transition" href="/availability-check">
                       Availability
                     </Link>
                   </li>
                   <li>
-                    <Link className="hover:text-[#1D1D1D] transition" href="/areas-we-cover">
+                    <Link className="hover:text-white transition" href="/areas-we-cover">
                       Areas We Cover
                     </Link>
                   </li>
                   <li>
-                    <Link className="hover:text-[#1D1D1D] transition" href="/location/leeds">
+                    <Link className="hover:text-white transition" href="/location/leeds">
                       Locations
                     </Link>
                   </li>
                   <li>
-                    <Link className="hover:text-[#1D1D1D] transition" href="/testimonials">
+                    <Link className="hover:text-white transition" href="/testimonials">
                       Testimonials
                     </Link>
                   </li>
                   <li>
-                    <Link className="hover:text-[#1D1D1D] transition" href="/aftercare">
+                    <Link className="hover:text-white transition" href="/aftercare">
                       Aftercare
                     </Link>
                   </li>
                   <li>
-                    <Link className="hover:text-[#1D1D1D] transition" href="/privacy">
+                    <Link className="hover:text-white transition" href="/privacy">
                       Privacy Policy
                     </Link>
                   </li>
                   <li>
-                    <Link className="hover:text-[#1D1D1D] transition" href="/cookies">
+                    <Link className="hover:text-white transition" href="/cookies">
                       Cookie Policy
                     </Link>
                   </li>
                   <li>
-                    <Link className="hover:text-[#1D1D1D] transition" href="/terms">
+                    <Link className="hover:text-white transition" href="/terms">
                       Terms
                     </Link>
                   </li>
@@ -176,51 +173,51 @@ const FooterSection = () => {
 {/* Newsletter (simple) */}
 <div className="space-y-4">
   <div>
-    <h4 className="text-sm font-semibold uppercase tracking-[0.22em] text-[#1D1D1D] font-noto-serif">
+    <h4 className="text-sm font-semibold uppercase tracking-[0.22em] text-white font-noto-serif">
       Stay updated
     </h4>
-    <p className="mt-2 text-sm text-[#7F8C8D] leading-relaxed font-dm-sans">
+    <p className="mt-2 text-sm text-white/70 leading-relaxed font-dm-sans">
       Monthly design notes and material insights.
     </p>
   </div>
 
-  <div className="flex items-center gap-3 rounded-md border border-[#4A4A4A] bg-white px-3 py-2">
+  <div className="flex items-center gap-3 rounded-md border border-white/20 bg-white/10 px-3 py-2">
     <input
       type="email"
       placeholder="Enter your email"
-      className="flex-1 bg-white px-2 py-2 text-sm text-[#1D1D1D] placeholder:text-[#7F8C8D] border border-[#4A4A4A] rounded-md focus:outline-none focus:ring-1 focus:ring-[#F04E22]/40 focus:border-[#F04E22]/60 font-dm-sans"
+      className="flex-1 bg-white/20 px-2 py-2 text-sm text-white placeholder:text-white/50 border border-white/20 rounded-md focus:outline-none focus:ring-1 focus:ring-[#F04E22]/40 focus:border-[#F04E22]/60 font-dm-sans"
       suppressHydrationWarning
     />
-    <button className="shrink-0 px-4 py-2 rounded-md min-w-[122px] min-h-[31px] text-white text-sm font-normal font-dm-sans hover:bg-[#1a3d47] transition-all duration-150 focus:outline-none focus:ring-2 focus:ring-[#F06434] focus:ring-offset-2" style={{ backgroundColor: '#214B57' }}>
+    <button className="shrink-0 px-4 py-2 rounded-md min-w-[122px] min-h-[31px] text-white text-sm font-normal font-dm-sans hover:bg-[#183941] transition-all duration-150 focus:outline-none focus:ring-2 focus:ring-[#F04E22] focus:ring-offset-2" style={{ backgroundColor: '#214B57' }}>
       Subscribe
     </button>
   </div>
 
-  <p className="text-xs text-[#7F8C8D] font-dm-sans">No spam. Unsubscribe anytime.</p>
+  <p className="text-xs text-white/70 font-dm-sans">No spam. Unsubscribe anytime.</p>
 
-  <div className="text-sm text-[#1D1D1D] space-y-1 font-dm-sans">
-    <p className="font-semibold text-[#1D1D1D] font-noto-serif">Contact</p>
-    <p className="text-[#7F8C8D]">+123 456 7890</p>
-    <p className="text-[#7F8C8D]">hello@luxuryinteriors.com</p>
+  <div className="text-sm text-white space-y-1 font-dm-sans">
+    <p className="font-semibold text-white font-noto-serif">Contact</p>
+    <p className="text-white/70">+123 456 7890</p>
+    <p className="text-white/70">hello@luxuryinteriors.com</p>
   </div>
 </div>
 
             </div>
 
             {/* Bottom bar */}
-            <div className="mt-10 pt-6 border-t border-[#4A4A4A] flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-[#7F8C8D] font-dm-sans">
+            <div className="mt-10 pt-6 border-t border-white/20 flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-white/70 font-dm-sans">
               <div className="flex flex-col gap-2">
                 <p>© 2025 Winder & Stilhaus. All rights reserved.</p>
-                <p className="text-xs italic text-[#7F8C8D]">Visual concept images may be used for illustration.</p>
+                <p className="text-xs italic text-white/70">Visual concept images may be used for illustration.</p>
               </div>
               <div className="flex items-center gap-4 flex-wrap">
-                <Link href="/terms" className="hover:text-[#1D1D1D] transition">
+                <Link href="/terms" className="hover:text-white transition">
                   Terms
                 </Link>
-                <Link href="/privacy" className="hover:text-[#1D1D1D] transition">
+                <Link href="/privacy" className="hover:text-white transition">
                   Privacy
                 </Link>
-                <Link href="/cookies" className="hover:text-[#1D1D1D] transition">
+                <Link href="/cookies" className="hover:text-white transition">
                   Cookies
                 </Link>
               </div>

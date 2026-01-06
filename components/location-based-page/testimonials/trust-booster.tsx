@@ -114,15 +114,12 @@ export default function TrustBoosters() {
                 className="
                   relative overflow-hidden
                   rounded-[26px]
-                  border border-black/10
-                  bg-white/55 backdrop-blur
+                  border border-[#4A4A4A]
+                  bg-white
                   shadow-[0_24px_70px_-50px_rgba(0,0,0,0.14)]
                   px-6 py-7 sm:px-8 sm:py-9
                 "
               >
-                {/* subtle premium shine */}
-                <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(70%_60%_at_20%_0%,rgba(255,255,255,0.22),transparent_60%)]" />
-                <div className="pointer-events-none absolute -right-10 -top-10 h-40 w-40 rounded-full bg-black/5 blur-2xl" />
 
                 <div className="relative">
                   <div className="flex items-end justify-between">
@@ -131,7 +128,7 @@ export default function TrustBoosters() {
                       <span className="text-[#85929D]">{suffix}</span>
                     </h3>
 
-                    <span className="inline-flex items-center gap-2 rounded-full border border-black/10 bg-black/5 px-3 py-1 text-[11px] uppercase tracking-[0.22em] text-[#1D1D1D] font-dm-sans">
+                    <span className="inline-flex items-center gap-2 rounded-full border border-[#4A4A4A]/20 bg-[#4A4A4A]/5 px-3 py-1 text-[11px] uppercase tracking-[0.22em] text-[#1D1D1D] font-dm-sans">
                       <span className="h-1.5 w-1.5 rounded-full bg-[#1D1D1D]" />
                       Trusted
                     </span>
@@ -141,7 +138,7 @@ export default function TrustBoosters() {
                     {item.label}
                   </p>
 
-                  <div className="mt-5 h-px w-full bg-black/10" />
+                  <div className="mt-5 h-px w-full bg-[#4A4A4A]/20" />
 
                   <p className="mt-4 text-xs text-[#85929D] leading-relaxed font-dm-sans">
                     Verified performance across design, materials, and execution.

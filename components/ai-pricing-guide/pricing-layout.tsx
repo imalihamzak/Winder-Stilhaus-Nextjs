@@ -87,25 +87,25 @@ export default function InstantPricingGuide() {
   const back = () => setStep((s) => Math.max(s - 1, 1));
 
   return (
-    <section id="pricing-guide" className="text-[#1D1D1D]">
-      <div className="max-w-7xl mx-auto px-3 sm:px-4 md:px-6 py-12 md:py-16">
+    <section id="pricing-guide" className="relative text-white overflow-hidden" style={{ background: 'linear-gradient(180deg, #214B57 0%, #183941 100%)' }}>
+      <div className="relative z-10 max-w-7xl mx-auto px-3 sm:px-4 md:px-6 py-12 md:py-16">
         {/* Heading */}
         <FadeIn className="text-center mb-8 md:mb-10 px-2">
           <div className="flex items-center justify-center gap-3 flex-wrap">
-            <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#f9fafb] border border-[#4A4A4A]/20 text-[11px] uppercase tracking-[0.32em] text-[#1D1D1D] font-dm-sans" style={{ fontSize: 'clamp(0.6875rem, 1vw, 0.875rem)', fontWeight: 400, lineHeight: '1.2', letterSpacing: '0.32em', fontFamily: 'DM Sans, sans-serif' }}>
-              <span className="h-1.5 w-1.5 rounded-full" style={{ backgroundColor: '#F06434' }} />
+            <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/10 border border-white/20 text-[11px] uppercase tracking-[0.32em] text-white font-dm-sans" style={{ fontSize: 'clamp(0.6875rem, 1vw, 0.875rem)', fontWeight: 400, lineHeight: '1.2', letterSpacing: '0.32em', fontFamily: 'DM Sans, sans-serif' }}>
+              <span className="h-1.5 w-1.5 rounded-full" style={{ backgroundColor: '#F04E22' }} />
               Smart Costing
             </span>
-            <span className="text-xs sm:text-sm text-[#7F8C8D] font-dm-sans">
+            <span className="text-xs sm:text-sm text-white/80 font-dm-sans">
               Instant range • Transparent inputs • No obligation
             </span>
           </div>
 
-          <h2 id="pricing-guide-heading" className="mt-4 text-[#1D1D1D] font-noto-serif max-w-2xl mx-auto" style={{ fontSize: 'clamp(2.5rem, 4vw, 4.17rem)', fontWeight: 400, lineHeight: '1.2', letterSpacing: '0px', fontFamily: 'Noto Serif, serif' }}>
+          <h2 id="pricing-guide-heading" className="mt-4 text-white font-noto-serif max-w-2xl mx-auto" style={{ fontSize: 'clamp(2.5rem, 4vw, 4.17rem)', fontWeight: 600, lineHeight: '1.5', letterSpacing: '0px', fontFamily: 'Noto Serif, serif', color: '#FFFFFF' }}>
             Instant Pricing Guide
           </h2>
 
-          <p className="mt-3 text-[#7F8C8D] max-w-2xl mx-auto font-dm-sans" style={{ fontSize: 'clamp(1.25rem, 2vw, 2.67rem)', fontWeight: 400, lineHeight: '1.2', letterSpacing: '0px', fontFamily: 'DM Sans, sans-serif' }}>
+          <p className="mt-3 text-white/90 max-w-2xl mx-auto font-dm-sans" style={{ fontSize: 'clamp(1.25rem, 2vw, 2.67rem)', fontWeight: 400, lineHeight: '1.2', letterSpacing: '0px', fontFamily: 'DM Sans, sans-serif', color: 'rgba(255, 255, 255, 0.9)' }}>
             Get an instant, tailored cost range with a few quick inputs. Clean,
             professional, and consistent with your homepage style.
           </p>

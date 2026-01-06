@@ -60,19 +60,19 @@ export default function PortfolioPage() {
       : projects.filter((p) => p.type === activeFilter);
 
   return (
-    <section className="bg-white pt-0 pb-16 sm:pb-20 md:pb-24">
+    <section className="bg-[#1D1D1D] pt-0 pb-16 sm:pb-20 md:pb-24 text-white">
       <div className="max-w-7xl mx-auto px-3 sm:px-4 md:px-6">
       {/* Heading */}
         <FadeIn direction="up" delay={0.1} duration={0.6}>
       <div className="text-center mb-12">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#f9fafb] border border-[#e5e7eb] text-sm font-medium text-[#1D1D1D] mb-3 font-dm-sans" style={{ fontSize: 'clamp(0.875rem, 1.25vw, 1rem)', fontWeight: 400, lineHeight: '1.2', letterSpacing: '0px', fontFamily: 'DM Sans, sans-serif' }}>
-              <span className="h-2 w-2 rounded-full" style={{ backgroundColor: '#F06434' }}></span>
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/20 text-sm font-medium text-white mb-3 font-dm-sans" style={{ fontSize: 'clamp(0.875rem, 1.25vw, 1rem)', fontWeight: 400, lineHeight: '1.2', letterSpacing: '0px', fontFamily: 'DM Sans, sans-serif' }}>
+              <span className="h-2 w-2 rounded-full" style={{ backgroundColor: '#F04E22' }}></span>
               Portfolio
             </div>
-            <h2 className="text-[#214B57] font-noto-serif mb-4" style={{ fontSize: 'clamp(2.5rem, 5vw, 4.5rem)', fontWeight: 600, lineHeight: '1.2', letterSpacing: '0px', fontFamily: 'Noto Serif, serif' }}>
+            <h2 className="text-white font-noto-serif mb-4" style={{ fontSize: 'clamp(2.5rem, 5vw, 4.5rem)', fontWeight: 600, lineHeight: '1.5', letterSpacing: '0px', fontFamily: 'Noto Serif, serif' }}>
           Our Portfolio
         </h2>
-            <p className="text-[#85929D] max-w-2xl mx-auto font-dm-sans" style={{ fontSize: 'clamp(1rem, 1.5vw, 1.5rem)', fontWeight: 400, lineHeight: '1.2', letterSpacing: '0px', fontFamily: 'DM Sans, sans-serif' }}>
+            <p className="text-white/90 max-w-2xl mx-auto font-dm-sans" style={{ fontSize: 'clamp(1rem, 1.5vw, 1.5rem)', fontWeight: 400, lineHeight: '1.2', letterSpacing: '0px', fontFamily: 'DM Sans, sans-serif' }}>
           Explore our curated collection of luxury interior projects crafted with precision and elegance.
         </p>
       </div>
@@ -89,7 +89,7 @@ export default function PortfolioPage() {
               ${
                 activeFilter === filter
                       ? "bg-[#214B57] text-white border-[#214B57]"
-                      : "border-[#e5e7eb] text-[#85929D] hover:bg-[#f9fafb] hover:border-[#214B57]/30"
+                      : "border-[#4A4A4A] text-white/70 hover:bg-white/10 hover:border-[#214B57]/30"
               }`}
           >
             {filter}
@@ -105,7 +105,7 @@ export default function PortfolioPage() {
           >
           {filteredProjects.map((project, index) => (
             <FadeIn key={project.id} direction="up" delay={0.1 + index * 0.1} duration={0.6}>
-              <div className="bg-white border border-[#e5e7eb] rounded-xl sm:rounded-2xl overflow-hidden hover:shadow-sm transition-shadow">
+              <div className="bg-white border border-[#4A4A4A] rounded-xl sm:rounded-2xl overflow-hidden hover:shadow-sm transition-shadow">
                 <div className="relative overflow-hidden h-48 sm:h-56">
             <img
               src={project.image}
@@ -115,13 +115,13 @@ export default function PortfolioPage() {
                   <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent" />
                 </div>
             <div className="p-4 sm:p-6">
-                  <h3 className="font-semibold text-[#214B57] mb-2 font-noto-serif" style={{ fontSize: 'clamp(1rem, 1.5vw, 1.5rem)', fontWeight: 400, lineHeight: '1.2', letterSpacing: '0px', fontFamily: 'Noto Serif, serif' }}>
+                  <h3 className="font-semibold text-[#1D1D1D] mb-2 font-noto-serif" style={{ fontSize: 'clamp(1rem, 1.5vw, 1.5rem)', fontWeight: 400, lineHeight: '1.2', letterSpacing: '0px', fontFamily: 'Noto Serif, serif' }}>
                 {project.title}
               </h3>
-                  <p className="text-[#85929D] text-xs sm:text-sm mb-1 font-dm-sans">
+                  <p className="text-[#7F8C8D] text-xs sm:text-sm mb-1 font-dm-sans">
                 <MapPin size={14} className="inline" /> {project.location}
               </p>
-                  <p className="text-[#85929D] text-xs sm:text-sm mb-4 sm:mb-5 font-dm-sans">
+                  <p className="text-[#7F8C8D] text-xs sm:text-sm mb-4 sm:mb-5 font-dm-sans">
                 Property Type: {project.type}
               </p>
               <a

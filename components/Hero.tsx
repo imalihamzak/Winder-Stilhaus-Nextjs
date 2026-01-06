@@ -4,6 +4,7 @@ import { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import { usePathname } from "next/navigation";
 import FadeIn from "@/components/FadeIn";
+import MonogramUnderlay from "@/components/MonogramUnderlay";
 
 // Hero section component
 
@@ -219,8 +220,8 @@ export default function HeroSection() {
                       after:absolute after:left-0 after:-bottom-1 after:h-[2px]
                       ${
                         active
-                          ? "after:w-full after:bg-[#F06434]"
-                          : "after:w-0 after:bg-[#F06434] after:transition-all after:duration-300 hover:after:w-full"
+                          ? "after:w-full after:bg-[#F04E22]"
+                          : "after:w-0 after:bg-[#F04E22] after:transition-all after:duration-300 hover:after:w-full"
                       }
                     `}
                   >
@@ -250,10 +251,10 @@ export default function HeroSection() {
                   min-w-[122px] min-h-[31px] px-5 py-2 rounded-md
                   text-sm font-normal font-dm-sans
                   bg-white border border-[#214B57] text-[#214B57]
-                  hover:bg-[#214B57] hover:text-white hover:border-[#F06434] hover:border-2
+                  hover:bg-[#214B57] hover:text-white hover:border-[#F04E22] hover:border-2
                   transition-all duration-150 whitespace-nowrap
-                  focus:outline-none focus:ring-2 focus:ring-[#F06434] focus:ring-offset-2
-                  active:bg-[#214B57] active:text-white active:border-[#F06434] active:border-2
+                  focus:outline-none focus:ring-2 focus:ring-[#F04E22] focus:ring-offset-2
+                  active:bg-[#214B57] active:text-white active:border-[#F04E22] active:border-2
                   disabled:bg-[#4A4A4A] disabled:text-[#7F8C8D] disabled:cursor-not-allowed
                   relative z-50 shadow-[0_2px_8px_rgba(0,0,0,0.15)]
                 "
@@ -328,10 +329,10 @@ export default function HeroSection() {
                     className="
                       block w-full text-center min-w-[122px] min-h-[31px] px-4 py-2 rounded-md
                       bg-white border border-[#214B57] text-[#214B57] text-sm font-normal font-dm-sans
-                      hover:bg-[#214B57] hover:text-white hover:border-[#F06434] hover:border-2
+                      hover:bg-[#214B57] hover:text-white hover:border-[#F04E22] hover:border-2
                       transition-all duration-150
-                      focus:outline-none focus:ring-2 focus:ring-[#F06434] focus:ring-offset-2
-                      active:bg-[#214B57] active:text-white active:border-[#F06434] active:border-2
+                      focus:outline-none focus:ring-2 focus:ring-[#F04E22] focus:ring-offset-2
+                      active:bg-[#214B57] active:text-white active:border-[#F04E22] active:border-2
                       shadow-[0_2px_8px_rgba(0,0,0,0.15)]
                     "
                   >
@@ -344,62 +345,21 @@ export default function HeroSection() {
         </div>
       </header>
 
-      {/* Hero Content Section - Brand Blue with Monogram Ring Underlay */}
+      {/* Hero Content Section - Ocean Blue Gradient with Monogram Ring Underlay */}
       <section
         className="
           relative mx-auto
           text-white
           pt-20 sm:pt-24 md:pt-28 pb-7 sm:pb-10 md:pb-12
         "
-        style={{ backgroundColor: '#214B57', overflow: 'hidden' }}
+        style={{ 
+          background: 'linear-gradient(180deg, #214B57 0%, #183941 100%)',
+          overflow: 'hidden' 
+        }}
         suppressHydrationWarning
       >
-        {/* Monogram ring underlay: 4-7% opacity, 1.5-2.5× viewport scale, subtle motion */}
-        <motion.div
-          aria-hidden="true"
-          className="absolute inset-0 z-0 pointer-events-none select-none"
-          style={{ overflow: 'visible' }}
-          initial={{ opacity: 0 }}
-          animate={{ 
-            opacity: 1,
-            x: [0, 2, -2, 0],
-            y: [0, 1.5, -1.5, 0]
-          }}
-          transition={{ 
-            opacity: {
-              duration: 0.8, 
-              delay: 0.35, 
-              ease: [0.22, 1, 0.36, 1]
-            },
-            x: {
-              duration: 30,
-              repeat: Infinity,
-              ease: "easeInOut"
-            },
-            y: {
-              duration: 22,
-              repeat: Infinity,
-              ease: "easeInOut"
-            }
-          }}
-        >
-          {/* Monogram ring with transparent background - responsive sizing to fit all screens */}
-          <div className="absolute inset-0 flex items-center justify-center overflow-hidden pt-16 sm:pt-20 md:pt-0">
-            <img
-              src="/assets/bgring.png"
-              alt=""
-              className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[90%] h-[90%] sm:w-[95%] sm:h-[95%] md:w-[100%] md:h-[100%] lg:w-[110%] lg:h-[110%]"
-              style={{
-                opacity: 0.07, /* 7% opacity (within 4-7% range) */
-                objectFit: 'contain',
-                objectPosition: 'center',
-                maxWidth: '120%', /* Reduced max size */
-                maxHeight: '120%',
-                marginTop: '2rem' /* Move down slightly while keeping centered */
-              }}
-            />
-          </div>
-        </motion.div>
+        {/* Monogram ring underlay: tiled pattern, asymmetrical overlay, 4-7% opacity, scroll-based movement */}
+        <MonogramUnderlay />
 
         <div className={`${containerClass} relative z-10`}>
           {/* Hero Content */}
@@ -427,7 +387,7 @@ export default function HeroSection() {
                     fontFamily: "DM Sans, sans-serif",
                   }}
                 >
-                  <span className="h-1.5 w-1.5 rounded-full" style={{ backgroundColor: "#F06434" }} />
+                  <span className="h-1.5 w-1.5 rounded-full" style={{ backgroundColor: "#F04E22" }} />
                   {heroContent.eyebrow}
                 </span>
 
@@ -481,31 +441,36 @@ export default function HeroSection() {
                   onClick={(e) => {
                     if (heroContent.primaryCta.href.startsWith("#")) {
                       e.preventDefault();
-                      const target = document.querySelector(heroContent.primaryCta.href);
+                      const targetId = heroContent.primaryCta.href.substring(1); // Remove #
+                      const target = document.getElementById(targetId);
+                      
                       if (target) {
+                        // Smooth scroll to pricing guide section
                         target.scrollIntoView({ behavior: "smooth", block: "start" });
 
+                        // After scroll completes, focus the heading
                         setTimeout(() => {
-                          const heading =
-                            (target.querySelector("#pricing-guide-heading") as HTMLElement) ||
-                            (target.querySelector("h2") as HTMLElement) ||
-                            (target.querySelector("h1") as HTMLElement);
+                          const heading = document.getElementById("pricing-guide-heading") ||
+                            target.querySelector("h2") as HTMLElement ||
+                            target.querySelector("h1") as HTMLElement;
+                          
                           if (heading) {
+                            // Make heading focusable temporarily
                             heading.setAttribute("tabindex", "-1");
-                            heading.focus();
-                            heading.addEventListener(
-                              "blur",
-                              () => {
-                                heading.removeAttribute("tabindex");
-                              },
-                              { once: true }
-                            );
+                            heading.focus({ preventScroll: true });
+                            
+                            // Remove tabindex after blur to restore normal tab order
+                            const handleBlur = () => {
+                              heading.removeAttribute("tabindex");
+                              heading.removeEventListener("blur", handleBlur);
+                            };
+                            heading.addEventListener("blur", handleBlur, { once: true });
                           }
-                        }, 800);
+                        }, 600); // Reduced timeout for better UX
                       }
                     }
                   }}
-                  className="group inline-flex items-center justify-center gap-2 min-w-[122px] min-h-[31px] px-6 py-2 rounded-md bg-white border border-[#214B57] text-[#214B57] text-sm font-normal font-dm-sans hover:bg-[#214B57] hover:text-white hover:border-[#F06434] hover:border-2 transition-all duration-150 focus:outline-none focus:ring-1 focus:ring-[#F04E22]/40 focus:ring-offset-1 active:bg-[#214B57] active:text-white active:border-[#F06434] active:border-2 disabled:bg-[#4A4A4A] disabled:text-[#7F8C8D] disabled:cursor-not-allowed"
+                  className="group inline-flex items-center justify-center gap-2 min-w-[122px] min-h-[31px] px-6 py-2 rounded-md bg-white border border-[#214B57] text-[#214B57] text-sm font-normal font-dm-sans hover:bg-[#214B57] hover:text-white hover:border-[#F04E22] hover:border-2 transition-all duration-150 focus:outline-none focus:ring-1 focus:ring-[#F04E22]/40 focus:ring-offset-1 active:bg-[#214B57] active:text-white active:border-[#F04E22] active:border-2 disabled:bg-[#4A4A4A] disabled:text-[#7F8C8D] disabled:cursor-not-allowed"
                 >
                   {heroContent.primaryCta.label}
                   <span className="transition group-hover:translate-x-0.5">→</span>

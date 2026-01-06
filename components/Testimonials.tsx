@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import FadeIn from "@/components/FadeIn";
+import MonogramUnderlay from "@/components/MonogramUnderlay";
 import TrustBoosters from "@/components/location-based-page/testimonials/trust-booster";
 
 interface Testimonial {
@@ -54,7 +55,7 @@ function Stars({ rating = 5 }: StarsProps) {
       {Array.from({ length: 5 }).map((_, i) => (
         <span
           key={i}
-          className={i < rating ? "text-[#F06434]" : "text-[#4A4A4A]/20"}
+          className={i < rating ? "text-[#F04E22]" : "text-[#4A4A4A]/20"}
         >
           ★
         </span>
@@ -98,25 +99,25 @@ export default function Testimonials() {
 
 
   return (
-    <section className="px-3 sm:px-4 md:px-6 py-14 md:py-18 relative overflow-hidden select-none">
-      <div className="max-w-7xl mx-auto relative">
+    <section className="px-3 sm:px-4 md:px-6 py-14 md:py-18 relative overflow-hidden select-none bg-[#1D1D1D]">
+      <div className="max-w-7xl mx-auto relative z-10">
         {/* Heading */}
         <FadeIn className="relative text-center mb-10 md:mb-12 px-2">
           <div className="flex items-center justify-center gap-3 flex-wrap">
-            <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#F9FAFB] border border-[#E5E7EB] text-[11px] uppercase tracking-[0.32em] text-[#1D1D1D] font-dm-sans" style={{ fontSize: 'clamp(0.6875rem, 1vw, 0.875rem)', fontWeight: 400, lineHeight: '1.2', letterSpacing: '0.32em', fontFamily: 'DM Sans, sans-serif' }}>
-              <span className="h-1.5 w-1.5 rounded-full" style={{ backgroundColor: '#F06434' }} />
+            <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/10 border border-white/20 text-[11px] uppercase tracking-[0.32em] text-white font-dm-sans" style={{ fontSize: 'clamp(0.6875rem, 1vw, 0.875rem)', fontWeight: 400, lineHeight: '1.2', letterSpacing: '0.32em', fontFamily: 'DM Sans, sans-serif' }}>
+              <span className="h-1.5 w-1.5 rounded-full" style={{ backgroundColor: '#F04E22' }} />
               CLIENT CONFIDENCE
             </span>
-            <span className="text-xs sm:text-sm text-[#7F8C8D] font-dm-sans" style={{ color: '#7F8C8D', fontFamily: 'DM Sans, sans-serif' }}>
+            <span className="text-xs sm:text-sm text-white/80 font-dm-sans" style={{ color: 'rgba(255, 255, 255, 0.8)', fontFamily: 'DM Sans, sans-serif' }}>
               Verified feedback • Premium finish • Reliable delivery
             </span>
           </div>
 
-          <h2 className="mt-4 text-[#1D1D1D] font-noto-serif max-w-2xl mx-auto" style={{ fontSize: 'clamp(2.5rem, 4vw, 4.17rem)', fontWeight: 400, lineHeight: '1.2', letterSpacing: '0px', fontFamily: 'Noto Serif, serif', color: '#1D1D1D' }}>
+          <h2 className="mt-4 text-white font-noto-serif max-w-2xl mx-auto" style={{ fontSize: 'clamp(2.5rem, 4vw, 4.17rem)', fontWeight: 600, lineHeight: '1.5', letterSpacing: '0px', fontFamily: 'Noto Serif, serif', color: '#FFFFFF' }}>
             What our clients say
           </h2>
 
-          <p className="mt-3 text-[#7F8C8D] max-w-2xl mx-auto font-dm-sans" style={{ fontSize: 'clamp(1.25rem, 2vw, 2.67rem)', fontWeight: 400, lineHeight: '1.2', letterSpacing: '0px', fontFamily: 'DM Sans, sans-serif', color: '#7F8C8D' }}>
+          <p className="mt-3 text-white/90 max-w-2xl mx-auto font-dm-sans" style={{ fontSize: 'clamp(1.25rem, 2vw, 2.67rem)', fontWeight: 400, lineHeight: '1.2', letterSpacing: '0px', fontFamily: 'DM Sans, sans-serif', color: 'rgba(255, 255, 255, 0.9)' }}>
             Results-focused partnerships delivering high-end interiors on time,
             on budget, and on brand.
           </p>
@@ -157,7 +158,7 @@ export default function Testimonials() {
                         </div>
 
                         <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#4A4A4A]/5 border border-[#4A4A4A]/20 text-xs font-semibold text-[#1D1D1D] font-dm-sans">
-                          <span className="h-2 w-2 rounded-full bg-[#F06434]" />
+                          <span className="h-2 w-2 rounded-full bg-[#F04E22]" />
                           Verified client
                         </span>
                       </div>
@@ -226,7 +227,7 @@ export default function Testimonials() {
 
                       {/* Floating badge */}
                       <div className="absolute -bottom-5 left-6 rounded-full bg-white/90 backdrop-blur border border-[#4A4A4A]/20 px-4 py-2 shadow-[0_18px_45px_rgba(0,0,0,0.05)] text-sm font-semibold text-[#1D1D1D] flex items-center gap-2 font-dm-sans">
-                        <span className="inline-block w-2 h-2 rounded-full bg-[#F06434]" />
+                        <span className="inline-block w-2 h-2 rounded-full bg-[#F04E22]" />
                         Premium project
                       </div>
                     </div>
@@ -270,13 +271,13 @@ export default function Testimonials() {
               <div className="flex md:hidden justify-center gap-3">
                 <button
                   onClick={prevSlide}
-                  className="px-6 py-2 rounded-md border border-[#4A4A4A] bg-white text-[#1D1D1D] font-normal font-dm-sans shadow-[0_12px_30px_rgba(0,0,0,0.05)] hover:bg-[#F9FAFB] transition min-w-[122px] min-h-[31px]"
+                  className="px-6 py-2 rounded-md border border-[#4A4A4A] bg-white text-[#1D1D1D] font-normal font-dm-sans shadow-[0_12px_30px_rgba(0,0,0,0.05)] hover:bg-[#FFFFFF] transition min-w-[122px] min-h-[31px]"
                 >
                   ← Prev
                 </button>
                 <button
                   onClick={nextSlide}
-                  className="px-6 py-2 rounded-md min-w-[122px] min-h-[31px] bg-[#214B57] text-white font-normal font-dm-sans hover:bg-[#1a3d47] transition-all duration-150 active:bg-[#1a3d47] focus:outline-none focus:ring-2 focus:ring-[#F06434] focus:ring-offset-2"
+                  className="px-6 py-2 rounded-md min-w-[122px] min-h-[31px] bg-[#214B57] text-white font-normal font-dm-sans hover:bg-[#183941] transition-all duration-150 active:bg-[#183941] focus:outline-none focus:ring-2 focus:ring-[#F04E22] focus:ring-offset-2"
                   style={{ backgroundColor: '#214B57' }}
                 >
                   Next →

@@ -12,9 +12,9 @@ interface LayoutProps {
 const layout = ({ children }: LayoutProps) => {
   return (
     <>
-      <main id="main-content" className="bg-white min-h-screen">
+      <main id="main-content" className="bg-[#1D1D1D] min-h-screen text-white">
         <SharedHeader />
-        <div className="bg-white pt-20 sm:pt-24">
+        <div className="bg-[#1D1D1D] pt-20 sm:pt-24">
         {children}
         </div>
         <FooterSection />

@@ -57,19 +57,19 @@ const areas: Area[] = [
 
 export default function AreasWeCoverClient() {
   return (
-    <section className="bg-white pt-0 pb-16 sm:pb-20 md:pb-24">
+    <section className="bg-[#1D1D1D] pt-0 pb-16 sm:pb-20 md:pb-24 text-white">
       <div className="max-w-7xl mx-auto px-3 sm:px-4 md:px-6">
         {/* Header */}
         <FadeIn direction="up" delay={0.1} duration={0.6} className="mb-10 md:mb-12">
           <div className="text-center max-w-3xl mx-auto">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#f9fafb] border border-[#e5e7eb] text-sm font-medium text-[#1D1D1D] mb-3 font-dm-sans" style={{ fontSize: 'clamp(0.875rem, 1.25vw, 1rem)', fontWeight: 400, lineHeight: '1.2', letterSpacing: '0px', fontFamily: 'DM Sans, sans-serif' }}>
-              <span className="h-2 w-2 rounded-full" style={{ backgroundColor: '#F06434' }}></span>
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/20 text-sm font-medium text-white mb-3 font-dm-sans" style={{ fontSize: 'clamp(0.875rem, 1.25vw, 1rem)', fontWeight: 400, lineHeight: '1.2', letterSpacing: '0px', fontFamily: 'DM Sans, sans-serif' }}>
+              <span className="h-2 w-2 rounded-full" style={{ backgroundColor: '#F04E22' }}></span>
               Service Areas
             </div>
-            <h1 className="text-[#214B57] font-noto-serif mb-4" style={{ fontSize: 'clamp(2.5rem, 5vw, 4.5rem)', fontWeight: 700, lineHeight: '1.2', letterSpacing: '0px', fontFamily: 'Noto Serif, serif' }}>
+            <h1 className="text-white font-noto-serif mb-4" style={{ fontSize: 'clamp(2.5rem, 5vw, 4.5rem)', fontWeight: 700, lineHeight: '1.5', letterSpacing: '0px', fontFamily: 'Noto Serif, serif', color: '#FFFFFF' }}>
               Areas We Cover
             </h1>
-            <p className="text-[#85929D] font-dm-sans" style={{ fontSize: 'clamp(1rem, 1.5vw, 1.5rem)', fontWeight: 400, lineHeight: '1.5', letterSpacing: '0px', fontFamily: 'DM Sans, sans-serif' }}>
+            <p className="text-white/90 font-dm-sans" style={{ fontSize: 'clamp(1rem, 1.5vw, 1.5rem)', fontWeight: 400, lineHeight: '1.5', letterSpacing: '0px', fontFamily: 'DM Sans, sans-serif', color: 'rgba(255, 255, 255, 0.9)' }}>
               We provide premium interior design and renovation services across West Yorkshire. Our local expertise ensures your project meets all planning requirements and building regulations while achieving your design vision.
             </p>
           </div>
@@ -91,7 +91,7 @@ export default function AreasWeCoverClient() {
                     {area.images.map((img, imgIndex) => (
                       <div
                         key={imgIndex}
-                        className={`relative overflow-hidden rounded-2xl border border-black/10 bg-white shadow-sm ${
+                        className={`relative overflow-hidden rounded-2xl border border-[#4A4A4A] bg-white shadow-sm ${
                           imgIndex === 0 ? "col-span-2 h-64" : "h-48"
                         }`}
                       >
@@ -107,17 +107,27 @@ export default function AreasWeCoverClient() {
                 </div>
 
                 <div className={`${index % 2 === 1 ? "md:order-1" : ""}`}>
-                  <h2 className="font-semibold text-[#214B57] mb-4 font-noto-serif" style={{ fontSize: 'clamp(2rem, 3.6vw, 3.2rem)', fontWeight: 400, lineHeight: '1.2', letterSpacing: '0px', fontFamily: 'Noto Serif, serif' }}>
+                  <h2 className="font-semibold text-white mb-4 font-noto-serif" style={{ fontSize: 'clamp(2rem, 3.6vw, 3.2rem)', fontWeight: 600, lineHeight: '1.5', letterSpacing: '0px', fontFamily: 'Noto Serif, serif' }}>
                     {area.name}
                   </h2>
-                  <p className="text-[#85929D] mb-6 font-dm-sans" style={{ fontSize: 'clamp(1rem, 1.5vw, 1.5rem)', fontWeight: 400, lineHeight: '1.6', letterSpacing: '0px', fontFamily: 'DM Sans, sans-serif' }}>
+                  <p className="text-white/90 mb-6 font-dm-sans" style={{ fontSize: 'clamp(1rem, 1.5vw, 1.5rem)', fontWeight: 400, lineHeight: '1.5', letterSpacing: '0px', fontFamily: 'DM Sans, sans-serif' }}>
                     {area.description}
                   </p>
                   <Link
                     href={`/location/${area.id === "york-corridor" ? "wetherby" : area.id}`}
-                    className="inline-flex items-center gap-2 min-w-[122px] min-h-[31px] px-6 py-2 rounded-md bg-white border border-[#214B57] text-[#214B57] font-normal font-dm-sans hover:bg-[#214B57] hover:text-white hover:border-[#F06434] hover:border-2 transition-all duration-150"
+                    className="
+                      inline-flex items-center justify-center gap-2
+                      min-w-[122px] min-h-[31px] px-5 py-2 rounded-md
+                      text-sm font-normal font-dm-sans
+                      bg-white border border-[#214B57] text-[#214B57]
+                      hover:bg-[#214B57] hover:text-white hover:border-[#F04E22] hover:border-2
+                      transition-all duration-150 whitespace-nowrap
+                      focus:outline-none focus:ring-2 focus:ring-[#F04E22] focus:ring-offset-2
+                      active:bg-[#214B57] active:text-white active:border-[#F04E22] active:border-2
+                      shadow-[0_2px_8px_rgba(0,0,0,0.15)]
+                    "
                   >
-                    View {area.name} projects <span className="text-lg">→</span>
+                    View {area.name} projects →
                   </Link>
                 </div>
               </div>
@@ -127,26 +137,45 @@ export default function AreasWeCoverClient() {
 
         {/* CTA Section */}
         <FadeIn direction="up" delay={0.8} duration={0.6}>
-          <div className="mt-16 rounded-[30px] border border-[#e5e7eb] bg-[#214B57] text-white shadow-lg p-8 sm:p-10 md:p-12 text-center">
-            <h2 className="font-semibold mb-4 font-noto-serif" style={{ fontSize: 'clamp(2rem, 3.6vw, 3.2rem)', fontWeight: 400, lineHeight: '1.2', letterSpacing: '0px', fontFamily: 'Noto Serif, serif' }}>
-              Ready to Start Your Project?
-            </h2>
-            <p className="text-white/80 mb-6 max-w-2xl mx-auto font-dm-sans" style={{ fontSize: 'clamp(1rem, 1.5vw, 1.5rem)', fontWeight: 400, lineHeight: '1.5', letterSpacing: '0px', fontFamily: 'DM Sans, sans-serif' }}>
-              Book a free consultation and let's discuss how we can bring your vision to life in your area.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a
-                href="/contact-us"
-                className="inline-flex items-center justify-center gap-2 min-w-[122px] min-h-[31px] px-8 py-2 rounded-md bg-white border border-[#214B57] text-[#214B57] font-normal font-dm-sans shadow-lg hover:bg-[#214B57] hover:text-white hover:border-[#F06434] hover:border-2 transition-all duration-150"
-              >
-                Book a consultation <span className="text-lg">→</span>
-              </a>
-              <a
-                href="tel:+923001234567"
-                className="inline-flex items-center justify-center gap-2 min-w-[122px] min-h-[31px] px-8 py-2 rounded-md border-2 border-white text-white font-normal font-dm-sans hover:bg-white hover:text-[#214B57] transition-all duration-150"
-              >
-                Call us
-              </a>
+          <div className="mt-16 rounded-[30px] border border-white/20 shadow-[0_30px_90px_rgba(0,0,0,0.2)] p-8 sm:p-10 md:p-12 text-center" style={{ background: 'linear-gradient(180deg, #214B57 0%, #183941 100%)' }}>
+            <div className="relative">
+              <h2 className="text-white font-noto-serif mb-4" style={{ fontSize: 'clamp(2rem, 3.6vw, 3.2rem)', fontWeight: 600, lineHeight: '1.5', letterSpacing: '0px', fontFamily: 'Noto Serif, serif' }}>
+                Ready to Start Your Project?
+              </h2>
+              <p className="text-white/90 mb-8 max-w-2xl mx-auto font-dm-sans" style={{ fontSize: 'clamp(1rem, 1.5vw, 1.5rem)', fontWeight: 400, lineHeight: '1.5', letterSpacing: '0px', fontFamily: 'DM Sans, sans-serif' }}>
+                Book a free consultation and let's discuss how we can bring your vision to life in your area.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <a
+                  href="/contact-us"
+                  className="
+                    inline-flex items-center justify-center gap-2
+                    min-w-[122px] min-h-[31px] px-5 py-2 rounded-md
+                    text-sm font-normal font-dm-sans
+                    bg-white border border-[#214B57] text-[#214B57]
+                    hover:bg-[#214B57] hover:text-white hover:border-[#F04E22] hover:border-2
+                    transition-all duration-150 whitespace-nowrap
+                    focus:outline-none focus:ring-2 focus:ring-[#F04E22] focus:ring-offset-2
+                    active:bg-[#214B57] active:text-white active:border-[#F04E22] active:border-2
+                    shadow-[0_2px_8px_rgba(0,0,0,0.15)]
+                  "
+                >
+                  Book a consultation →
+                </a>
+                <a
+                  href="tel:+923001234567"
+                  className="
+                    inline-flex items-center justify-center gap-2
+                    min-w-[122px] min-h-[31px] px-5 py-2 rounded-md
+                    text-sm font-normal font-dm-sans
+                    border border-white/30 bg-transparent text-white
+                    hover:bg-white/10 transition-all duration-150
+                    focus:outline-none focus:ring-2 focus:ring-white/50 focus:ring-offset-2 focus:ring-offset-[#214B57]
+                  "
+                >
+                  Call us
+                </a>
+              </div>
             </div>
           </div>
         </FadeIn>

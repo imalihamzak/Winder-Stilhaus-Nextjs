@@ -46,25 +46,25 @@ export default function FAQSection() {
   };
 
   return (
-    <section className="bg-white px-3 sm:px-4 md:px-6 py-14 md:py-16">
-      <div className="max-w-7xl mx-auto">
+    <section className="px-3 sm:px-4 md:px-6 py-14 md:py-16 relative overflow-hidden" style={{ background: 'linear-gradient(180deg, #214B57 0%, #183941 100%)' }}>
+      <div className="max-w-7xl mx-auto relative z-10">
         {/* Heading */}
         <FadeIn className="text-center mb-10 md:mb-12">
           <div className="flex items-center justify-center gap-3 flex-wrap">
-            <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#F9FAFB] border border-[#E5E7EB] text-[11px] uppercase tracking-[0.32em] text-[#1D1D1D] font-dm-sans" style={{ fontSize: 'clamp(0.6875rem, 1vw, 0.875rem)', fontWeight: 400, lineHeight: '1.2', letterSpacing: '0.32em', fontFamily: 'DM Sans, sans-serif' }}>
-              <span className="h-1.5 w-1.5 rounded-full" style={{ backgroundColor: '#F06434' }} />
+            <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/10 border border-white/20 text-[11px] uppercase tracking-[0.32em] text-white font-dm-sans" style={{ fontSize: 'clamp(0.6875rem, 1vw, 0.875rem)', fontWeight: 400, lineHeight: '1.2', letterSpacing: '0.32em', fontFamily: 'DM Sans, sans-serif' }}>
+              <span className="h-1.5 w-1.5 rounded-full" style={{ backgroundColor: '#F04E22' }} />
               FAQ
             </span>
-            <span className="text-xs sm:text-sm text-[#7F8C8D] font-dm-sans">
+            <span className="text-xs sm:text-sm text-white/80 font-dm-sans">
               Clear answers • Premium process • Transparent delivery
             </span>
           </div>
 
-          <h2 className="mt-4 text-[#1D1D1D] font-noto-serif max-w-2xl mx-auto" style={{ fontSize: 'clamp(2.5rem, 4vw, 4.17rem)', fontWeight: 400, lineHeight: '1.2', letterSpacing: '0px', fontFamily: 'Noto Serif, serif' }}>
+          <h2 className="mt-4 text-white font-noto-serif max-w-2xl mx-auto" style={{ fontSize: 'clamp(2.5rem, 4vw, 4.17rem)', fontWeight: 600, lineHeight: '1.5', letterSpacing: '0px', fontFamily: 'Noto Serif, serif', color: '#FFFFFF' }}>
             Frequently asked questions
           </h2>
 
-          <p className="mt-3 text-[#7F8C8D] max-w-2xl mx-auto font-dm-sans" style={{ fontSize: 'clamp(1.25rem, 2vw, 2.67rem)', fontWeight: 400, lineHeight: '1.2', letterSpacing: '0px', fontFamily: 'DM Sans, sans-serif', color: '#7F8C8D' }}>
+          <p className="mt-3 text-white/90 max-w-2xl mx-auto font-dm-sans" style={{ fontSize: 'clamp(1.25rem, 2vw, 2.67rem)', fontWeight: 400, lineHeight: '1.2', letterSpacing: '0px', fontFamily: 'DM Sans, sans-serif', color: 'rgba(255, 255, 255, 0.9)' }}>
             Everything clients usually ask before starting a luxury interior or
             renovation project — answered clearly.
           </p>
@@ -87,7 +87,7 @@ export default function FAQSection() {
                         w-full text-left
                         px-5 sm:px-7 py-5
                         flex items-center justify-between gap-4
-                        hover:bg-[#F9FAFB] transition
+                        hover:bg-[#FFFFFF] transition
                       "
                     >
                       <div className="min-w-0">
@@ -102,7 +102,7 @@ export default function FAQSection() {
                       <span
                         className={`
                           shrink-0 w-10 h-10 rounded-full
-                          border border-[#4A4A4A]/20 bg-[#F9FAFB]
+                          border border-[#4A4A4A]/20 bg-[#FFFFFF]
                           flex items-center justify-center
                           shadow-[0_12px_30px_rgba(0,0,0,0.05)]
                           transition-transform
@@ -129,7 +129,7 @@ export default function FAQSection() {
                               animate={{ y: 0, opacity: 1 }}
                               exit={{ y: -10, opacity: 0 }}
                               transition={{ duration: 0.3, delay: 0.1 }}
-                              className="rounded-2xl border border-[#4A4A4A]/20 bg-[#F9FAFB] p-5 text-[#7F8C8D] font-dm-sans"
+                              className="rounded-2xl border border-[#4A4A4A]/20 bg-[#FFFFFF] p-5 text-[#7F8C8D] font-dm-sans"
                               style={{ fontSize: 'clamp(0.875rem, 1.5vw, 1.5rem)', fontWeight: 400, lineHeight: '1.2', letterSpacing: '0px', fontFamily: 'DM Sans, sans-serif' }}
                             >
                               {faq.answer}
@@ -163,20 +163,22 @@ export default function FAQSection() {
 
           {/* CTA row */}
           <FadeIn className="mt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
-            <p className="text-sm text-[#7F8C8D] font-dm-sans">
+            <p className="text-sm text-white/80 font-dm-sans">
               Still have questions? We'll reply quickly.
             </p>
             <a
               href="/contact-us"
               className="
                 inline-flex items-center justify-center
-                min-w-[122px] min-h-[31px] px-6 py-2 rounded-md
-                text-white font-normal font-dm-sans
-                hover:bg-[#003A66] transition-all duration-150
-                focus:outline-none focus:ring-2 focus:ring-[#F06434] focus:ring-offset-2
-                active:bg-white active:text-[#214B57] active:border-2 active:border-[#214B57]
+                min-w-[122px] min-h-[31px] px-5 py-2 rounded-md
+                text-sm font-normal font-dm-sans
+                bg-white border border-[#214B57] text-[#214B57]
+                hover:bg-[#214B57] hover:text-white hover:border-[#F04E22] hover:border-2
+                transition-all duration-150 whitespace-nowrap
+                focus:outline-none focus:ring-2 focus:ring-[#F04E22] focus:ring-offset-2
+                active:bg-[#214B57] active:text-white active:border-[#F04E22] active:border-2
+                shadow-[0_2px_8px_rgba(0,0,0,0.15)]
               "
-              style={{ backgroundColor: '#214B57' }}
             >
               Contact us →
             </a>

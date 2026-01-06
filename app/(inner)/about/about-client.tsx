@@ -1,5 +1,6 @@
 "use client";
 
+import AboutHero from '@/components/about-us/about-hero';
 import BrandStory from '@/components/about-us/brand-story';
 import FounderSection from '@/components/about-us/founder-section';
 import TeamSection from '@/components/about-us/team-section';
@@ -7,13 +8,14 @@ import WhyChooseUs from '@/components/about-us/why-choose-us';
 import CoreValues from '@/components/about-us/core-values';
 import TrustBadges from '@/components/about-us/trust-badges';
 import TimelineSection from '@/components/about-us/timeline-section';
-import AboutCTA from '@/components/about-us/about-cta';
+import UnifiedCTA from '@/components/UnifiedCTA';
 import FadeIn from '@/components/FadeIn';
 
 export default function AboutPageClient() {
   return (
-    <div className="relative min-h-screen bg-white text-[#1D1D1D]">
+    <div className="relative min-h-screen bg-[#1D1D1D] text-white">
       <div className="relative z-10">
+        <AboutHero />
         <FadeIn direction="up" delay={0.2} duration={0.6}>
           <BrandStory />
         </FadeIn>
@@ -43,7 +45,11 @@ export default function AboutPageClient() {
         </FadeIn>
 
         <FadeIn direction="up" delay={0.8} duration={0.6}>
-          <AboutCTA />
+          <UnifiedCTA 
+            heading="Ready to Transform Your Space?"
+            description="Let's discuss your vision and bring your dream interior to life. Our team is ready to create something extraordinary for you."
+            delay={0.8}
+          />
         </FadeIn>
       </div>
     </div>

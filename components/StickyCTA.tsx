@@ -60,18 +60,22 @@ export default function StickyCTA() {
                 h-8 
                 rounded-full 
                 border 
-                border-[#4A4A4A] 
+                border-[#214B57] 
                 bg-white 
-                hover:bg-[#4A4A4A]/5 
+                text-[#214B57]
+                hover:bg-[#214B57] hover:text-white hover:border-[#F04E22] hover:border-2
+                transition-all duration-150
                 flex 
                 items-center 
                 justify-center 
-                shadow-sm 
+                focus:outline-none focus:ring-2 focus:ring-[#F04E22] focus:ring-offset-2
+                active:bg-[#214B57] active:text-white active:border-[#F04E22] active:border-2
+                shadow-[0_2px_8px_rgba(0,0,0,0.15)] 
                 z-20
               "
             >
               <svg
-                className="w-4 h-4 text-[#1D1D1D]"
+                className="w-4 h-4"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -86,10 +90,7 @@ export default function StickyCTA() {
             </button>
 
             {/* CTA Card */}
-            <div className="relative overflow-hidden rounded-[24px] border border-[#4A4A4A] bg-white shadow-[0_20px_60px_rgba(0,0,0,0.1)]">
-              
-              {/* Gradient overlay */}
-              <div className="absolute inset-0 bg-gradient-to-r from-white via-white to-white/95 pointer-events-none" />
+            <div className="relative overflow-hidden rounded-[24px] border border-white/20 shadow-[0_20px_60px_rgba(0,0,0,0.2)]" style={{ background: 'linear-gradient(180deg, #214B57 0%, #183941 100%)' }}>
 
               <div className="relative px-4 sm:px-6 py-4 sm:py-5 md:py-6">
                 <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 sm:gap-4 md:gap-6">
@@ -97,7 +98,7 @@ export default function StickyCTA() {
                   {/* Left Content */}
                   <div className="flex-1 min-w-0">
                     <div className="flex items-start gap-3 sm:gap-4">
-                      <div className="shrink-0 w-10 h-10 sm:w-12 sm:h-12 rounded-xl sm:rounded-2xl flex items-center justify-center shadow-[0_10px_25px_rgba(0,0,0,0.2)]" style={{ backgroundColor: '#214B57' }}>
+                      <div className="shrink-0 w-10 h-10 sm:w-12 sm:h-12 rounded-xl sm:rounded-2xl flex items-center justify-center shadow-[0_10px_25px_rgba(0,0,0,0.2)]" style={{ backgroundColor: '#F04E22' }}>
                         <svg
                           className="w-5 h-5 sm:w-6 sm:h-6 text-white"
                           fill="none"
@@ -114,10 +115,10 @@ export default function StickyCTA() {
                       </div>
 
                       <div className="flex-1 min-w-0">
-                        <h3 className="text-sm sm:text-base md:text-lg font-noto-serif mb-1 leading-tight" style={{ color: '#1D1D1D', fontSize: 'clamp(0.875rem, 1.5vw, 1.125rem)', fontWeight: 400, lineHeight: '1.2', letterSpacing: '0px', fontFamily: 'Noto Serif, serif' }}>
+                        <h3 className="text-sm sm:text-base md:text-lg font-noto-serif mb-1 leading-tight" style={{ color: '#FFFFFF', fontSize: 'clamp(0.875rem, 1.5vw, 1.125rem)', fontWeight: 600, lineHeight: '1.5', letterSpacing: '0px', fontFamily: 'Noto Serif, serif' }}>
                           Ready to transform your space?
                         </h3>
-                        <p className="text-xs sm:text-sm font-dm-sans leading-relaxed" style={{ color: '#7F8C8D', fontSize: 'clamp(0.75rem, 1.25vw, 0.875rem)', fontWeight: 400, lineHeight: '1.2', letterSpacing: '0px', fontFamily: 'DM Sans, sans-serif' }}>
+                        <p className="text-xs sm:text-sm font-dm-sans leading-relaxed" style={{ color: 'rgba(255, 255, 255, 0.9)', fontSize: 'clamp(0.75rem, 1.25vw, 0.875rem)', fontWeight: 400, lineHeight: '1.5', letterSpacing: '0px', fontFamily: 'DM Sans, sans-serif' }}>
                           Get a free consultation with our design experts
                         </p>
                       </div>
@@ -140,8 +141,7 @@ export default function StickyCTA() {
                           }
                         }
                       }}
-                      className="flex-1 sm:flex-initial inline-flex items-center justify-center gap-2 min-w-[122px] min-h-[31px] px-4 sm:px-6 py-2.5 sm:py-3 rounded-md text-white text-xs sm:text-sm font-normal font-dm-sans shadow-[0_10px_25px_rgba(0,0,0,0.2)] hover:bg-[#1a3d47] transition-all duration-150 active:bg-[#1a3d47] focus:outline-none focus:ring-2 focus:ring-[#F06434] focus:ring-offset-2"
-                      style={{ backgroundColor: '#214B57' }}
+                      className="flex-1 sm:flex-initial inline-flex items-center justify-center gap-2 min-w-[122px] min-h-[31px] px-5 py-2 rounded-md text-sm font-normal font-dm-sans bg-white border border-[#214B57] text-[#214B57] hover:bg-[#214B57] hover:text-white hover:border-[#F04E22] hover:border-2 transition-all duration-150 whitespace-nowrap focus:outline-none focus:ring-1 focus:ring-[#F04E22]/40 focus:ring-offset-1 active:bg-[#214B57] active:text-white active:border-[#F04E22] active:border-2 shadow-[0_2px_8px_rgba(0,0,0,0.15)]"
                     >
                       <span className="hidden sm:inline">Get Free Quote</span>
                       <span className="sm:hidden">Get Quote</span>

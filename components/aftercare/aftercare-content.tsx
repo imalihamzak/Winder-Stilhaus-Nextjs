@@ -90,24 +90,24 @@ export default function AftercareContent() {
   return (
     <>
       {/* Hero Section - Matching service pages spacing */}
-      <section className="relative bg-white text-[#1D1D1D] pt-0 pb-6 sm:pb-8 md:pb-10">
+      <section className="relative bg-[#1D1D1D] text-white pt-0 pb-6 sm:pb-8 md:pb-10">
         <div className="max-w-7xl mx-auto px-3 sm:px-4 md:px-6">
           <FadeIn className="text-center" duration={0.6} delay={0.1}>
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#f9fafb] border border-[#e5e7eb] text-sm font-medium text-[#1D1D1D] mb-3 font-dm-sans" style={{ fontSize: 'clamp(0.875rem, 1.25vw, 1rem)', fontWeight: 400, lineHeight: '1.2', letterSpacing: '0px', fontFamily: 'DM Sans, sans-serif' }}>
-              <span className="h-2 w-2 rounded-full" style={{ backgroundColor: '#F06434' }}></span>
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/20 text-sm font-medium text-white mb-3 font-dm-sans" style={{ fontSize: 'clamp(0.875rem, 1.25vw, 1rem)', fontWeight: 400, lineHeight: '1.2', letterSpacing: '0px', fontFamily: 'DM Sans, sans-serif' }}>
+              <span className="h-2 w-2 rounded-full" style={{ backgroundColor: '#F04E22' }}></span>
               Aftercare & Support
             </div>
-            <h1 className="text-[#214B57] font-noto-serif mb-4" style={{ fontSize: 'clamp(2.5rem, 5vw, 4.5rem)', fontWeight: 400, lineHeight: '1.2', letterSpacing: '0px', fontFamily: 'Noto Serif, serif' }}>
+            <h1 className="text-white font-noto-serif mb-4" style={{ fontSize: 'clamp(2.5rem, 5vw, 4.5rem)', fontWeight: 700, lineHeight: '1.5', letterSpacing: '0px', fontFamily: 'Noto Serif, serif' }}>
               Aftercare & Support
             </h1>
-            <p className="text-[#85929D] max-w-2xl mx-auto mb-8 font-dm-sans" style={{ fontSize: 'clamp(1rem, 1.5vw, 1.5rem)', fontWeight: 400, lineHeight: '1.2', letterSpacing: '0px', fontFamily: 'DM Sans, sans-serif' }}>
+            <p className="text-white/90 max-w-2xl mx-auto mb-8 font-dm-sans" style={{ fontSize: 'clamp(1rem, 1.5vw, 1.5rem)', fontWeight: 400, lineHeight: '1.2', letterSpacing: '0px', fontFamily: 'DM Sans, sans-serif' }}>
               Comprehensive warranty coverage, maintenance guidance, and ongoing support for your project.
             </p>
           </FadeIn>
         </div>
       </section>
 
-      <section className="bg-white py-6 md:py-8 px-3 sm:px-4 md:px-6">
+      <section className="bg-[#1D1D1D] py-6 md:py-8 px-3 sm:px-4 md:px-6">
         <div className="max-w-7xl mx-auto">
 
         {/* Services Grid */}
@@ -116,20 +116,20 @@ export default function AftercareContent() {
             const Icon = service.icon;
             return (
               <FadeIn key={i} direction="up" delay={i * 0.1} duration={0.6}>
-                <div className="rounded-[24px] border border-black/10 bg-white/60 backdrop-blur shadow-[0_18px_45px_rgba(26,29,41,0.04)] p-6 sm:p-8">
+                <div className="rounded-[24px] border border-[#4A4A4A] bg-white shadow-[0_18px_45px_rgba(0,0,0,0.1)] p-6 sm:p-8">
                   <div className="w-12 h-12 rounded-xl bg-[#214B57]/10 flex items-center justify-center text-[#214B57] text-xl mb-4">
                     <Icon />
                   </div>
-                  <h3 className="font-semibold text-[#214B57] mb-3 font-noto-serif" style={{ fontSize: 'clamp(1.25rem, 2vw, 1.75rem)', fontWeight: 400, lineHeight: '1.2', letterSpacing: '0px', fontFamily: 'Noto Serif, serif' }}>
+                  <h3 className="font-semibold text-[#1D1D1D] mb-3 font-noto-serif" style={{ fontSize: 'clamp(1.25rem, 2vw, 1.75rem)', fontWeight: 400, lineHeight: '1.2', letterSpacing: '0px', fontFamily: 'Noto Serif, serif' }}>
                     {service.title}
                   </h3>
-                  <p className="text-[#85929D] mb-4 font-dm-sans" style={{ fontSize: 'clamp(1rem, 1.5vw, 1.5rem)', fontWeight: 400, lineHeight: '1.2', letterSpacing: '0px', fontFamily: 'DM Sans, sans-serif' }}>
+                  <p className="text-[#7F8C8D] mb-4 font-dm-sans" style={{ fontSize: 'clamp(1rem, 1.5vw, 1.5rem)', fontWeight: 400, lineHeight: '1.2', letterSpacing: '0px', fontFamily: 'DM Sans, sans-serif' }}>
                     {service.description}
                   </p>
                   <ul className="space-y-2">
                     {service.details.map((detail, j) => (
-                      <li key={j} className="flex items-start gap-2 text-sm text-[#85929D] font-dm-sans" style={{ fontSize: 'clamp(0.875rem, 1.25vw, 1rem)', fontWeight: 400, lineHeight: '1.2', letterSpacing: '0px', fontFamily: 'DM Sans, sans-serif' }}>
-                        <CheckCircle className="text-[#F06434] mt-0.5 flex-shrink-0" size={16} />
+                      <li key={j} className="flex items-start gap-2 text-sm text-[#7F8C8D] font-dm-sans" style={{ fontSize: 'clamp(0.875rem, 1.25vw, 1rem)', fontWeight: 400, lineHeight: '1.2', letterSpacing: '0px', fontFamily: 'DM Sans, sans-serif' }}>
+                        <CheckCircle className="text-[#F04E22] mt-0.5 flex-shrink-0" size={16} />
                         <span>{detail}</span>
                       </li>
                     ))}
@@ -142,22 +142,22 @@ export default function AftercareContent() {
 
         {/* Process Timeline */}
         <FadeIn className="mb-12" duration={0.6} delay={0.4}>
-          <h2 className="font-semibold text-[#214B57] mb-8 text-center font-noto-serif" style={{ fontSize: 'clamp(1.5rem, 2.5vw, 2.17rem)', fontWeight: 600, lineHeight: '1.2', letterSpacing: '0px', fontFamily: 'Noto Serif, serif' }}>
+          <h2 className="font-semibold text-white mb-8 text-center font-noto-serif" style={{ fontSize: 'clamp(1.5rem, 2.5vw, 2.17rem)', fontWeight: 600, lineHeight: '1.5', letterSpacing: '0px', fontFamily: 'Noto Serif, serif' }}>
             Aftercare Process
           </h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {process.map((item, i) => (
               <div
                 key={i}
-                className="relative rounded-[20px] border border-black/10 bg-white/60 backdrop-blur shadow-[0_12px_30px_rgba(26,29,41,0.03)] p-6"
+                className="relative rounded-[20px] border border-[#4A4A4A] bg-white shadow-[0_12px_30px_rgba(0,0,0,0.1)] p-6"
               >
                 <div className="absolute -top-4 -left-4 w-12 h-12 rounded-full text-white flex items-center justify-center font-bold shadow-md" style={{ backgroundColor: '#214B57' }}>
                   {item.step}
                 </div>
-                <h3 className="font-semibold text-[#214B57] mb-2 mt-2 font-noto-serif" style={{ fontSize: 'clamp(1rem, 1.5vw, 1.5rem)', fontWeight: 400, lineHeight: '1.2', letterSpacing: '0px', fontFamily: 'Noto Serif, serif' }}>
+                <h3 className="font-semibold text-[#1D1D1D] mb-2 mt-2 font-noto-serif" style={{ fontSize: 'clamp(1rem, 1.5vw, 1.5rem)', fontWeight: 400, lineHeight: '1.2', letterSpacing: '0px', fontFamily: 'Noto Serif, serif' }}>
                   {item.title}
                 </h3>
-                <p className="text-sm text-[#85929D] leading-relaxed font-dm-sans" style={{ fontSize: 'clamp(0.875rem, 1.25vw, 1rem)', fontWeight: 400, lineHeight: '1.2', letterSpacing: '0px', fontFamily: 'DM Sans, sans-serif' }}>
+                <p className="text-sm text-[#7F8C8D] leading-relaxed font-dm-sans" style={{ fontSize: 'clamp(0.875rem, 1.25vw, 1rem)', fontWeight: 400, lineHeight: '1.2', letterSpacing: '0px', fontFamily: 'DM Sans, sans-serif' }}>
                   {item.description}
                 </p>
               </div>
@@ -167,7 +167,7 @@ export default function AftercareContent() {
 
         {/* CTA */}
         <FadeIn duration={0.6} delay={0.5}>
-          <div className="rounded-[30px] border border-black/10 text-white shadow-lg p-8 sm:p-10 text-center" style={{ backgroundColor: '#214B57' }}>
+          <div className="rounded-[30px] border border-white/20 text-white shadow-[0_30px_90px_rgba(0,0,0,0.2)] p-8 sm:p-10 text-center" style={{ background: 'linear-gradient(180deg, #214B57 0%, #183941 100%)' }}>
             <h3 className="font-semibold mb-4 font-noto-serif" style={{ fontSize: 'clamp(1.5rem, 2.5vw, 2.17rem)', fontWeight: 400, lineHeight: '1.2', letterSpacing: '0px', fontFamily: 'Noto Serif, serif' }}>
               Need Aftercare Support?
             </h3>
@@ -177,9 +177,19 @@ export default function AftercareContent() {
             <div className="flex flex-wrap justify-center gap-4">
               <a
                 href="/contact-us"
-                className="inline-flex items-center gap-2 min-w-[122px] min-h-[31px] px-8 py-2 rounded-md bg-white border border-[#214B57] text-[#214B57] font-normal font-dm-sans shadow-lg hover:bg-[#214B57] hover:text-white hover:border-[#F06434] hover:border-2 transition-all duration-150 focus:outline-none focus:ring-2 focus:ring-[#F06434] focus:ring-offset-2 active:bg-[#214B57] active:text-white active:border-[#F06434] active:border-2"
+                className="
+                  inline-flex items-center justify-center gap-2
+                  min-w-[122px] min-h-[31px] px-5 py-2 rounded-md
+                  text-sm font-normal font-dm-sans
+                  bg-white border border-[#214B57] text-[#214B57]
+                  hover:bg-[#214B57] hover:text-white hover:border-[#F04E22] hover:border-2
+                  transition-all duration-150 whitespace-nowrap
+                  focus:outline-none focus:ring-2 focus:ring-[#F04E22] focus:ring-offset-2
+                  active:bg-[#214B57] active:text-white active:border-[#F04E22] active:border-2
+                  shadow-[0_2px_8px_rgba(0,0,0,0.15)]
+                "
               >
-                Contact Support <span className="text-lg">→</span>
+                Contact Support →
               </a>
               <a
                 href="tel:+1234567890"

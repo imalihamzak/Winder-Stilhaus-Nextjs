@@ -98,19 +98,19 @@ export default function InteriorsSections() {
   ];
 
   return (
-    <section className="bg-white py-6 md:py-8 px-3 sm:px-4 md:px-6">
+    <section className="bg-[#1D1D1D] py-6 md:py-8 px-3 sm:px-4 md:px-6">
       <div className="max-w-7xl mx-auto">
         <FadeIn className="text-center mb-6 md:mb-8" duration={0.6}>
           <div className="flex items-center justify-center gap-3 flex-wrap mb-4">
-            <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/70 border border-black/10 backdrop-blur text-[11px] uppercase tracking-[0.32em] text-[#1D1D1D] font-dm-sans" style={{ fontSize: 'clamp(0.6875rem, 1vw, 0.875rem)', fontWeight: 400, lineHeight: '1.2', letterSpacing: '0.32em', fontFamily: 'DM Sans, sans-serif' }}>
-              <span className="h-1.5 w-1.5 rounded-full" style={{ backgroundColor: '#F06434' }} />
+            <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#FFFFFF] border border-[#CED3D7] text-[11px] uppercase tracking-[0.32em] text-[#1D1D1D] font-dm-sans" style={{ fontSize: 'clamp(0.6875rem, 1vw, 0.875rem)', fontWeight: 400, lineHeight: '1.2', letterSpacing: '0.32em', fontFamily: 'DM Sans, sans-serif' }}>
+              <span className="h-1.5 w-1.5 rounded-full" style={{ backgroundColor: '#F04E22' }} />
               Interior Sections
             </span>
           </div>
-          <h2 className="text-[#214B57] font-noto-serif" style={{ fontSize: 'clamp(2rem, 3.6vw, 3.2rem)', fontWeight: 400, lineHeight: '1.2', letterSpacing: '0px', fontFamily: 'Noto Serif, serif' }}>
+          <h2 className="text-white font-noto-serif" style={{ fontSize: 'clamp(2rem, 3.6vw, 3.2rem)', fontWeight: 600, lineHeight: '1.5', letterSpacing: '0px', fontFamily: 'Noto Serif, serif', color: '#FFFFFF' }}>
             Every Room, Every Detail
           </h2>
-          <p className="mt-4 text-[#85929D] max-w-2xl mx-auto font-dm-sans" style={{ fontSize: 'clamp(1rem, 1.5vw, 1.5rem)', fontWeight: 400, lineHeight: '1.2', letterSpacing: '0px', fontFamily: 'DM Sans, sans-serif' }}>
+          <p className="mt-4 text-white/90 max-w-2xl mx-auto font-dm-sans" style={{ fontSize: 'clamp(1rem, 1.5vw, 1.5rem)', fontWeight: 400, lineHeight: '1.2', letterSpacing: '0px', fontFamily: 'DM Sans, sans-serif', color: 'rgba(255, 255, 255, 0.9)' }}>
             Our interior design service covers every area of your home, ensuring a cohesive, elegant design throughout.
           </p>
         </FadeIn>
@@ -128,7 +128,7 @@ export default function InteriorsSections() {
               >
                 <div className="grid md:grid-cols-2 gap-6 sm:gap-8 items-center">
                   <div className={`${index % 2 === 1 ? "md:order-2" : ""}`}>
-                    <div className="relative overflow-hidden rounded-2xl border border-black/10 bg-white shadow-sm">
+                    <div className="relative overflow-hidden rounded-2xl border border-[#4A4A4A] bg-white shadow-sm">
                       <div className="relative h-64 sm:h-80">
                         <img
                           src={section.image}
@@ -145,17 +145,17 @@ export default function InteriorsSections() {
                       <div className="w-12 h-12 rounded-xl bg-[#214B57]/10 flex items-center justify-center text-[#214B57] text-xl">
                         <Icon />
                       </div>
-                      <h3 className="font-semibold text-[#214B57] font-noto-serif" style={{ fontSize: 'clamp(1.5rem, 2.5vw, 2.17rem)', fontWeight: 400, lineHeight: '1.2', letterSpacing: '0px', fontFamily: 'Noto Serif, serif' }}>
+                      <h3 className="font-semibold text-white font-noto-serif" style={{ fontSize: 'clamp(1.5rem, 2.5vw, 2.17rem)', fontWeight: 400, lineHeight: '1.2', letterSpacing: '0px', fontFamily: 'Noto Serif, serif', color: '#FFFFFF' }}>
                         {section.title}
                       </h3>
                     </div>
-                    <p className="text-[#85929D] font-dm-sans mb-6" style={{ fontSize: 'clamp(1rem, 1.5vw, 1.5rem)', fontWeight: 400, lineHeight: '1.2', letterSpacing: '0px', fontFamily: 'DM Sans, sans-serif' }}>
+                    <p className="text-white/90 font-dm-sans mb-6" style={{ fontSize: 'clamp(1rem, 1.5vw, 1.5rem)', fontWeight: 400, lineHeight: '1.2', letterSpacing: '0px', fontFamily: 'DM Sans, sans-serif', color: 'rgba(255, 255, 255, 0.9)' }}>
                       {section.description}
                     </p>
                     <div className="space-y-2">
                       {section.features.map((feature, i) => (
-                        <div key={i} className="flex items-start gap-2 text-sm text-[#85929D] font-dm-sans" style={{ fontSize: 'clamp(0.875rem, 1.25vw, 1rem)', fontWeight: 400, lineHeight: '1.2', letterSpacing: '0px', fontFamily: 'DM Sans, sans-serif' }}>
-                          <span className="text-[#F06434] font-bold mt-0.5 flex-shrink-0">
+                        <div key={i} className="flex items-start gap-2 text-sm text-white/90 font-dm-sans" style={{ fontSize: 'clamp(0.875rem, 1.25vw, 1rem)', fontWeight: 400, lineHeight: '1.2', letterSpacing: '0px', fontFamily: 'DM Sans, sans-serif', color: 'rgba(255, 255, 255, 0.9)' }}>
+                          <span className="text-[#F04E22] font-bold mt-0.5 flex-shrink-0">
                             ✓
                           </span>
                           <span>{feature}</span>

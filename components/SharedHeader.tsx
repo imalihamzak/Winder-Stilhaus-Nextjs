@@ -176,7 +176,7 @@ export default function SharedHeader() {
       </a>
       
       {/* Sticky Header */}
-      <header className="fixed top-0 left-0 right-0 z-50" style={{ backgroundColor: '#214B57' }} suppressHydrationWarning>
+      <header className="fixed top-0 left-0 right-0 z-50" style={{ background: 'linear-gradient(180deg, #214B57 0%, #183941 100%)' }} suppressHydrationWarning>
         <div className={containerClass}>
           {/* Backdrop (mobile menu) */}
           {menuOpen && (
@@ -190,15 +190,19 @@ export default function SharedHeader() {
           {/* Top Nav */}
           <div className="flex items-center justify-between text-sm font-medium text-white py-3 sm:py-4" suppressHydrationWarning>
           <a href="/" className="flex items-center min-w-0 flex-shrink group">
-            {/* Horizontal lockup: Official logo from brand pack */}
+            {/* Official horizontal lockup: WS monogram + wordmark as single controlled mark */}
             <img
               src="/assets/ReverseLogo.png"
-              alt="Winder & Stilhaus logo"
-              width={150}
-              height={40}
+              alt="Winder & Stilhaus"
+              width={200}
+              height={50}
               className="h-8 sm:h-10 md:h-12 w-auto shrink-0"
               loading="eager"
               suppressHydrationWarning
+              style={{ 
+                minWidth: '120px', // Respect minimum size rules
+                maxWidth: 'none' // Don't compress
+              }}
             />
           </a>
 
@@ -229,8 +233,8 @@ export default function SharedHeader() {
                     }
                     after:absolute after:left-0 after:-bottom-1 after:h-[2px]
                     ${active 
-                      ? "after:w-full after:bg-[#F06434]" 
-                      : "after:w-0 after:bg-[#F06434] after:transition-all after:duration-300 hover:after:w-full"
+                      ? "after:w-full after:bg-[#F04E22]" 
+                      : "after:w-0 after:bg-[#F04E22] after:transition-all after:duration-300 hover:after:w-full"
                     }
                   `}
                 >
@@ -248,10 +252,10 @@ export default function SharedHeader() {
                 min-w-[122px] min-h-[31px] px-5 py-2 rounded-md
                 text-sm font-normal font-dm-sans
                 bg-white border border-[#214B57] text-[#214B57]
-                hover:bg-[#214B57] hover:text-white hover:border-[#F06434] hover:border-2
+                hover:bg-[#214B57] hover:text-white hover:border-[#F04E22] hover:border-2
                 transition-all duration-150 whitespace-nowrap
-                focus:outline-none focus:ring-2 focus:ring-[#F06434] focus:ring-offset-2
-                active:bg-[#214B57] active:text-white active:border-[#F06434] active:border-2
+                focus:outline-none focus:ring-2 focus:ring-[#F04E22] focus:ring-offset-2
+                active:bg-[#214B57] active:text-white active:border-[#F04E22] active:border-2
                 disabled:bg-[#4A4A4A] disabled:text-[#7F8C8D] disabled:cursor-not-allowed
                 relative z-50 shadow-[0_2px_8px_rgba(0,0,0,0.15)]
               "
@@ -331,7 +335,7 @@ export default function SharedHeader() {
                   className="
                     block w-full text-center px-4 py-2 rounded-md
                     bg-white border border-[#214B57] text-[#214B57] text-sm font-normal font-dm-sans min-w-[122px] min-h-[31px]
-                    hover:bg-[#214B57] hover:text-white hover:border-[#F06434] hover:border-2
+                    hover:bg-[#214B57] hover:text-white hover:border-[#F04E22] hover:border-2
                     shadow-[0_10px_25px_rgba(0,0,0,0.2)]
                     transition-all duration-150
                   "

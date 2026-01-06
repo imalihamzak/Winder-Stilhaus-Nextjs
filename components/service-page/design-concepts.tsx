@@ -168,19 +168,19 @@ export default function DesignConcepts({ service }: DesignConceptsProps) {
 
   return (
     <>
-      <section className="bg-white py-6 md:py-8 px-3 sm:px-4 md:px-6">
+      <section className="bg-[#1D1D1D] py-6 md:py-8 px-3 sm:px-4 md:px-6">
         <div className="max-w-7xl mx-auto">
           <FadeIn className="text-center mb-6 md:mb-8" duration={0.6}>
             <div className="flex items-center justify-center gap-3 flex-wrap mb-4">
-              <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/70 border border-black/10 backdrop-blur text-[11px] uppercase tracking-[0.32em] text-[#1D1D1D] font-dm-sans" style={{ fontSize: 'clamp(0.6875rem, 1vw, 0.875rem)', fontWeight: 400, lineHeight: '1.2', letterSpacing: '0.32em', fontFamily: 'DM Sans, sans-serif' }}>
-                <span className="h-1.5 w-1.5 rounded-full" style={{ backgroundColor: '#F06434' }} />
+              <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#FFFFFF] border border-[#CED3D7] text-[11px] uppercase tracking-[0.32em] text-[#1D1D1D] font-dm-sans" style={{ fontSize: 'clamp(0.6875rem, 1vw, 0.875rem)', fontWeight: 400, lineHeight: '1.2', letterSpacing: '0.32em', fontFamily: 'DM Sans, sans-serif' }}>
+                <span className="h-1.5 w-1.5 rounded-full" style={{ backgroundColor: '#F04E22' }} />
                 Design Concepts
               </span>
             </div>
-            <h2 className="text-[#214B57] font-noto-serif" style={{ fontSize: 'clamp(2rem, 3.6vw, 3.2rem)', fontWeight: 400, lineHeight: '1.2', letterSpacing: '0px', fontFamily: 'Noto Serif, serif' }}>
+            <h2 className="text-white font-noto-serif" style={{ fontSize: 'clamp(2rem, 3.6vw, 3.2rem)', fontWeight: 600, lineHeight: '1.5', letterSpacing: '0px', fontFamily: 'Noto Serif, serif', color: '#FFFFFF' }}>
               Explore Our Design Concepts
             </h2>
-            <p className="mt-4 text-[#85929D] max-w-2xl mx-auto font-dm-sans" style={{ fontSize: 'clamp(1rem, 1.5vw, 1.5rem)', fontWeight: 400, lineHeight: '1.5', letterSpacing: '0px', fontFamily: 'DM Sans, sans-serif' }}>
+            <p className="mt-4 text-white/90 max-w-2xl mx-auto font-dm-sans" style={{ fontSize: 'clamp(1rem, 1.5vw, 1.5rem)', fontWeight: 400, lineHeight: '1.5', letterSpacing: '0px', fontFamily: 'DM Sans, sans-serif', color: 'rgba(255, 255, 255, 0.9)' }}>
               Browse our curated design concepts. Each one includes a complete palette, materials selection, and signature details. Click to explore and use your favourite in your estimate.
             </p>
           </FadeIn>
@@ -195,7 +195,7 @@ export default function DesignConcepts({ service }: DesignConceptsProps) {
               >
                 <button
                   onClick={() => openLightbox(concept)}
-                  className="group relative overflow-hidden rounded-[24px] border border-black/10 bg-white shadow-sm hover:shadow-lg hover:border-[#214B57]/30 transition-all duration-300 text-left w-full"
+                  className="group relative overflow-hidden rounded-[24px] border border-[#4A4A4A] bg-white shadow-sm hover:shadow-lg hover:border-[#214B57]/30 transition-all duration-300 text-left w-full"
                 >
                   <div className="relative h-64 overflow-hidden">
                     <img
@@ -216,13 +216,13 @@ export default function DesignConcepts({ service }: DesignConceptsProps) {
                   <div className="p-5">
                     <div className="flex items-center gap-2 mb-3">
                       <Palette className="text-[#214B57] w-4 h-4" />
-                      <span className="text-xs text-[#85929D] font-dm-sans">View full concept →</span>
+                      <span className="text-xs text-[#214B57] font-dm-sans">View full concept →</span>
                     </div>
                     <div className="flex gap-2">
                       {concept.palette.slice(0, 5).map((color, i) => (
                         <div
                           key={i}
-                          className="w-8 h-8 rounded-full border border-black/10"
+                          className="w-8 h-8 rounded-full border border-[#4A4A4A]"
                           style={{ backgroundColor: color }}
                           title={color}
                         />
@@ -252,7 +252,7 @@ export default function DesignConcepts({ service }: DesignConceptsProps) {
             {/* Close Button */}
             <button
               onClick={closeLightbox}
-              className="absolute top-4 right-4 z-10 w-10 h-10 rounded-full bg-white/90 backdrop-blur border border-black/10 flex items-center justify-center hover:bg-white transition-colors"
+              className="absolute top-4 right-4 z-10 w-10 h-10 rounded-full bg-white/90 backdrop-blur border border-[#4A4A4A] flex items-center justify-center hover:bg-white transition-colors"
               aria-label="Close lightbox"
             >
               <X className="text-[#214B57]" size={20} />
@@ -278,7 +278,7 @@ export default function DesignConcepts({ service }: DesignConceptsProps) {
                           e.stopPropagation();
                           prevImage();
                         }}
-                        className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/90 backdrop-blur border border-black/10 flex items-center justify-center hover:bg-white transition-colors"
+                        className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/90 backdrop-blur border border-[#4A4A4A] flex items-center justify-center hover:bg-white transition-colors"
                         aria-label="Previous image"
                       >
                         <svg className="w-5 h-5 text-[#214B57]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -290,7 +290,7 @@ export default function DesignConcepts({ service }: DesignConceptsProps) {
                           e.stopPropagation();
                           nextImage();
                         }}
-                        className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/90 backdrop-blur border border-black/10 flex items-center justify-center hover:bg-white transition-colors"
+                        className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/90 backdrop-blur border border-[#4A4A4A] flex items-center justify-center hover:bg-white transition-colors"
                         aria-label="Next image"
                       >
                         <svg className="w-5 h-5 text-[#214B57]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -302,7 +302,7 @@ export default function DesignConcepts({ service }: DesignConceptsProps) {
 
                   {/* Image Counter */}
                   {selectedConcept.images.length > 1 && (
-                    <div className="absolute bottom-4 left-1/2 -translate-x-1/2 px-3 py-1 rounded-full bg-white/90 backdrop-blur border border-black/10 text-sm text-[#214B57] font-dm-sans">
+                    <div className="absolute bottom-4 left-1/2 -translate-x-1/2 px-3 py-1 rounded-full bg-white/90 backdrop-blur border border-[#4A4A4A] text-sm text-[#214B57] font-dm-sans">
                       {currentImageIndex + 1} / {selectedConcept.images.length}
                     </div>
                   )}
@@ -333,7 +333,7 @@ export default function DesignConcepts({ service }: DesignConceptsProps) {
 
               {/* Details Section */}
               <div className="p-6 sm:p-8 lg:p-10">
-                <h3 className="text-[#214B57] font-noto-serif mb-4" style={{ fontSize: 'clamp(2rem, 3.6vw, 3.2rem)', fontWeight: 400, lineHeight: '1.2', letterSpacing: '0px', fontFamily: 'Noto Serif, serif' }}>
+                <h3 className="text-[#1D1D1D] font-noto-serif mb-4" style={{ fontSize: 'clamp(2rem, 3.6vw, 3.2rem)', fontWeight: 400, lineHeight: '1.2', letterSpacing: '0px', fontFamily: 'Noto Serif, serif', color: '#1D1D1D' }}>
                   {selectedConcept.name}
                 </h3>
 
@@ -341,11 +341,11 @@ export default function DesignConcepts({ service }: DesignConceptsProps) {
                 <div className="mb-6">
                   <div className="flex items-center gap-2 mb-2">
                     <Sparkles className="text-[#F04E22] w-5 h-5" />
-                    <h4 className="font-semibold text-[#214B57] font-noto-serif" style={{ fontSize: 'clamp(1.25rem, 2vw, 1.75rem)', fontWeight: 400, lineHeight: '1.2', letterSpacing: '0px', fontFamily: 'Noto Serif, serif' }}>
+                    <h4 className="font-semibold text-[#1D1D1D] font-noto-serif" style={{ fontSize: 'clamp(1.25rem, 2vw, 1.75rem)', fontWeight: 400, lineHeight: '1.2', letterSpacing: '0px', fontFamily: 'Noto Serif, serif', color: '#1D1D1D' }}>
                       Design Intent
                     </h4>
                   </div>
-                  <p className="text-[#85929D] font-dm-sans" style={{ fontSize: 'clamp(1rem, 1.5vw, 1.5rem)', fontWeight: 400, lineHeight: '1.6', letterSpacing: '0px', fontFamily: 'DM Sans, sans-serif' }}>
+                  <p className="text-[#7F8C8D] font-dm-sans" style={{ fontSize: 'clamp(1rem, 1.5vw, 1.5rem)', fontWeight: 400, lineHeight: '1.6', letterSpacing: '0px', fontFamily: 'DM Sans, sans-serif', color: '#7F8C8D' }}>
                     {selectedConcept.intent}
                   </p>
                 </div>
@@ -354,7 +354,7 @@ export default function DesignConcepts({ service }: DesignConceptsProps) {
                 <div className="mb-6">
                   <div className="flex items-center gap-2 mb-3">
                     <Palette className="text-[#F04E22] w-5 h-5" />
-                    <h4 className="font-semibold text-[#214B57] font-noto-serif" style={{ fontSize: 'clamp(1.25rem, 2vw, 1.75rem)', fontWeight: 400, lineHeight: '1.2', letterSpacing: '0px', fontFamily: 'Noto Serif, serif' }}>
+                    <h4 className="font-semibold text-[#1D1D1D] font-noto-serif" style={{ fontSize: 'clamp(1.25rem, 2vw, 1.75rem)', fontWeight: 400, lineHeight: '1.2', letterSpacing: '0px', fontFamily: 'Noto Serif, serif', color: '#1D1D1D' }}>
                       Colour Palette
                     </h4>
                   </div>
@@ -362,11 +362,11 @@ export default function DesignConcepts({ service }: DesignConceptsProps) {
                     {selectedConcept.palette.map((color, i) => (
                       <div key={i} className="flex items-center gap-2">
                         <div
-                          className="w-12 h-12 rounded-lg border border-black/10 shadow-sm"
+                          className="w-12 h-12 rounded-lg border border-[#4A4A4A] shadow-sm"
                           style={{ backgroundColor: color }}
                           title={color}
                         />
-                        <span className="text-sm text-[#85929D] font-dm-sans font-mono">{color}</span>
+                        <span className="text-sm text-[#7F8C8D] font-dm-sans font-mono">{color}</span>
                       </div>
                     ))}
                   </div>
@@ -376,13 +376,13 @@ export default function DesignConcepts({ service }: DesignConceptsProps) {
                 <div className="mb-6">
                   <div className="flex items-center gap-2 mb-3">
                     <Layers className="text-[#F04E22] w-5 h-5" />
-                    <h4 className="font-semibold text-[#214B57] font-noto-serif" style={{ fontSize: 'clamp(1.25rem, 2vw, 1.75rem)', fontWeight: 400, lineHeight: '1.2', letterSpacing: '0px', fontFamily: 'Noto Serif, serif' }}>
+                    <h4 className="font-semibold text-[#1D1D1D] font-noto-serif" style={{ fontSize: 'clamp(1.25rem, 2vw, 1.75rem)', fontWeight: 400, lineHeight: '1.2', letterSpacing: '0px', fontFamily: 'Noto Serif, serif', color: '#1D1D1D' }}>
                       Materials Set
                     </h4>
                   </div>
                   <ul className="space-y-2">
                     {selectedConcept.materials.map((material, i) => (
-                      <li key={i} className="flex items-start gap-2 text-[#85929D] font-dm-sans" style={{ fontSize: 'clamp(0.875rem, 1.25vw, 1rem)', fontWeight: 400, lineHeight: '1.5', letterSpacing: '0px', fontFamily: 'DM Sans, sans-serif' }}>
+                      <li key={i} className="flex items-start gap-2 text-[#7F8C8D] font-dm-sans" style={{ fontSize: 'clamp(0.875rem, 1.25vw, 1rem)', fontWeight: 400, lineHeight: '1.5', letterSpacing: '0px', fontFamily: 'DM Sans, sans-serif', color: '#7F8C8D' }}>
                         <span className="text-[#F04E22] mt-1 flex-shrink-0">•</span>
                         <span>{material}</span>
                       </li>
@@ -392,10 +392,10 @@ export default function DesignConcepts({ service }: DesignConceptsProps) {
 
                 {/* Signature Detail */}
                 <div className="mb-8 p-5 rounded-xl bg-[#214B57]/5 border border-[#214B57]/20">
-                  <h4 className="font-semibold text-[#214B57] mb-2 font-noto-serif" style={{ fontSize: 'clamp(1rem, 1.5vw, 1.5rem)', fontWeight: 400, lineHeight: '1.2', letterSpacing: '0px', fontFamily: 'Noto Serif, serif' }}>
+                  <h4 className="font-semibold text-[#1D1D1D] mb-2 font-noto-serif" style={{ fontSize: 'clamp(1rem, 1.5vw, 1.5rem)', fontWeight: 400, lineHeight: '1.2', letterSpacing: '0px', fontFamily: 'Noto Serif, serif', color: '#1D1D1D' }}>
                     Signature Detail
                   </h4>
-                  <p className="text-[#85929D] font-dm-sans" style={{ fontSize: 'clamp(0.875rem, 1.25vw, 1rem)', fontWeight: 400, lineHeight: '1.6', letterSpacing: '0px', fontFamily: 'DM Sans, sans-serif' }}>
+                  <p className="text-[#7F8C8D] font-dm-sans" style={{ fontSize: 'clamp(0.875rem, 1.25vw, 1rem)', fontWeight: 400, lineHeight: '1.6', letterSpacing: '0px', fontFamily: 'DM Sans, sans-serif', color: '#7F8C8D' }}>
                     {selectedConcept.signatureDetail}
                   </p>
                 </div>

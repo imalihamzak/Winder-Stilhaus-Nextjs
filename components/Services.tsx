@@ -17,6 +17,7 @@ import {
   Wrench,
 } from "lucide-react";
 import FadeIn from "@/components/FadeIn";
+import MonogramUnderlay from "@/components/MonogramUnderlay";
 
 interface Service {
   title: string;
@@ -107,6 +108,12 @@ export default function Services() {
   const [stride, setStride] = useState<number>(360); // card width + gap
   const [visible, setVisible] = useState<number>(1);
   const [hovered, setHovered] = useState<boolean>(false);
+  
+  // Touch/swipe state
+  const [touchStart, setTouchStart] = useState<number | null>(null);
+  const [touchEnd, setTouchEnd] = useState<number | null>(null);
+  const [isDragging, setIsDragging] = useState<boolean>(false);
+  const [dragOffset, setDragOffset] = useState<number>(0);
 
   const maxIndex = useMemo(() => Math.max(0, SERVICES.length - visible), [visible]);
 
@@ -144,7 +151,7 @@ export default function Services() {
 
   // Auto-play functionality
   useEffect(() => {
-    if (hovered) return; // Pause on hover
+    if (hovered || isDragging) return; // Pause on hover or when dragging
     
     const interval = setInterval(() => {
       setIndex((prev) => {
@@ -156,7 +163,7 @@ export default function Services() {
     }, 4000); // Change slide every 4 seconds
 
     return () => clearInterval(interval);
-  }, [hovered, maxIndex]);
+  }, [hovered, isDragging, maxIndex]);
 
   const canPrev = index > 0;
   const canNext = index < maxIndex;
@@ -164,26 +171,70 @@ export default function Services() {
   const goPrev = () => setIndex((p) => Math.max(0, p - 1));
   const goNext = () => setIndex((p) => Math.min(maxIndex, p + 1));
 
+  // Minimum swipe distance (in pixels) to trigger navigation
+  const minSwipeDistance = 50;
+
+  const onTouchStart = (e: React.TouchEvent) => {
+    setTouchEnd(null);
+    setTouchStart(e.targetTouches[0].clientX);
+    setIsDragging(true);
+    setDragOffset(0);
+  };
+
+  const onTouchMove = (e: React.TouchEvent) => {
+    if (touchStart === null) return;
+    
+    const currentTouch = e.targetTouches[0].clientX;
+    const diff = touchStart - currentTouch;
+    setDragOffset(diff);
+    setTouchEnd(currentTouch);
+  };
+
+  const onTouchEnd = () => {
+    if (!touchStart || touchEnd === null) {
+      setIsDragging(false);
+      setDragOffset(0);
+      setTouchStart(null);
+      setTouchEnd(null);
+      return;
+    }
+
+    const distance = touchStart - touchEnd;
+    const isLeftSwipe = distance > minSwipeDistance;
+    const isRightSwipe = distance < -minSwipeDistance;
+
+    if (isLeftSwipe && canNext) {
+      goNext();
+    } else if (isRightSwipe && canPrev) {
+      goPrev();
+    }
+
+    setIsDragging(false);
+    setDragOffset(0);
+    setTouchStart(null);
+    setTouchEnd(null);
+  };
+
   return (
-    <section id="services" className="">
-      <div className="max-w-7xl mx-auto px-3 sm:px-4 md:px-6 py-10 md:py-14">
+    <section id="services" className="relative overflow-hidden">
+      <div className="max-w-7xl mx-auto px-3 sm:px-4 md:px-6 py-10 md:py-14 relative z-10">
         {/* Heading */}
         <FadeIn className="text-center mb-10 md:mb-12">
           <div className="flex items-center justify-center gap-3 flex-wrap">
-            <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#F9FAFB] border border-[#E5E7EB] text-[11px] uppercase tracking-[0.32em] text-[#1D1D1D] font-dm-sans" style={{ fontSize: 'clamp(0.6875rem, 1vw, 0.875rem)', fontWeight: 400, lineHeight: '1.2', letterSpacing: '0.32em', fontFamily: 'DM Sans, sans-serif' }}>
-              <span className="h-1.5 w-1.5 rounded-full" style={{ backgroundColor: '#F06434' }} />
+            <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#FFFFFF] border border-[#CED3D7] text-[11px] uppercase tracking-[0.32em] text-[#1D1D1D] font-dm-sans" style={{ fontSize: 'clamp(0.6875rem, 1vw, 0.875rem)', fontWeight: 400, lineHeight: '1.2', letterSpacing: '0.32em', fontFamily: 'DM Sans, sans-serif' }}>
+              <span className="h-1.5 w-1.5 rounded-full" style={{ backgroundColor: '#F04E22' }} />
               Our Services
             </span>
-            <span className="text-xs sm:text-sm text-[#7F8C8D] font-dm-sans">
+            <span className="text-xs sm:text-sm text-white/80 font-dm-sans">
               Premium quality • Expert execution • Timely delivery
             </span>
           </div>
 
-          <h2 className="mt-4 text-[#1D1D1D] font-noto-serif max-w-2xl mx-auto" style={{ fontSize: 'clamp(2.5rem, 4vw, 4.17rem)', fontWeight: 400, lineHeight: '1.2', letterSpacing: '0px', fontFamily: 'Noto Serif, serif', color: '#1D1D1D' }}>
+          <h2 className="mt-4 text-white font-noto-serif max-w-2xl mx-auto" style={{ fontSize: 'clamp(2.5rem, 4vw, 4.17rem)', fontWeight: 600, lineHeight: '1.5', letterSpacing: '0px', fontFamily: 'Noto Serif, serif', color: '#FFFFFF' }}>
             Complete interior solutions
           </h2>
 
-          <p className="mt-3 text-[#7F8C8D] max-w-2xl mx-auto font-dm-sans" style={{ fontSize: 'clamp(1.25rem, 2vw, 2.67rem)', fontWeight: 400, lineHeight: '1.2', letterSpacing: '0px', fontFamily: 'DM Sans, sans-serif', color: '#7F8C8D' }}>
+          <p className="mt-3 text-white/90 max-w-2xl mx-auto font-dm-sans" style={{ fontSize: 'clamp(1.25rem, 2vw, 2.67rem)', fontWeight: 400, lineHeight: '1.2', letterSpacing: '0px', fontFamily: 'DM Sans, sans-serif', color: 'rgba(255, 255, 255, 0.9)' }}>
             From concept to completion, we deliver premium interiors tailored to your vision and lifestyle.
           </p>
         </FadeIn>
@@ -195,8 +246,8 @@ export default function Services() {
           onMouseLeave={() => setHovered(false)}
         >
           {/* Soft edge fades (premium, hides cut edges) */}
-          <div className="pointer-events-none absolute inset-y-0 left-0 w-16 bg-gradient-to-r from-white to-transparent z-10" />
-          <div className="pointer-events-none absolute inset-y-0 right-0 w-16 bg-gradient-to-l from-white to-transparent z-10" />
+          <div className="pointer-events-none absolute inset-y-0 left-0 w-16 bg-gradient-to-r from-[#1D1D1D] via-[#1D1D1D] to-transparent z-10" />
+          <div className="pointer-events-none absolute inset-y-0 right-0 w-16 bg-gradient-to-l from-[#1D1D1D] via-[#1D1D1D] to-transparent z-10" />
 
           {/* Arrows */}
           <button
@@ -235,9 +286,13 @@ export default function Services() {
 
           {/* Track */}
           <motion.div
-            className="flex gap-3 sm:gap-4 px-10 sm:px-14 md:px-16 py-3"
-            animate={{ x: -index * stride }}
-            transition={{ type: "spring", stiffness: 300, damping: 30 }}
+            className="flex gap-3 sm:gap-4 px-10 sm:px-14 md:px-16 py-3 cursor-grab active:cursor-grabbing"
+            animate={{ x: isDragging ? -index * stride - dragOffset : -index * stride }}
+            transition={isDragging ? { duration: 0 } : { type: "spring", stiffness: 300, damping: 30 }}
+            onTouchStart={onTouchStart}
+            onTouchMove={onTouchMove}
+            onTouchEnd={onTouchEnd}
+            style={{ touchAction: "pan-x" }}
           >
             {SERVICES.map((s, i) => {
               const Icon = s.icon;
@@ -252,7 +307,7 @@ export default function Services() {
                     shadow-[0_18px_45px_rgba(0,0,0,0.1)]
                     p-6 sm:p-7 md:p-8
                     hover:shadow-[0_24px_60px_rgba(0,0,0,0.15)]
-                    hover:border-t-[2px] hover:border-t-[#F06434]
+                    hover:border-t-[2px] hover:border-t-[#F04E22]
                     transition-all duration-150
                     group
                   "

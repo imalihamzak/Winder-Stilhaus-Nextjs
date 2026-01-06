@@ -127,19 +127,19 @@ export default function PostcodeGatePageClient() {
   ];
 
   return (
-    <section className="bg-white min-h-screen pt-0 pb-16 sm:pb-20 md:pb-24">
+    <section className="bg-[#1D1D1D] min-h-screen pt-0 pb-16 sm:pb-20 md:pb-24 text-white">
       <div className="max-w-7xl mx-auto px-3 sm:px-4 md:px-6">
         {/* Hero Section */}
         <FadeIn direction="up" delay={0.1} duration={0.6}>
           <div className="text-center mb-6 md:mb-8">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#f9fafb] border border-[#e5e7eb] text-sm font-medium text-[#1D1D1D] mb-3 font-dm-sans" style={{ fontSize: 'clamp(0.875rem, 1.25vw, 1rem)', fontWeight: 400, lineHeight: '1.2', letterSpacing: '0px', fontFamily: 'DM Sans, sans-serif' }}>
-              <span className="h-2 w-2 rounded-full" style={{ backgroundColor: '#F06434' }}></span>
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#FFFFFF] border border-[#CED3D7] text-sm font-medium text-[#1D1D1D] mb-3 font-dm-sans" style={{ fontSize: 'clamp(0.875rem, 1.25vw, 1rem)', fontWeight: 400, lineHeight: '1.2', letterSpacing: '0px', fontFamily: 'DM Sans, sans-serif' }}>
+              <span className="h-2 w-2 rounded-full" style={{ backgroundColor: '#F04E22' }}></span>
               Service Coverage Checker
             </div>
-            <h1 className="text-[#214B57] font-noto-serif mb-4" style={{ fontSize: 'clamp(2.5rem, 5vw, 4.5rem)', fontWeight: 400, lineHeight: '1.2', letterSpacing: '0px', fontFamily: 'Noto Serif, serif' }}>
+            <h1 className="text-white font-noto-serif mb-4" style={{ fontSize: 'clamp(2.5rem, 5vw, 4.5rem)', fontWeight: 700, lineHeight: '1.5', letterSpacing: '0px', fontFamily: 'Noto Serif, serif', color: '#FFFFFF' }}>
               Check Service Availability
             </h1>
-            <p className="text-[#85929D] max-w-3xl mx-auto font-dm-sans" style={{ fontSize: 'clamp(1rem, 1.5vw, 1.5rem)', fontWeight: 400, lineHeight: '1.2', letterSpacing: '0px', fontFamily: 'DM Sans, sans-serif' }}>
+            <p className="text-white/90 max-w-3xl mx-auto font-dm-sans" style={{ fontSize: 'clamp(1rem, 1.5vw, 1.5rem)', fontWeight: 400, lineHeight: '1.2', letterSpacing: '0px', fontFamily: 'DM Sans, sans-serif', color: 'rgba(255, 255, 255, 0.9)' }}>
               Verify if our premium interior design and renovation services are available in your area. 
               Enter your postcode to get instant access to our expert team and exclusive services.
             </p>

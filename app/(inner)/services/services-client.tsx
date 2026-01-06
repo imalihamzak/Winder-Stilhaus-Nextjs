@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import FadeIn from "@/components/FadeIn";
+import UnifiedCTA from "@/components/UnifiedCTA";
 import {
   ArrowRight,
   Sofa,
@@ -138,20 +139,20 @@ const SERVICE_CATEGORIES: ServiceCategory[] = [
 
 export default function ServicesPageClient() {
   return (
-    <main className="bg-white min-h-screen">
+    <main className="bg-[#1D1D1D] min-h-screen text-white">
       {/* Hero Section */}
-      <section className="bg-white pt-0 pb-12 md:pb-16">
+      <section className="bg-[#1D1D1D] pt-0 pb-12 md:pb-16">
         <div className="max-w-7xl mx-auto px-3 sm:px-4 md:px-6">
           <FadeIn direction="up" delay={0.1} duration={0.6}>
             <div className="text-center mb-10 md:mb-12">
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#f9fafb] border border-[#e5e7eb] text-sm font-medium text-[#1D1D1D] mb-4 font-dm-sans" style={{ fontSize: 'clamp(0.875rem, 1.25vw, 1rem)', fontWeight: 400, lineHeight: '1.2', letterSpacing: '0px', fontFamily: 'DM Sans, sans-serif' }}>
-                <span className="h-2 w-2 rounded-full" style={{ backgroundColor: '#F06434' }}></span>
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#FFFFFF] border border-[#CED3D7] text-sm font-medium text-[#1D1D1D] mb-4 font-dm-sans" style={{ fontSize: 'clamp(0.875rem, 1.25vw, 1rem)', fontWeight: 400, lineHeight: '1.2', letterSpacing: '0px', fontFamily: 'DM Sans, sans-serif' }}>
+                <span className="h-2 w-2 rounded-full" style={{ backgroundColor: '#F04E22' }}></span>
                 Our Services
               </div>
-              <h1 className="text-[#214B57] font-noto-serif mb-4" style={{ fontSize: 'clamp(2.5rem, 5vw, 4.5rem)', fontWeight: 400, lineHeight: '1.2', letterSpacing: '0px', fontFamily: 'Noto Serif, serif' }}>
+              <h1 className="text-white font-noto-serif mb-4" style={{ fontSize: 'clamp(2.5rem, 5vw, 4.5rem)', fontWeight: 700, lineHeight: '1.5', letterSpacing: '0px', fontFamily: 'Noto Serif, serif', color: '#FFFFFF' }}>
                 Complete Interior Solutions
               </h1>
-              <p className="text-[#85929D] max-w-2xl mx-auto font-dm-sans" style={{ fontSize: 'clamp(1rem, 1.5vw, 1.5rem)', fontWeight: 400, lineHeight: '1.2', letterSpacing: '0px', fontFamily: 'DM Sans, sans-serif' }}>
+              <p className="text-white/90 max-w-2xl mx-auto font-dm-sans" style={{ fontSize: 'clamp(1rem, 1.5vw, 1.5rem)', fontWeight: 400, lineHeight: '1.2', letterSpacing: '0px', fontFamily: 'DM Sans, sans-serif', color: 'rgba(255, 255, 255, 0.9)' }}>
                 From concept to completion, we deliver premium interiors tailored to your vision and lifestyle.
               </p>
             </div>
@@ -160,16 +161,16 @@ export default function ServicesPageClient() {
       </section>
 
       {/* Services by Category */}
-      <section className="bg-white px-3 sm:px-4 md:px-6 pb-20 md:pb-24">
+      <section className="bg-[#1D1D1D] px-3 sm:px-4 md:px-6 pb-20 md:pb-24">
         <div className="max-w-7xl mx-auto">
           {SERVICE_CATEGORIES.map((category, categoryIndex) => (
             <div key={category.category} className="mb-16 md:mb-20 last:mb-0">
               <FadeIn delay={categoryIndex * 0.1}>
                 <div className="mb-8 md:mb-10">
-                  <h2 className="text-[#214B57] font-noto-serif mb-2" style={{ fontSize: 'clamp(1.5rem, 2.5vw, 2.17rem)', fontWeight: 600, lineHeight: '1.2', letterSpacing: '0px', fontFamily: 'Noto Serif, serif' }}>
+                  <h2 className="text-white font-noto-serif mb-2" style={{ fontSize: 'clamp(1.5rem, 2.5vw, 2.17rem)', fontWeight: 600, lineHeight: '1.5', letterSpacing: '0px', fontFamily: 'Noto Serif, serif', color: '#FFFFFF' }}>
                     {category.category}
                   </h2>
-                  <div className="h-px w-20 bg-[#214B57]"></div>
+                  <div className="h-px w-20 bg-white/30"></div>
                 </div>
               </FadeIn>
 
@@ -184,23 +185,23 @@ export default function ServicesPageClient() {
                     >
                       <Link
                         href={`/service/${service.slug}`}
-                        className="group block h-full rounded-[20px] border border-black/10 bg-white p-6 hover:border-black/20 hover:shadow-[0_20px_50px_rgba(26,29,41,0.04)] transition-all"
+                        className="group block h-full rounded-[20px] border border-[#4A4A4A] bg-white p-6 hover:border-[#214B57] hover:shadow-[0_20px_50px_rgba(0,0,0,0.1)] transition-all"
                       >
                         <div className="flex items-start gap-4 mb-4">
-                          <div className="w-12 h-12 rounded-xl border border-black/10 bg-black/[0.02] flex items-center justify-center text-[#214B57] group-hover:bg-[#214B57] group-hover:text-white transition-colors shrink-0">
+                          <div className="w-12 h-12 rounded-xl border border-[#4A4A4A] bg-white flex items-center justify-center text-[#214B57] group-hover:bg-[#214B57] group-hover:text-white transition-colors shrink-0">
                             <Icon className="w-6 h-6" />
                           </div>
                           <div className="flex-1 min-w-0">
-                            <h3 className="font-semibold text-[#214B57] mb-2 group-hover:text-[#214B57] transition-colors font-noto-serif" style={{ fontSize: 'clamp(1rem, 1.5vw, 1.5rem)', fontWeight: 400, lineHeight: '1.2', letterSpacing: '0px', fontFamily: 'Noto Serif, serif' }}>
+                            <h3 className="font-semibold text-[#1D1D1D] mb-2 group-hover:text-[#214B57] transition-colors font-noto-serif" style={{ fontSize: 'clamp(1rem, 1.5vw, 1.5rem)', fontWeight: 400, lineHeight: '1.2', letterSpacing: '0px', fontFamily: 'Noto Serif, serif', color: '#1D1D1D' }}>
                               {service.title}
                             </h3>
-                            <p className="text-sm text-[#85929D] font-dm-sans" style={{ fontSize: 'clamp(0.875rem, 1.25vw, 1rem)', fontWeight: 400, lineHeight: '1.2', letterSpacing: '0px', fontFamily: 'DM Sans, sans-serif' }}>
+                            <p className="text-sm text-[#7F8C8D] font-dm-sans" style={{ fontSize: 'clamp(0.875rem, 1.25vw, 1rem)', fontWeight: 400, lineHeight: '1.2', letterSpacing: '0px', fontFamily: 'DM Sans, sans-serif', color: '#7F8C8D' }}>
                               {service.description}
                             </p>
                           </div>
                         </div>
 
-                        <div className="flex items-center gap-2 text-sm font-medium text-[#214B57] mt-4 pt-4 border-t border-black/5 font-dm-sans">
+                        <div className="flex items-center gap-2 text-sm font-medium text-[#214B57] mt-4 pt-4 border-t border-[#4A4A4A] font-dm-sans">
                           View details
                           <ArrowRight size={14} className="transition-transform group-hover:translate-x-1" />
                         </div>
@@ -215,31 +216,10 @@ export default function ServicesPageClient() {
       </section>
 
       {/* CTA Section */}
-      <section className="bg-white px-3 sm:px-4 md:px-6 py-14 md:py-16">
-        <div className="max-w-4xl mx-auto">
-          <FadeIn>
-            <div className="relative overflow-hidden rounded-[28px] border border-black/10 bg-white/55 backdrop-blur shadow-[0_30px_90px_rgba(15,22,36,0.05)] p-8 sm:p-10 md:p-12 text-center">
-              <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(70%_50%_at_20%_0%,rgba(255,255,255,0.18),transparent_60%)]" />
-              
-              <div className="relative">
-                <h2 className="text-[#214B57] font-noto-serif mb-4" style={{ fontSize: 'clamp(1.75rem, 3vw, 2.5rem)', fontWeight: 600, lineHeight: '1.2', letterSpacing: '0px', fontFamily: 'Noto Serif, serif' }}>
-                  Ready to Start Your Project?
-                </h2>
-                <p className="text-[#85929D] mb-8 max-w-xl mx-auto font-dm-sans" style={{ fontSize: 'clamp(1rem, 1.5vw, 1.5rem)', fontWeight: 400, lineHeight: '1.2', letterSpacing: '0px', fontFamily: 'DM Sans, sans-serif' }}>
-                  Get a free consultation with our design experts and discover how we can transform your space.
-                </p>
-                <Link
-                  href="/contact-us"
-                  className="inline-flex items-center justify-center gap-2 min-w-[122px] min-h-[31px] px-8 py-2 rounded-md bg-white border border-[#214B57] text-[#214B57] text-sm font-normal font-dm-sans hover:bg-[#214B57] hover:text-white hover:border-[#F06434] hover:border-2 transition-all duration-150 focus:outline-none focus:ring-2 focus:ring-[#F06434] focus:ring-offset-2 active:bg-[#214B57] active:text-white active:border-[#F06434] active:border-2"
-                >
-                  Get Free Consultation
-                  <ArrowRight size={16} />
-                </Link>
-              </div>
-            </div>
-          </FadeIn>
-        </div>
-      </section>
+      <UnifiedCTA 
+        heading="Ready to Start Your Project?"
+        description="Get a free consultation with our design experts and discover how we can transform your space."
+      />
     </main>
   );
 }

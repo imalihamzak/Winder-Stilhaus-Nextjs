@@ -64,21 +64,21 @@ const Page = () => {
         <div className="relative z-10">
           <HeroSection />
 
-          {/* Services section - background always visible, only content animates */}
-          <div className="bg-white">
+          {/* Services section - Charcoal background with white cards */}
+          <div className="bg-[#1D1D1D]">
             <FadeIn direction="up" delay={0} duration={0.6}>
               <ServicesAbout />
             </FadeIn>
           </div>
 
-          {/* Pricing guide - background always visible, only content animates */}
-          <div className="bg-white">
+          {/* Pricing guide - Charcoal background */}
+          <div className="bg-[#1D1D1D]">
             <FadeIn direction="up" delay={0} duration={0.6}>
               <Suspense fallback={
                 <div className="min-h-[400px] flex items-center justify-center">
                   <div className="text-center">
-                    <div className="w-8 h-8 border-2 border-[#214B57] border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
-                    <p className="text-[#7F8C8D] font-dm-sans">Loading pricing guide...</p>
+                    <div className="w-8 h-8 border-2 border-white/30 border-t-white rounded-full animate-spin mx-auto mb-4"></div>
+                    <p className="text-white/80 font-dm-sans">Loading pricing guide...</p>
                   </div>
                 </div>
               }>
@@ -87,15 +87,15 @@ const Page = () => {
             </FadeIn>
           </div>
 
-          {/* Testimonials - background always visible, only content animates */}
-          <div className="bg-white">
+          {/* Testimonials - Charcoal background with white cards */}
+          <div className="bg-[#1D1D1D]">
             <FadeIn direction="up" delay={0} duration={0.6}>
               <Testimonials />
             </FadeIn>
           </div>
 
-          {/* FAQ - background always visible, only content animates */}
-          <div className="bg-white">
+          {/* FAQ - Charcoal background */}
+          <div className="bg-[#1D1D1D]">
             <FadeIn direction="up" delay={0} duration={0.6}>
               <FAQSection />
             </FadeIn>

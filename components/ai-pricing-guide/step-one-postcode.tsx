@@ -87,7 +87,7 @@ export default function StepOnePostcode({ data, setData, next }: StepOnePostcode
         <p className="text-xs uppercase tracking-[0.3em] text-[#7F8C8D] font-dm-sans mb-2">
           Step 1
         </p>
-        <h2 className="text-[#1D1D1D] font-noto-serif" style={{ fontSize: 'clamp(2rem, 3vw, 3.5rem)', fontWeight: 400, lineHeight: '1.2', letterSpacing: '0px', fontFamily: 'Noto Serif, serif' }}>
+        <h2 className="text-[#1D1D1D] font-noto-serif" style={{ fontSize: 'clamp(2rem, 3vw, 3.5rem)', fontWeight: 600, lineHeight: '1.5', letterSpacing: '0px', fontFamily: 'Noto Serif, serif' }}>
           Property location
         </h2>
         <p className="text-[#7F8C8D] mt-2 font-dm-sans" style={{ fontSize: 'clamp(1rem, 1.5vw, 1.75rem)', fontWeight: 400, lineHeight: '1.2', letterSpacing: '0px', fontFamily: 'DM Sans, sans-serif' }}>
@@ -144,8 +144,8 @@ export default function StepOnePostcode({ data, setData, next }: StepOnePostcode
               min-w-[122px] min-h-[31px] px-6 py-2 rounded-md
               text-white font-normal font-dm-sans
               shadow-[0_18px_45px_rgba(0,0,0,0.1)]
-              hover:bg-[#1a3d47] transition-all duration-150
-              focus:outline-none focus:ring-2 focus:ring-[#F06434] focus:ring-offset-2
+              hover:bg-[#183941] transition-all duration-150
+              focus:outline-none focus:ring-2 focus:ring-[#F04E22] focus:ring-offset-2
               active:bg-white active:text-[#214B57] active:border-2 active:border-[#214B57]
               disabled:bg-[#4A4A4A] disabled:text-[#7F8C8D] disabled:cursor-not-allowed
             "
@@ -256,7 +256,7 @@ export default function StepOnePostcode({ data, setData, next }: StepOnePostcode
             className="
               w-full sm:w-auto
               inline-flex items-center justify-center gap-2
-              min-w-[122px] min-h-[31px] px-8 py-2 rounded-md text-white font-normal font-dm-sans hover:bg-[#1a3d47] transition-all duration-150 focus:outline-none focus:ring-2 focus:ring-[#F06434] focus:ring-offset-2 active:bg-white active:text-[#214B57] active:border-2 active:border-[#214B57] disabled:bg-[#4A4A4A] disabled:text-[#7F8C8D] disabled:cursor-not-allowed
+              min-w-[122px] min-h-[31px] px-8 py-2 rounded-md text-white font-normal font-dm-sans hover:bg-[#183941] transition-all duration-150 focus:outline-none focus:ring-2 focus:ring-[#F04E22] focus:ring-offset-2 active:bg-white active:text-[#214B57] active:border-2 active:border-[#214B57] disabled:bg-[#4A4A4A] disabled:text-[#7F8C8D] disabled:cursor-not-allowed
             "
             style={{ backgroundColor: '#214B57' }}
           >

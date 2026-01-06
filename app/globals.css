@@ -156,21 +156,24 @@ h1, h2, h3, h4, h5, h6 {
 
 h1 {
   font-weight: 700; /* Bold for H1 */
+  line-height: 1.5; /* 1.5-1.6 per brand guidelines */
 }
 
 h2 {
-  font-weight: 600; /* Semi Bold for H2 */
+  font-weight: 600; /* SemiBold for H2 */
+  line-height: 1.5; /* 1.5-1.6 per brand guidelines */
 }
 
 h3, h4, h5, h6 {
   font-weight: 400; /* Regular for H3+ */
+  line-height: 1.5; /* 1.5-1.6 per brand guidelines */
 }
 
 p, li, span, a {
   font-family: var(--font-dm-sans);
   font-weight: 400; /* Regular for body text */
   font-size: clamp(1rem, 1.125vw, 1.125rem); /* 16-18px base */
-  line-height: 1.55; /* 1.5-1.6 line height */
+  line-height: 1.6; /* 1.5-1.6 per brand guidelines */
 }
 
 button, .btn-label {

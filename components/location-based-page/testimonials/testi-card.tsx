@@ -12,7 +12,7 @@ function Stars({ rating = 5 }: StarsProps) {
       {Array.from({ length: 5 }).map((_, i) => (
         <span
           key={i}
-          className={i < rating ? "text-[#F06434]" : "text-black/15"}
+          className={i < rating ? "text-[#F04E22]" : "text-[#4A4A4A]/20"}
         >
           ★
         </span>
@@ -50,11 +50,11 @@ export default function TestimonialCard({ data }: TestimonialCardProps) {
         </div>
       )}
 
-        <h4 className="text-[#214B57] font-semibold mb-1 font-noto-serif" style={{ fontSize: 'clamp(1rem, 1.5vw, 1.5rem)', fontWeight: 400, lineHeight: '1.2', letterSpacing: '0px', fontFamily: 'Noto Serif, serif' }}>
+        <h4 className="text-[#1D1D1D] font-semibold mb-1 font-noto-serif" style={{ fontSize: 'clamp(1rem, 1.5vw, 1.5rem)', fontWeight: 400, lineHeight: '1.2', letterSpacing: '0px', fontFamily: 'Noto Serif, serif' }}>
         {data.name}
       </h4>
 
-        <p className="text-[#85929D] text-sm mb-3 font-dm-sans">
+        <p className="text-[#7F8C8D] text-sm mb-3 font-dm-sans">
         {data.property} · {data.location}
       </p>
 
@@ -62,7 +62,7 @@ export default function TestimonialCard({ data }: TestimonialCardProps) {
           <Stars rating={data.rating} />
         </div>
 
-        <p className="text-[#85929D] mt-4 leading-relaxed text-base font-dm-sans" style={{ fontSize: 'clamp(1rem, 1.5vw, 1.5rem)', fontWeight: 400, lineHeight: '1.2', letterSpacing: '0px', fontFamily: 'DM Sans, sans-serif' }}>
+        <p className="text-[#7F8C8D] mt-4 leading-relaxed text-base font-dm-sans" style={{ fontSize: 'clamp(1rem, 1.5vw, 1.5rem)', fontWeight: 400, lineHeight: '1.5', letterSpacing: '0px', fontFamily: 'DM Sans, sans-serif' }}>
           &quot;{data.review}&quot;
       </p>
       </div>

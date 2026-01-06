@@ -65,18 +65,18 @@ const milestones: Milestone[] = [
 
 export default function TimelineSection() {
   return (
-    <section className="bg-white py-8 sm:py-10 md:py-12">
+    <section className="bg-[#1D1D1D] py-8 sm:py-10 md:py-12 text-white">
       <div className="max-w-7xl mx-auto px-3 sm:px-4 md:px-6">
         <FadeIn direction="up" delay={0.2} duration={0.6}>
           <div className="text-center mb-8">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#f9fafb] border border-[#e5e7eb] text-sm font-medium text-[#1D1D1D] mb-3 font-dm-sans" style={{ fontSize: 'clamp(0.875rem, 1.25vw, 1rem)', fontWeight: 400, lineHeight: '1.2', letterSpacing: '0px', fontFamily: 'DM Sans, sans-serif' }}>
-              <span className="h-2 w-2 rounded-full" style={{ backgroundColor: '#F06434' }}></span>
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#FFFFFF] border border-[#CED3D7] text-sm font-medium text-[#1D1D1D] mb-3 font-dm-sans" style={{ fontSize: 'clamp(0.875rem, 1.25vw, 1rem)', fontWeight: 400, lineHeight: '1.2', letterSpacing: '0px', fontFamily: 'DM Sans, sans-serif' }}>
+              <span className="h-2 w-2 rounded-full" style={{ backgroundColor: '#F04E22' }}></span>
               Our Journey
             </div>
-            <h2 className="text-[#214B57] font-noto-serif mb-4" style={{ fontSize: 'clamp(2rem, 3.6vw, 3.2rem)', fontWeight: 400, lineHeight: '1.2', letterSpacing: '0px', fontFamily: 'Noto Serif, serif' }}>
+            <h2 className="text-white font-noto-serif mb-4" style={{ fontSize: 'clamp(2rem, 3.6vw, 3.2rem)', fontWeight: 600, lineHeight: '1.5', letterSpacing: '0px', fontFamily: 'Noto Serif, serif', color: '#FFFFFF' }}>
               Milestones & Achievements
             </h2>
-            <p className="text-[#85929D] max-w-2xl mx-auto font-dm-sans" style={{ fontSize: 'clamp(1rem, 1.5vw, 1.5rem)', fontWeight: 400, lineHeight: '1.2', letterSpacing: '0px', fontFamily: 'DM Sans, sans-serif' }}>
+            <p className="text-white/90 max-w-2xl mx-auto font-dm-sans" style={{ fontSize: 'clamp(1rem, 1.5vw, 1.5rem)', fontWeight: 400, lineHeight: '1.2', letterSpacing: '0px', fontFamily: 'DM Sans, sans-serif', color: 'rgba(255, 255, 255, 0.9)' }}>
               A decade of growth, innovation, and excellence in luxury interior design.
             </p>
           </div>
@@ -87,7 +87,7 @@ export default function TimelineSection() {
             const Icon = milestone.icon;
             return (
               <FadeIn key={i} direction="up" delay={0.3 + (i * 0.1)} duration={0.6}>
-                <div className="relative bg-white border border-[#e5e7eb] rounded-[28px] p-6 sm:p-8 hover:shadow-[0_25px_70px_rgba(15,22,36,0.05)] transition-all group overflow-hidden">
+                <div className="relative bg-white border border-[#4A4A4A] rounded-[28px] p-6 sm:p-8 hover:shadow-[0_25px_70px_rgba(0,0,0,0.1)] transition-all group overflow-hidden">
                   {/* Background accent */}
                   <div className={`absolute top-0 right-0 w-32 h-32 rounded-full ${milestone.color} opacity-50 blur-3xl -z-0`} />
                   
@@ -98,18 +98,18 @@ export default function TimelineSection() {
                         <Icon className={`text-xl ${milestone.iconColor}`} />
                       </div>
                       <div className="text-right">
-                        <div className="text-2xl font-bold text-[#214B57] font-noto-serif">{milestone.year}</div>
-                        <div className="text-xs text-[#85929D] font-medium font-dm-sans">Year</div>
+                        <div className="text-2xl font-bold text-[#1D1D1D] font-noto-serif">{milestone.year}</div>
+                        <div className="text-xs text-[#7F8C8D] font-medium font-dm-sans">Year</div>
                       </div>
                     </div>
 
                     {/* Title */}
-                    <h3 className="font-semibold text-[#214B57] mb-3 font-noto-serif" style={{ fontSize: 'clamp(1.25rem, 2vw, 1.75rem)', fontWeight: 400, lineHeight: '1.2', letterSpacing: '0px', fontFamily: 'Noto Serif, serif' }}>
+                    <h3 className="font-semibold text-[#1D1D1D] mb-3 font-noto-serif" style={{ fontSize: 'clamp(1.25rem, 2vw, 1.75rem)', fontWeight: 400, lineHeight: '1.2', letterSpacing: '0px', fontFamily: 'Noto Serif, serif', color: '#1D1D1D' }}>
                       {milestone.title}
                     </h3>
 
                     {/* Description */}
-                    <p className="text-[#85929D] leading-relaxed text-sm sm:text-base font-dm-sans" style={{ fontSize: 'clamp(0.875rem, 1.5vw, 1.5rem)', fontWeight: 400, lineHeight: '1.2', letterSpacing: '0px', fontFamily: 'DM Sans, sans-serif' }}>
+                    <p className="text-[#7F8C8D] leading-relaxed text-sm sm:text-base font-dm-sans" style={{ fontSize: 'clamp(0.875rem, 1.5vw, 1.5rem)', fontWeight: 400, lineHeight: '1.2', letterSpacing: '0px', fontFamily: 'DM Sans, sans-serif', color: '#7F8C8D' }}>
                       {milestone.desc}
                     </p>
 

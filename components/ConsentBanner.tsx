@@ -4,24 +4,26 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 export default function ConsentBanner() {
-  // Initialize state from localStorage using function initializer to avoid sync setState in effect
   const [showBanner, setShowBanner] = useState<boolean>(false);
-  const [consentGiven, setConsentGiven] = useState<boolean>(() => {
-    if (typeof window === "undefined") return false;
-    return localStorage.getItem("cookie-consent") === "accepted";
-  });
+  const [consentGiven, setConsentGiven] = useState<boolean>(false);
 
   useEffect(() => {
-    // If consent was already given, don't show banner
-    if (consentGiven) return;
+    // Check localStorage directly to see if consent was already given
+    const consent = localStorage.getItem("cookie-consent");
+    
+    // If consent was already given (accepted or rejected), don't show banner
+    if (consent === "accepted" || consent === "rejected") {
+      setConsentGiven(true);
+      return;
+    }
 
-    // Show banner after a short delay
+    // Show banner after a short delay only if no consent was previously given
     const timer = setTimeout(() => {
       setShowBanner(true);
     }, 1000);
 
     return () => clearTimeout(timer);
-  }, [consentGiven]);
+  }, []);
 
   const acceptConsent = () => {
     // Set consent in localStorage
@@ -120,21 +122,17 @@ export default function ConsentBanner() {
         className="fixed bottom-0 left-0 right-0 z-[100] px-3 sm:px-4 md:px-6 pb-4 md:pb-6"
       >
         <div className="max-w-7xl mx-auto">
-          <div className="relative overflow-hidden bg-white border border-[#4A4A4A]/30 rounded-[28px] shadow-[0_30px_90px_rgba(15,22,36,0.04)] p-6 sm:p-8 md:p-10">
-            {/* Subtle shine effect matching app cards */}
-            <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(70%_55%_at_20%_0%,rgba(255,255,255,0.20),transparent_60%)]" />
-            
+          <div className="relative overflow-hidden border border-white/20 rounded-[28px] shadow-[0_30px_90px_rgba(0,0,0,0.2)] p-6 sm:p-8 md:p-10" style={{ background: 'linear-gradient(180deg, #214B57 0%, #183941 100%)' }}>
             <div className="relative flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 sm:gap-6">
               <div className="flex-1">
-                <h3 className="text-[#214B57] font-noto-serif mb-2" style={{ fontSize: 'clamp(1.125rem, 1.75vw, 1.5rem)', fontWeight: 400, lineHeight: '1.2', letterSpacing: '0px', fontFamily: 'Noto Serif, serif' }}>
+                <h3 className="text-white font-noto-serif mb-2" style={{ fontSize: 'clamp(1.125rem, 1.75vw, 1.5rem)', fontWeight: 400, lineHeight: '1.2', letterSpacing: '0px', fontFamily: 'Noto Serif, serif' }}>
                   Cookie Preferences
                 </h3>
-                <p className="text-[#85929D] font-dm-sans leading-relaxed" style={{ fontSize: 'clamp(0.875rem, 1.25vw, 1rem)', fontWeight: 400, lineHeight: '1.5', letterSpacing: '0px', fontFamily: 'DM Sans, sans-serif' }}>
+                <p className="text-white/90 font-dm-sans leading-relaxed" style={{ fontSize: 'clamp(0.875rem, 1.25vw, 1rem)', fontWeight: 400, lineHeight: '1.5', letterSpacing: '0px', fontFamily: 'DM Sans, sans-serif' }}>
                   We use cookies and similar technologies to improve your experience, analyse site traffic, and personalise content. By clicking "Accept All", you consent to our use of cookies.{" "}
                   <a
                     href="/privacy"
-                    className="underline hover:no-underline transition"
-                    style={{ color: '#214B57' }}
+                    className="underline hover:no-underline transition text-white"
                   >
                     Learn more
                   </a>
@@ -148,10 +146,10 @@ export default function ConsentBanner() {
                     min-w-[122px] min-h-[31px] px-6 py-2 rounded-md
                     bg-white border border-[#214B57] text-[#214B57]
                     text-sm font-normal font-dm-sans
-                    hover:bg-[#214B57] hover:text-white hover:border-[#F06434] hover:border-2
+                    hover:bg-[#214B57] hover:text-white hover:border-[#F04E22] hover:border-2
                     transition-all duration-150
                     focus:outline-none focus:ring-1 focus:ring-[#F04E22]/40 focus:ring-offset-1
-                    active:bg-[#214B57] active:text-white active:border-[#F06434] active:border-2
+                    active:bg-[#214B57] active:text-white active:border-[#F04E22] active:border-2
                     flex-1 sm:flex-initial
                   "
                 >
@@ -163,9 +161,9 @@ export default function ConsentBanner() {
                     min-w-[122px] min-h-[31px] px-6 py-2 rounded-md text-white
                     text-sm font-normal font-dm-sans
                     shadow-[0_18px_45px_rgba(26,29,41,0.08)]
-                    hover:bg-[#1a3d47] transition-all duration-150
+                    hover:bg-[#183941] transition-all duration-150
                     focus:outline-none focus:ring-1 focus:ring-[#F04E22]/40 focus:ring-offset-1
-                    active:bg-[#214B57] active:text-white active:border-[#F06434] active:border-2
+                    active:bg-[#214B57] active:text-white active:border-[#F04E22] active:border-2
                     flex-1 sm:flex-initial
                   "
                   style={{ backgroundColor: '#F04E22' }}

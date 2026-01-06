@@ -1,6 +1,7 @@
 "use client";
 
 import FadeIn from "@/components/FadeIn";
+import UnifiedCTA from "@/components/UnifiedCTA";
 import { Shield, Factory, Wrench, FileText, CheckCircle, Clock, AlertCircle } from "lucide-react";
 
 interface WarrantySection {
@@ -138,28 +139,28 @@ export default function GuaranteesAftercareContent() {
   return (
     <>
       {/* Hero Section */}
-      <section className="relative bg-white text-[#1D1D1D] pt-0 pb-6 sm:pb-8 md:pb-10">
+      <section className="relative bg-[#1D1D1D] text-white pt-0 pb-6 sm:pb-8 md:pb-10">
         <div className="max-w-7xl mx-auto px-3 sm:px-4 md:px-6">
           <FadeIn className="text-center" duration={0.6} delay={0.1}>
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#f9fafb] border border-[#e5e7eb] text-sm font-medium text-[#1D1D1D] mb-3 font-dm-sans" style={{ fontSize: 'clamp(0.875rem, 1.25vw, 1rem)', fontWeight: 400, lineHeight: '1.2', letterSpacing: '0px', fontFamily: 'DM Sans, sans-serif' }}>
-              <span className="h-2 w-2 rounded-full" style={{ backgroundColor: '#F06434' }}></span>
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#FFFFFF] border border-[#CED3D7] text-sm font-medium text-[#1D1D1D] mb-3 font-dm-sans" style={{ fontSize: 'clamp(0.875rem, 1.25vw, 1rem)', fontWeight: 400, lineHeight: '1.2', letterSpacing: '0px', fontFamily: 'DM Sans, sans-serif' }}>
+              <span className="h-2 w-2 rounded-full" style={{ backgroundColor: '#F04E22' }}></span>
               Guarantees & Aftercare
             </div>
-            <h1 className="text-[#214B57] font-noto-serif mb-4" style={{ fontSize: 'clamp(2.5rem, 5vw, 4.5rem)', fontWeight: 400, lineHeight: '1.2', letterSpacing: '0px', fontFamily: 'Noto Serif, serif' }}>
+            <h1 className="text-white font-noto-serif mb-4" style={{ fontSize: 'clamp(2.5rem, 5vw, 4.5rem)', fontWeight: 700, lineHeight: '1.5', letterSpacing: '0px', fontFamily: 'Noto Serif, serif', color: '#FFFFFF' }}>
               Guarantees & Aftercare
             </h1>
-            <p className="text-[#85929D] max-w-2xl mx-auto mb-8 font-dm-sans" style={{ fontSize: 'clamp(1rem, 1.5vw, 1.5rem)', fontWeight: 400, lineHeight: '1.2', letterSpacing: '0px', fontFamily: 'DM Sans, sans-serif' }}>
+            <p className="text-white/90 max-w-2xl mx-auto mb-8 font-dm-sans" style={{ fontSize: 'clamp(1rem, 1.5vw, 1.5rem)', fontWeight: 400, lineHeight: '1.2', letterSpacing: '0px', fontFamily: 'DM Sans, sans-serif', color: 'rgba(255, 255, 255, 0.9)' }}>
               Comprehensive warranty coverage, workmanship guarantees, and clear maintenance expectations for your peace of mind.
             </p>
           </FadeIn>
         </div>
       </section>
 
-      <section className="bg-white py-6 md:py-8 px-3 sm:px-4 md:px-6">
+      <section className="bg-[#1D1D1D] py-6 md:py-8 px-3 sm:px-4 md:px-6">
         <div className="max-w-7xl mx-auto">
           {/* Warranty Principles */}
           <FadeIn className="mb-12" duration={0.6} delay={0.2}>
-            <h2 className="font-semibold text-[#214B57] mb-8 text-center font-noto-serif" style={{ fontSize: 'clamp(1.5rem, 2.5vw, 2.17rem)', fontWeight: 600, lineHeight: '1.2', letterSpacing: '0px', fontFamily: 'Noto Serif, serif' }}>
+            <h2 className="font-semibold text-[#214B57] mb-8 text-center font-noto-serif" style={{ fontSize: 'clamp(1.5rem, 2.5vw, 2.17rem)', fontWeight: 600, lineHeight: '1.5', letterSpacing: '0px', fontFamily: 'Noto Serif, serif' }}>
               Our Warranty Principles
             </h2>
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -181,7 +182,7 @@ export default function GuaranteesAftercareContent() {
 
           {/* Warranty Coverage */}
           <FadeIn className="mb-12" duration={0.6} delay={0.3}>
-            <h2 className="font-semibold text-[#214B57] mb-8 text-center font-noto-serif" style={{ fontSize: 'clamp(1.5rem, 2.5vw, 2.17rem)', fontWeight: 600, lineHeight: '1.2', letterSpacing: '0px', fontFamily: 'Noto Serif, serif' }}>
+            <h2 className="font-semibold text-[#214B57] mb-8 text-center font-noto-serif" style={{ fontSize: 'clamp(1.5rem, 2.5vw, 2.17rem)', fontWeight: 600, lineHeight: '1.5', letterSpacing: '0px', fontFamily: 'Noto Serif, serif' }}>
               Warranty Coverage
             </h2>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
@@ -197,7 +198,7 @@ export default function GuaranteesAftercareContent() {
                         {section.title}
                       </h3>
                       {section.duration && (
-                        <p className="text-sm text-[#F06434] mb-3 font-semibold font-dm-sans" style={{ fontSize: 'clamp(0.875rem, 1.25vw, 1rem)', fontWeight: 600, lineHeight: '1.2', letterSpacing: '0px', fontFamily: 'DM Sans, sans-serif' }}>
+                        <p className="text-sm text-[#F04E22] mb-3 font-semibold font-dm-sans" style={{ fontSize: 'clamp(0.875rem, 1.25vw, 1rem)', fontWeight: 600, lineHeight: '1.2', letterSpacing: '0px', fontFamily: 'DM Sans, sans-serif' }}>
                           <Clock size={14} className="inline mr-1" />
                           {section.duration}
                         </p>
@@ -208,7 +209,7 @@ export default function GuaranteesAftercareContent() {
                       <ul className="space-y-2">
                         {section.items.map((item, j) => (
                           <li key={j} className="flex items-start gap-2 text-sm text-[#85929D] font-dm-sans" style={{ fontSize: 'clamp(0.875rem, 1.25vw, 1rem)', fontWeight: 400, lineHeight: '1.2', letterSpacing: '0px', fontFamily: 'DM Sans, sans-serif' }}>
-                            <CheckCircle className="text-[#F06434] mt-0.5 flex-shrink-0" size={16} />
+                            <CheckCircle className="text-[#F04E22] mt-0.5 flex-shrink-0" size={16} />
                             <span>{item}</span>
                           </li>
                         ))}
@@ -222,7 +223,7 @@ export default function GuaranteesAftercareContent() {
 
           {/* Maintenance Expectations */}
           <FadeIn className="mb-12" duration={0.6} delay={0.5}>
-            <h2 className="font-semibold text-[#214B57] mb-8 text-center font-noto-serif" style={{ fontSize: 'clamp(1.5rem, 2.5vw, 2.17rem)', fontWeight: 600, lineHeight: '1.2', letterSpacing: '0px', fontFamily: 'Noto Serif, serif' }}>
+            <h2 className="font-semibold text-[#214B57] mb-8 text-center font-noto-serif" style={{ fontSize: 'clamp(1.5rem, 2.5vw, 2.17rem)', fontWeight: 600, lineHeight: '1.5', letterSpacing: '0px', fontFamily: 'Noto Serif, serif' }}>
               Maintenance Expectations
             </h2>
             <div className="space-y-6">
@@ -258,25 +259,25 @@ export default function GuaranteesAftercareContent() {
 
           {/* Important Notes */}
           <FadeIn className="mb-12" duration={0.6} delay={0.7}>
-            <div className="rounded-[24px] border-2 border-[#F06434]/20 bg-[#F06434]/5 p-6 sm:p-8">
+            <div className="rounded-[24px] border-2 border-[#F04E22]/20 bg-[#F04E22]/5 p-6 sm:p-8">
               <h3 className="font-semibold text-[#214B57] mb-4 font-noto-serif" style={{ fontSize: 'clamp(1.25rem, 2vw, 1.75rem)', fontWeight: 400, lineHeight: '1.2', letterSpacing: '0px', fontFamily: 'Noto Serif, serif' }}>
                 Important Notes
               </h3>
               <ul className="space-y-3 text-[#85929D] font-dm-sans" style={{ fontSize: 'clamp(1rem, 1.5vw, 1.5rem)', fontWeight: 400, lineHeight: '1.2', letterSpacing: '0px', fontFamily: 'DM Sans, sans-serif' }}>
                 <li className="flex items-start gap-2">
-                  <CheckCircle className="text-[#F06434] mt-0.5 flex-shrink-0" size={20} />
+                  <CheckCircle className="text-[#F04E22] mt-0.5 flex-shrink-0" size={20} />
                   <span>Warranty coverage applies only to defects in materials and workmanship, not to normal wear and tear or damage caused by misuse.</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <CheckCircle className="text-[#F06434] mt-0.5 flex-shrink-0" size={20} />
+                  <CheckCircle className="text-[#F04E22] mt-0.5 flex-shrink-0" size={20} />
                   <span>Regular maintenance as outlined is essential to maintain warranty coverage. Failure to follow maintenance guidelines may void warranty protection.</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <CheckCircle className="text-[#F06434] mt-0.5 flex-shrink-0" size={20} />
+                  <CheckCircle className="text-[#F04E22] mt-0.5 flex-shrink-0" size={20} />
                   <span>All warranty claims must be reported promptly. Delayed reporting may affect warranty coverage.</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <CheckCircle className="text-[#F06434] mt-0.5 flex-shrink-0" size={20} />
+                  <CheckCircle className="text-[#F04E22] mt-0.5 flex-shrink-0" size={20} />
                   <span>Full warranty documentation is provided at project handover, including manufacturer warranties and our workmanship guarantee.</span>
                 </li>
               </ul>
@@ -284,30 +285,12 @@ export default function GuaranteesAftercareContent() {
           </FadeIn>
 
           {/* CTA */}
-          <FadeIn duration={0.6} delay={0.8}>
-            <div className="rounded-[30px] border border-black/10 text-white shadow-lg p-8 sm:p-10 text-center" style={{ backgroundColor: '#214B57' }}>
-              <h3 className="font-semibold mb-4 font-noto-serif" style={{ fontSize: 'clamp(1.5rem, 2.5vw, 2.17rem)', fontWeight: 400, lineHeight: '1.2', letterSpacing: '0px', fontFamily: 'Noto Serif, serif' }}>
-                Questions About Guarantees or Maintenance?
-              </h3>
-              <p className="text-white/80 mb-6 max-w-2xl mx-auto font-dm-sans" style={{ fontSize: 'clamp(1rem, 1.5vw, 1.5rem)', fontWeight: 400, lineHeight: '1.2', letterSpacing: '0px', fontFamily: 'DM Sans, sans-serif' }}>
-                Contact us for detailed warranty information, maintenance guidance, or to report a warranty claim.
-              </p>
-              <div className="flex flex-wrap justify-center gap-4">
-                <a
-                  href="/contact-us"
-                  className="inline-flex items-center gap-2 min-w-[122px] min-h-[31px] px-8 py-2 rounded-md bg-white border border-[#214B57] text-[#214B57] font-normal font-dm-sans shadow-lg hover:bg-[#214B57] hover:text-white hover:border-[#F06434] hover:border-2 transition-all duration-150 focus:outline-none focus:ring-2 focus:ring-[#F06434] focus:ring-offset-2 active:bg-[#214B57] active:text-white active:border-[#F06434] active:border-2"
-                >
-                  Contact Us <span className="text-lg">→</span>
-                </a>
-                <a
-                  href="/aftercare"
-                  className="inline-flex items-center gap-2 min-w-[122px] min-h-[31px] px-8 py-2 rounded-md border-2 border-white text-white font-normal font-dm-sans hover:bg-white hover:text-[#214B57] transition-all duration-150"
-                >
-                  View Aftercare Support
-                </a>
-              </div>
-            </div>
-          </FadeIn>
+          <UnifiedCTA 
+            heading="Questions About Guarantees or Maintenance?"
+            description="Contact us for detailed warranty information, maintenance guidance, or to report a warranty claim."
+            buttonText="Contact Us"
+            delay={0.8}
+          />
         </div>
       </section>
     </>

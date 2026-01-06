@@ -1,6 +1,7 @@
 "use client";
 
 import FadeIn from "@/components/FadeIn";
+import UnifiedCTA from "@/components/UnifiedCTA";
 import {
   Handshake,
   Compass,
@@ -133,17 +134,17 @@ export default function HowWeWorkContent() {
   return (
     <>
       {/* Hero Section - Matching service pages spacing exactly */}
-      <section className="relative bg-white text-[#1D1D1D] pt-0 pb-6 sm:pb-8 md:pb-10">
+      <section className="relative bg-[#1D1D1D] text-white pt-0 pb-6 sm:pb-8 md:pb-10">
         <div className="max-w-7xl mx-auto px-3 sm:px-4 md:px-6">
           <FadeIn className="text-center" duration={0.6} delay={0.1}>
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#f9fafb] border border-[#e5e7eb] text-sm font-medium text-[#1D1D1D] mb-3 font-dm-sans" style={{ fontSize: 'clamp(0.875rem, 1.25vw, 1rem)', fontWeight: 400, lineHeight: '1.2', letterSpacing: '0px', fontFamily: 'DM Sans, sans-serif' }}>
-              <span className="h-2 w-2 rounded-full" style={{ backgroundColor: '#F06434' }}></span>
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#FFFFFF] border border-[#CED3D7] text-sm font-medium text-[#1D1D1D] mb-3 font-dm-sans" style={{ fontSize: 'clamp(0.875rem, 1.25vw, 1rem)', fontWeight: 400, lineHeight: '1.2', letterSpacing: '0px', fontFamily: 'DM Sans, sans-serif' }}>
+              <span className="h-2 w-2 rounded-full" style={{ backgroundColor: '#F04E22' }}></span>
               Our Process
             </div>
-            <h1 className="text-[#214B57] font-noto-serif mb-4" style={{ fontSize: 'clamp(2.5rem, 5vw, 4.5rem)', fontWeight: 700, lineHeight: '1.2', letterSpacing: '0px', fontFamily: 'Noto Serif, serif' }}>
+            <h1 className="text-white font-noto-serif mb-4" style={{ fontSize: 'clamp(2.5rem, 5vw, 4.5rem)', fontWeight: 700, lineHeight: '1.5', letterSpacing: '0px', fontFamily: 'Noto Serif, serif', color: '#FFFFFF' }}>
               How We Work
             </h1>
-            <p className="text-[#85929D] max-w-2xl mx-auto mb-8 font-dm-sans" style={{ fontSize: 'clamp(1rem, 1.5vw, 1.5rem)', fontWeight: 400, lineHeight: '1.2', letterSpacing: '0px', fontFamily: 'DM Sans, sans-serif' }}>
+            <p className="text-white/90 max-w-2xl mx-auto mb-8 font-dm-sans" style={{ fontSize: 'clamp(1rem, 1.5vw, 1.5rem)', fontWeight: 400, lineHeight: '1.2', letterSpacing: '0px', fontFamily: 'DM Sans, sans-serif', color: 'rgba(255, 255, 255, 0.9)' }}>
               A clear, transparent 5-step process designed to deliver premium interior design and renovation services with precision and care.
             </p>
           </FadeIn>
@@ -151,7 +152,7 @@ export default function HowWeWorkContent() {
       </section>
 
       {/* Steps */}
-      <section className="bg-white py-6 md:py-8 px-3 sm:px-4 md:px-6">
+      <section className="bg-[#1D1D1D] py-6 md:py-8 px-3 sm:px-4 md:px-6">
         <div className="max-w-7xl mx-auto">
           <div className="space-y-8 sm:space-y-12">
             {steps.map((step, index) => {
@@ -167,7 +168,7 @@ export default function HowWeWorkContent() {
                   <div className="relative">
                     {/* Connector Line (except last) */}
                     {index < steps.length - 1 && (
-                      <div className="hidden md:block absolute left-8 top-24 bottom-0 w-0.5 bg-gradient-to-b from-[#1a1d29]/20 to-transparent" />
+                      <div className="hidden md:block absolute left-8 top-24 bottom-0 w-0.5 bg-gradient-to-b from-white/20 to-transparent" />
                     )}
 
                     <div className="flex flex-col md:flex-row gap-6 md:gap-8">
@@ -182,11 +183,11 @@ export default function HowWeWorkContent() {
                       </div>
 
                       {/* Content */}
-                      <div className="flex-1 bg-white border border-[#e5e7eb] rounded-2xl p-6 sm:p-8 shadow-sm">
-                        <h2 className="font-semibold text-[#214B57] mb-3 font-noto-serif" style={{ fontSize: 'clamp(1.5rem, 2.5vw, 2.17rem)', fontWeight: 600, lineHeight: '1.2', letterSpacing: '0px', fontFamily: 'Noto Serif, serif' }}>
+                      <div className="flex-1 bg-white border border-[#4A4A4A] rounded-2xl p-6 sm:p-8 shadow-sm">
+                        <h2 className="font-semibold text-[#1D1D1D] mb-3 font-noto-serif" style={{ fontSize: 'clamp(1.5rem, 2.5vw, 2.17rem)', fontWeight: 600, lineHeight: '1.5', letterSpacing: '0px', fontFamily: 'Noto Serif, serif', color: '#1D1D1D' }}>
                           {step.title}
                         </h2>
-                        <p className="text-[#85929D] mb-6 font-dm-sans" style={{ fontSize: 'clamp(1rem, 1.5vw, 1.5rem)', fontWeight: 400, lineHeight: '1.2', letterSpacing: '0px', fontFamily: 'DM Sans, sans-serif' }}>
+                        <p className="text-[#7F8C8D] mb-6 font-dm-sans" style={{ fontSize: 'clamp(1rem, 1.5vw, 1.5rem)', fontWeight: 400, lineHeight: '1.2', letterSpacing: '0px', fontFamily: 'DM Sans, sans-serif', color: '#7F8C8D' }}>
                           {step.description}
                         </p>
 
@@ -202,10 +203,10 @@ export default function HowWeWorkContent() {
                           {step.details.map((detail, i) => (
                             <div
                               key={i}
-                              className="flex items-start gap-2 text-sm text-[#85929D] font-dm-sans"
-                              style={{ fontSize: 'clamp(0.875rem, 1.25vw, 1rem)', fontWeight: 400, lineHeight: '1.2', letterSpacing: '0px', fontFamily: 'DM Sans, sans-serif' }}
+                              className="flex items-start gap-2 text-sm text-[#7F8C8D] font-dm-sans"
+                              style={{ fontSize: 'clamp(0.875rem, 1.25vw, 1rem)', fontWeight: 400, lineHeight: '1.2', letterSpacing: '0px', fontFamily: 'DM Sans, sans-serif', color: '#7F8C8D' }}
                             >
-                              <span className="text-[#F06434] font-bold mt-0.5 flex-shrink-0">
+                              <span className="text-[#F04E22] font-bold mt-0.5 flex-shrink-0">
                                 ✓
                               </span>
                               <span>{detail}</span>
@@ -214,16 +215,16 @@ export default function HowWeWorkContent() {
                         </div>
 
                         {step.clientResponsibilities && step.clientResponsibilities.length > 0 && (
-                          <div className="mt-6 pt-6 border-t border-[#e5e7eb]">
-                            <h4 className="font-semibold text-[#214B57] mb-3 font-noto-serif" style={{ fontSize: 'clamp(1rem, 1.5vw, 1.5rem)', fontWeight: 400, lineHeight: '1.2', letterSpacing: '0px', fontFamily: 'Noto Serif, serif' }}>
+                          <div className="mt-6 pt-6 border-t border-[#4A4A4A]">
+                            <h4 className="font-semibold text-[#214B57] mb-3 font-noto-serif" style={{ fontSize: 'clamp(1rem, 1.5vw, 1.5rem)', fontWeight: 400, lineHeight: '1.2', letterSpacing: '0px', fontFamily: 'Noto Serif, serif', color: '#214B57' }}>
                               Your Responsibilities
                             </h4>
                             <ul className="space-y-2">
                               {step.clientResponsibilities.map((responsibility, i) => (
                                 <li
                                   key={i}
-                                  className="flex items-start gap-2 text-sm text-[#85929D] font-dm-sans"
-                                  style={{ fontSize: 'clamp(0.875rem, 1.25vw, 1rem)', fontWeight: 400, lineHeight: '1.5', letterSpacing: '0px', fontFamily: 'DM Sans, sans-serif' }}
+                                  className="flex items-start gap-2 text-sm text-[#7F8C8D] font-dm-sans"
+                                  style={{ fontSize: 'clamp(0.875rem, 1.25vw, 1rem)', fontWeight: 400, lineHeight: '1.5', letterSpacing: '0px', fontFamily: 'DM Sans, sans-serif', color: '#7F8C8D' }}
                                 >
                                   <span className="text-[#214B57] mt-1 flex-shrink-0">•</span>
                                   <span>{responsibility}</span>
@@ -243,34 +244,11 @@ export default function HowWeWorkContent() {
       </section>
 
       {/* CTA Section */}
-      <section className="bg-white py-6 md:py-8 px-3 sm:px-4 md:px-6">
-        <div className="max-w-7xl mx-auto">
-          <FadeIn direction="up" delay={0.7} duration={0.6}>
-            <div className="mt-12 sm:mt-16 rounded-3xl border border-[#e5e7eb] bg-[#214B57] text-white shadow-lg p-8 sm:p-10 text-center">
-              <h2 className="font-semibold mb-4 font-noto-serif" style={{ fontSize: 'clamp(1.5rem, 2.5vw, 2.17rem)', fontWeight: 600, lineHeight: '1.2', letterSpacing: '0px', fontFamily: 'Noto Serif, serif' }}>
-                Ready to Start Your Project?
-              </h2>
-              <p className="text-white/80 mb-6 max-w-2xl mx-auto font-dm-sans" style={{ fontSize: 'clamp(1rem, 1.5vw, 1.5rem)', fontWeight: 400, lineHeight: '1.2', letterSpacing: '0px', fontFamily: 'DM Sans, sans-serif' }}>
-                Book a free consultation and let's discuss how we can bring your vision to life.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <a
-                  href="/contact-us"
-                  className="inline-flex items-center justify-center gap-2 min-w-[122px] min-h-[31px] px-8 py-2 rounded-md bg-white border border-[#214B57] text-[#214B57] font-normal font-dm-sans shadow-lg hover:bg-[#214B57] hover:text-white hover:border-[#F06434] hover:border-2 transition-all duration-150 focus:outline-none focus:ring-2 focus:ring-[#F06434] focus:ring-offset-2 active:bg-[#214B57] active:text-white active:border-[#F06434] active:border-2"
-                >
-                  Book a consultation <span className="text-lg">→</span>
-                </a>
-                <a
-                  href="tel:+1234567890"
-                  className="inline-flex items-center justify-center gap-2 min-w-[122px] min-h-[31px] px-8 py-2 rounded-md border-2 border-white text-white font-normal font-dm-sans hover:bg-white hover:text-[#214B57] transition-all duration-150"
-                >
-                  Call us
-                </a>
-              </div>
-            </div>
-          </FadeIn>
-        </div>
-      </section>
+      <UnifiedCTA 
+        heading="Ready to Start Your Project?"
+        description="Book a free consultation and let's discuss how we can bring your vision to life."
+        delay={0.7}
+      />
     </>
   );
 }

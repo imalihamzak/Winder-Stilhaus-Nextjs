@@ -1,6 +1,7 @@
 "use client";
 
 import FadeIn from "@/components/FadeIn";
+import UnifiedCTA from "@/components/UnifiedCTA";
 import { useState } from "react";
 
 interface Blog {
@@ -133,22 +134,22 @@ function BlogList() {
   const containerClass = "max-w-7xl mx-auto px-3 sm:px-4 md:px-6";
 
   return (
-    <section className="bg-white pt-0 pb-16 sm:pb-20 md:pb-24">
+    <section className="bg-[#1D1D1D] pt-6 sm:pt-8 md:pt-10 pb-16 sm:pb-20 md:pb-24 text-white">
       <div className={containerClass}>
         {/* Header */}
         <FadeIn direction="up" delay={0.1} duration={0.6} className="mb-10 md:mb-12">
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-5">
             <div className="max-w-2xl">
-              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#F9FAFB] border border-[#E5E7EB] text-[11px] uppercase tracking-[0.32em] text-[#1D1D1D] font-dm-sans mb-3" style={{ fontSize: 'clamp(0.6875rem, 1vw, 0.875rem)', fontWeight: 400, lineHeight: '1.2', letterSpacing: '0.32em', fontFamily: 'DM Sans, sans-serif' }}>
-                <span className="h-1.5 w-1.5 rounded-full" style={{ backgroundColor: '#F06434' }}></span>
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#FFFFFF] border border-[#CED3D7] text-[11px] uppercase tracking-[0.32em] text-[#1D1D1D] font-dm-sans mb-3" style={{ fontSize: 'clamp(0.6875rem, 1vw, 0.875rem)', fontWeight: 400, lineHeight: '1.2', letterSpacing: '0.32em', fontFamily: 'DM Sans, sans-serif' }}>
+                <span className="h-1.5 w-1.5 rounded-full" style={{ backgroundColor: '#F04E22' }}></span>
                 BLOG
               </div>
 
-              <h2 className="text-[#1D1D1D] font-noto-serif mb-4" style={{ fontSize: 'clamp(2.5rem, 4vw, 4.17rem)', fontWeight: 400, lineHeight: '1.2', letterSpacing: '0px', fontFamily: 'Noto Serif, serif', color: '#1D1D1D' }}>
+              <h2 className="text-white font-noto-serif mb-4" style={{ fontSize: 'clamp(2.5rem, 4vw, 4.17rem)', fontWeight: 600, lineHeight: '1.5', letterSpacing: '0px', fontFamily: 'Noto Serif, serif', color: '#FFFFFF' }}>
                 Resource Hub
               </h2>
 
-              <p className="text-[#7F8C8D] font-dm-sans" style={{ fontSize: 'clamp(1rem, 1.5vw, 1.5rem)', fontWeight: 400, lineHeight: '1.2', letterSpacing: '0px', fontFamily: 'DM Sans, sans-serif', color: '#7F8C8D' }}>
+              <p className="text-white/90 font-dm-sans" style={{ fontSize: 'clamp(1rem, 1.5vw, 1.5rem)', fontWeight: 400, lineHeight: '1.2', letterSpacing: '0px', fontFamily: 'DM Sans, sans-serif', color: 'rgba(255, 255, 255, 0.9)' }}>
                 Practical local guides, renovation costs, and regulatory information for West Yorkshire. 
                 Everything you need to know about planning and executing your home renovation project.
               </p>
@@ -167,7 +168,7 @@ function BlogList() {
                   ${
                     selectedCategory === category
                       ? "bg-[#214B57] text-white border-[#214B57] shadow-sm"
-                      : "bg-transparent text-[#1D1D1D] border-[#4A4A4A] hover:bg-[#4A4A4A]/5"
+                      : "bg-transparent text-white border-[#4A4A4A] hover:bg-[#4A4A4A]/5"
                   }`}
               >
                 {category}
@@ -178,7 +179,7 @@ function BlogList() {
 
         {/* Featured Article */}
         <FadeIn direction="up" delay={0.2} duration={0.6}>
-          <article className="group relative overflow-hidden rounded-[24px] sm:rounded-[30px] border border-[#4A4A4A] bg-white shadow-lg mb-8 sm:mb-12 hover:border-t-[2px] hover:border-t-[#F06434] transition-all duration-150">
+          <article className="group relative overflow-hidden rounded-[24px] sm:rounded-[30px] border border-[#4A4A4A] bg-white shadow-lg mb-8 sm:mb-12 hover:border-t-[2px] hover:border-t-[#F04E22] transition-all duration-150">
             <div className="relative">
               <div className="relative h-[240px] sm:h-[280px] md:h-[380px] overflow-hidden">
                 <img
@@ -190,7 +191,7 @@ function BlogList() {
 
                 <div className="absolute left-3 sm:left-5 right-3 sm:right-5 bottom-3 sm:bottom-5 flex items-end justify-between gap-2 sm:gap-3">
                   <span className="inline-flex items-center gap-1.5 sm:gap-2 px-2.5 sm:px-3 py-0.5 sm:py-1 rounded-full bg-white/95 border border-[#4A4A4A]/20 text-[10px] sm:text-xs font-semibold text-[#1D1D1D] shadow-sm font-dm-sans">
-                    <span className="h-1.5 w-1.5 sm:h-2 sm:w-2 rounded-full bg-[#F06434]" />
+                    <span className="h-1.5 w-1.5 sm:h-2 sm:w-2 rounded-full bg-[#F04E22]" />
                     {featured.category}
                   </span>
                   <span className="text-[10px] sm:text-xs font-semibold text-white/95">
@@ -218,7 +219,7 @@ function BlogList() {
                 <div className="flex items-center justify-between">
                   <a
                     href={`/blog/${featured.slug || featured.id}`}
-                    className="inline-flex items-center gap-2 min-w-[122px] min-h-[31px] px-6 py-2 rounded-md text-white font-normal font-dm-sans hover:bg-[#003A66] transition-all duration-150 focus:outline-none focus:ring-2 focus:ring-[#F06434] focus:ring-offset-2"
+                    className="inline-flex items-center gap-2 min-w-[122px] min-h-[31px] px-6 py-2 rounded-md text-white font-normal font-dm-sans hover:bg-[#183941] transition-all duration-150 focus:outline-none focus:ring-2 focus:ring-[#F04E22] focus:ring-offset-2"
                     style={{ backgroundColor: '#214B57' }}
                   >
                     Read guide <span className="text-lg">→</span>
@@ -242,7 +243,7 @@ function BlogList() {
               delay={0.25 + index * 0.1}
               duration={0.6}
             >
-              <article className="group relative overflow-hidden rounded-[24px] border border-[#4A4A4A] bg-white shadow-sm hover:shadow-lg hover:border-t-[2px] hover:border-t-[#F06434] transition-all duration-150">
+              <article className="group relative overflow-hidden rounded-[24px] border border-[#4A4A4A] bg-white shadow-sm hover:shadow-lg hover:border-t-[2px] hover:border-t-[#F04E22] transition-all duration-150">
                 <div className="relative">
                   <div className="relative h-48 overflow-hidden">
                     <img
@@ -254,7 +255,7 @@ function BlogList() {
 
                     <div className="absolute top-4 left-4">
                       <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/95 border border-[#4A4A4A]/20 text-xs font-semibold text-[#1D1D1D] shadow-sm font-dm-sans">
-                        <span className="h-2 w-2 rounded-full bg-[#F06434]" />
+                        <span className="h-2 w-2 rounded-full bg-[#F04E22]" />
                         {blog.category}
                       </span>
                     </div>
@@ -293,23 +294,15 @@ function BlogList() {
         </div>
 
         {/* CTA Section */}
-        <FadeIn direction="up" delay={0.4} duration={0.6}>
-          <div className="mt-12 rounded-[30px] border border-[#4A4A4A] bg-white shadow-lg p-8 sm:p-10">
-            <p className="text-xs uppercase tracking-[0.28em] text-[#7F8C8D] mb-2 font-dm-sans">
-              Want a personalized plan?
-            </p>
-            <p className="text-[#1D1D1D] font-noto-serif leading-[1.2] mb-6" style={{ fontSize: 'clamp(1.5rem, 2.5vw, 2.17rem)', fontWeight: 400, lineHeight: '1.2', letterSpacing: '0px', fontFamily: 'Noto Serif, serif', color: '#1D1D1D' }}>
-              Get design guidance for your exact space and budget.
-            </p>
-            <a
-              href="/contact-us"
-              className="inline-flex items-center gap-2 min-w-[122px] min-h-[31px] px-8 py-2 rounded-md text-white font-normal font-dm-sans shadow-lg hover:bg-[#003A66] transition-all duration-150 focus:outline-none focus:ring-2 focus:ring-[#F06434] focus:ring-offset-2"
-              style={{ backgroundColor: '#214B57' }}
-            >
-              Contact us <span className="text-lg">→</span>
-            </a>
-          </div>
-        </FadeIn>
+        <div className="mt-12">
+          <UnifiedCTA 
+            heading="Get design guidance for your exact space and budget."
+            description="Want a personalized plan? Contact us for expert design guidance tailored to your needs."
+            buttonText="Contact us"
+            delay={0.4}
+            className="py-0"
+          />
+        </div>
       </div>
     </section>
   );
