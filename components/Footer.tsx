@@ -233,8 +233,6 @@ const FooterSection = () => {
           </div>
         </div>
 
-        {/* Tiny extra spacing so footer doesn't feel cramped */}
-        <div className="h-8" />
       </div>
     </footer>
   );
