@@ -245,13 +245,13 @@ body,
     transform: translate3d(0, 0, 0);
   }
   50% {
-    transform: translate3d(-6px, 4px, 0);
+    transform: translate3d(-10px, 6px, 0);
   }
 }
 
 .ws-monogram-parallax {
   will-change: transform;
-  animation: ws-monogram-parallax 18s ease-in-out infinite;
+  animation: ws-monogram-parallax 12s cubic-bezier(0.22, 1, 0.36, 1) infinite;
 }
 
 @media (prefers-reduced-motion: reduce) {
