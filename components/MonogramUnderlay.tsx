@@ -9,7 +9,7 @@ export default function MonogramUnderlay({ className = "", opacity = 0.5 }: Mono
   return (
     <div
       aria-hidden="true"
-      className={`absolute inset-0 z-[1] pointer-events-none select-none overflow-hidden ${className}`}
+      className={`ws-monogram-parallax absolute inset-0 z-[1] pointer-events-none select-none overflow-hidden ${className}`}
     >
       {/* Mobile: ring half visible on right side */}
       <img
