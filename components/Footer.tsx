@@ -14,7 +14,9 @@ const FooterSection = () => {
       }}
     >
       {/* Ring pattern underlay: large scale, cropped off-edge, visible opacity, subtle parallax */}
-      <MonogramUnderlay opacity={0.20} />
+      <div className="hidden md:block">
+        <MonogramUnderlay opacity={0.20} />
+      </div>
       <div className="max-w-7xl mx-auto relative z-10">
         {/* Premium glass container */}
         <div className="">
