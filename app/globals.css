@@ -237,3 +237,25 @@ body,
 .skip-to-content:focus {
   top: 0;
 }
+
+/* Monogram ring: very subtle motion/parallax */
+@keyframes ws-monogram-parallax {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(-6px, 4px, 0);
+  }
+}
+
+.ws-monogram-parallax {
+  will-change: transform;
+  animation: ws-monogram-parallax 18s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ws-monogram-parallax {
+    animation: none !important;
+  }
+}
