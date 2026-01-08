@@ -156,7 +156,7 @@ export default function GuaranteesAftercareContent() {
         </div>
       </section>
 
-      <section className="bg-[#1D1D1D] py-6 md:py-8 px-3 sm:px-4 md:px-6">
+      <section className="bg-[#1D1D1D] py-6 md:py-8 px-3 sm:px-4 md:px-6 border-t border-[#CED3D7]">
         <div className="max-w-7xl mx-auto">
           {/* Warranty Principles */}
           <FadeIn className="mb-12" duration={0.6} delay={0.2}>

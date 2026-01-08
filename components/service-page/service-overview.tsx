@@ -45,7 +45,7 @@ export default function ServiceOverview({ service }: ServiceOverviewProps) {
   if (!service) return null;
   const relatedPosts = serviceBlogPosts[service.slug || ""] || [];
   return (
-    <section className="bg-[#1D1D1D] pt-3 sm:pt-4 md:pt-5 pb-6 md:py-8 px-3 sm:px-4 md:px-6">
+    <section className="bg-[#1D1D1D] pt-3 sm:pt-4 md:pt-5 pb-6 md:py-8 px-3 sm:px-4 md:px-6 border-t border-[#CED3D7]">
       <div className="max-w-7xl mx-auto">
         <FadeIn className="mb-6 md:mb-8" duration={0.6}>
           <div className="flex items-center justify-center gap-3 flex-wrap mb-4">

@@ -17,7 +17,7 @@ export default function TermsContent() {
               Terms & Conditions
             </h1>
             <p className="text-[#85929D] max-w-2xl mx-auto mb-8 font-dm-sans" style={{ fontSize: 'clamp(1rem, 1.5vw, 1.5rem)', fontWeight: 400, lineHeight: '1.2', letterSpacing: '0px', fontFamily: 'DM Sans, sans-serif' }}>
-              Terms and conditions for Winder & Stilhaus interior design and renovation services.
+              Terms and conditions for Winder&Stilhaus interior design and renovation services.
             </p>
           </FadeIn>
         </div>
@@ -31,14 +31,14 @@ export default function TermsContent() {
             <section>
               <h2 className="font-semibold text-white mb-3 font-noto-serif" style={{ fontSize: 'clamp(1.25rem, 2vw, 1.75rem)', fontWeight: 600, lineHeight: '1.5', letterSpacing: '0px', fontFamily: 'Noto Serif, serif' }}>1. Agreement to Terms</h2>
               <p>
-                By accessing and using the services of Winder & Stilhaus, you agree to be bound by these Terms & Conditions. If you disagree with any part of these terms, you may not access our services.
+                By accessing and using the services of Winder&Stilhaus, you agree to be bound by these Terms & Conditions. If you disagree with any part of these terms, you may not access our services.
               </p>
             </section>
 
             <section>
               <h2 className="font-semibold text-white mb-3 font-noto-serif" style={{ fontSize: 'clamp(1.25rem, 2vw, 1.75rem)', fontWeight: 600, lineHeight: '1.5', letterSpacing: '0px', fontFamily: 'Noto Serif, serif' }}>2. Services</h2>
               <p>
-                Winder & Stilhaus provides interior design and renovation services. All services are subject to availability and acceptance of project proposals. We reserve the right to refuse service at our discretion.
+                Winder&Stilhaus provides interior design and renovation services. All services are subject to availability and acceptance of project proposals. We reserve the right to refuse service at our discretion.
               </p>
             </section>
 

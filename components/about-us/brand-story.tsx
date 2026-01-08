@@ -16,7 +16,7 @@ export default function BrandStory() {
   ];
 
   return (
-    <section className="bg-[#1D1D1D] pt-0 pb-8 sm:pb-10 md:pb-12 text-white">
+    <section className="bg-[#1D1D1D] pt-0 pb-8 sm:pb-10 md:pb-12 text-white border-t border-[#CED3D7]">
       <div className="max-w-7xl mx-auto px-3 sm:px-4 md:px-6">
         <FadeIn direction="up" delay={0.2} duration={0.6}>
           <div className="text-center mb-8">
@@ -28,7 +28,7 @@ export default function BrandStory() {
               Where Excellence Meets Innovation
         </h2>
             <p className="text-white/90 max-w-3xl mx-auto font-dm-sans" style={{ fontSize: 'clamp(1rem, 1.5vw, 1.5rem)', fontWeight: 400, lineHeight: '1.2', letterSpacing: '0px', fontFamily: 'DM Sans, sans-serif', color: 'rgba(255, 255, 255, 0.9)' }}>
-              Founded in 2014, Winder & Stilhaus has been at the forefront of luxury interior design, 
+              Founded in 2014, Winder&Stilhaus has been at the forefront of luxury interior design, 
               transforming spaces across Pakistan with unparalleled craftsmanship and visionary design.
             </p>
           </div>

@@ -3,40 +3,48 @@
 import React from "react";
 import Link from "next/link";
 import { Facebook, Instagram, Twitter, Linkedin } from "lucide-react";
+import MonogramUnderlay from "@/components/MonogramUnderlay";
 
 const FooterSection = () => {
   return (
-    <footer className="text-white px-3 sm:px-4 md:px-6 pt-6 bg-[#1D1D1D]">
-      <div className="max-w-7xl mx-auto">
+    <footer 
+      className="text-white px-3 sm:px-4 md:px-6 pt-6 border-t border-[#CED3D7] relative overflow-hidden"
+      style={{ 
+        background: 'linear-gradient(135deg, #214B57 0%, #183941 100%)'
+      }}
+    >
+      {/* Ring pattern underlay: large scale, cropped off-edge, visible opacity, subtle parallax */}
+      <MonogramUnderlay opacity={0.20} />
+      <div className="max-w-7xl mx-auto relative z-10">
         {/* Premium glass container */}
         <div className="">
           <div className="relative p-6 sm:p-8 md:p-10">
             <div className="grid grid-cols-1 md:grid-cols-[1.2fr_0.9fr_0.9fr_1fr] gap-10 md:gap-12">
-              {/* Brand */}
-              <div className="space-y-5">
+              {/* Brand - Centered */}
+              <div className="space-y-5 flex flex-col items-center text-center">
                 <div>
                   <p className="text-xs uppercase tracking-[0.32em] text-white/70 font-dm-sans">
                     Premium interiors
                   </p>
-                  <div className="mt-2">
+                  <div className="mt-2 flex justify-center">
                     <img
-                      src="/assets/ReverseLogo.png"
-                      alt="Winder & Stilhaus logo"
-                      width={150}
-                      height={40}
-                      className="h-8 sm:h-10 md:h-12 w-auto shrink-0"
+                      src="/assets/MonogramLogo.png"
+                      alt="Winder&Stilhaus monogram"
+                      width={120}
+                      height={120}
+                      className="h-20 sm:h-24 md:h-28 w-auto shrink-0"
                       loading="lazy"
                       suppressHydrationWarning
                     />
                   </div>
                 </div>
 
-                <p className="text-white/80 max-w-md font-dm-sans" style={{ fontSize: 'clamp(0.875rem, 1.5vw, 1.5rem)', fontWeight: 400, lineHeight: '1.2', letterSpacing: '0px', fontFamily: 'DM Sans, sans-serif' }}>
+                <p className="text-white/80 max-w-md mx-auto font-dm-sans" style={{ fontSize: 'clamp(0.875rem, 1.5vw, 1.5rem)', fontWeight: 400, lineHeight: '1.2', letterSpacing: '0px', fontFamily: 'DM Sans, sans-serif' }}>
                   Luxury interiors crafted with precision, transparency, and on-time delivery —
                   designed to feel timeless, not trendy.
                 </p>
 
-                <div className="flex items-center gap-3">
+                <div className="flex items-center justify-center gap-3">
                   <Link
                     href="#"
                     className="w-11 h-11 rounded-full border border-white/20 bg-white/10 flex items-center justify-center text-white shadow-[0_12px_30px_rgba(0,0,0,0.2)] hover:bg-white/20 transition"
@@ -67,7 +75,7 @@ const FooterSection = () => {
                   </Link>
                 </div>
 
-                <div className="flex flex-wrap gap-2 pt-1">
+                <div className="flex flex-wrap justify-center gap-2 pt-1">
                   <span className="px-3 py-1 rounded-full bg-white/10 border border-white/20 text-xs font-semibold text-white font-dm-sans">
                     Premium finish
                   </span>
@@ -207,7 +215,7 @@ const FooterSection = () => {
             {/* Bottom bar */}
             <div className="mt-10 pt-6 border-t border-white/20 flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-white/70 font-dm-sans">
               <div className="flex flex-col gap-2">
-                <p>© 2025 Winder & Stilhaus. All rights reserved.</p>
+                <p>© 2025 Winder&Stilhaus. All rights reserved.</p>
                 <p className="text-xs italic text-white/70">Visual concept images may be used for illustration.</p>
               </div>
               <div className="flex items-center gap-4 flex-wrap">

@@ -3,7 +3,7 @@ import Script from "next/script";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Bathroom Remodeling | Winder & Stilhaus",
+  title: "Bathroom Remodeling | Winder&Stilhaus",
   description: "Luxury bathroom design and renovation creating spa-like sanctuaries in your home. Premium fixtures, seamless tiling, and expert installation.",
   alternates: {
     canonical: "/service/bathroom-remodeling",

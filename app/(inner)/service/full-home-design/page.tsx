@@ -4,7 +4,7 @@ import Script from "next/script";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Full Home Design | Winder & Stilhaus",
+  title: "Full Home Design | Winder&Stilhaus",
   description: "Complete interior design solutions transforming every room in your home with luxury and precision. Cohesive, elegant interiors throughout your property.",
   alternates: {
     canonical: "/service/full-home-design",

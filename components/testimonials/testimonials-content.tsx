@@ -67,13 +67,13 @@ export default function TestimonialsContent() {
               Testimonials
             </h1>
             <p className="text-white/90 max-w-2xl mx-auto mb-8 font-dm-sans" style={{ fontSize: 'clamp(1rem, 1.5vw, 1.5rem)', fontWeight: 400, lineHeight: '1.2', letterSpacing: '0px', fontFamily: 'DM Sans, sans-serif' }}>
-              See what our clients say about their experience with Winder & Stilhaus.
+              See what our clients say about their experience with Winder&Stilhaus.
             </p>
           </FadeIn>
         </div>
       </section>
 
-      <section className="bg-[#1D1D1D] py-6 md:py-8 px-3 sm:px-4 md:px-6">
+      <section className="bg-[#1D1D1D] py-6 md:py-8 px-3 sm:px-4 md:px-6 border-t border-[#CED3D7]">
         <div className="max-w-7xl mx-auto">
         {/* Testimonials Slider */}
         <FadeIn className="relative mb-12" duration={0.6} delay={0.2}>

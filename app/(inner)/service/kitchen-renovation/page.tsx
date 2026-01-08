@@ -3,7 +3,7 @@ import Script from "next/script";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Kitchen Renovation | Winder & Stilhaus",
+  title: "Kitchen Renovation | Winder&Stilhaus",
   description: "Luxury kitchen renovation services with bespoke design, premium materials, and expert installation. Transform your kitchen into a functional masterpiece.",
   alternates: {
     canonical: "/service/kitchen-renovation",

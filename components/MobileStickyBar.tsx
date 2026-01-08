@@ -3,7 +3,6 @@
 import { useState, useEffect } from "react";
 
 export default function MobileStickyBar() {
-  const [isVisible, setIsVisible] = useState<boolean>(false);
   const [isMobile, setIsMobile] = useState<boolean>(false);
 
   useEffect(() => {
@@ -14,28 +13,18 @@ export default function MobileStickyBar() {
     checkMobile();
     window.addEventListener("resize", checkMobile);
 
-    const handleScroll = () => {
-      // Always visible when scrolling (show after small initial scroll)
-      setIsVisible(window.scrollY > 50);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    handleScroll(); // Check initial scroll position
-
     return () => {
-      window.removeEventListener("scroll", handleScroll);
       window.removeEventListener("resize", checkMobile);
     };
   }, []);
 
-  // Only show on mobile screens
+  // Only show on mobile screens - visible from landing
   if (!isMobile) return null;
-  if (!isVisible) return null;
 
   return (
-    <div className="fixed bottom-0 left-0 right-0 z-50 md:hidden">
-      <div className="bg-[#214B57] border-t border-[#4A4A4A] shadow-[0_-4px_20px_rgba(0,0,0,0.3)]">
-        <div className="flex items-center justify-around px-2 py-3">
+    <div className="fixed bottom-0 left-0 right-0 z-50 md:hidden" style={{ paddingBottom: 'env(safe-area-inset-bottom, 0)' }}>
+      <div className="bg-[#214B57] border-t border-[#4A4A4A]/50 shadow-[0_-4px_20px_rgba(0,0,0,0.3)] w-full">
+        <div className="flex items-center justify-around px-2 py-3 gap-0 w-full">
           {/* Call Button */}
           <a
             href="tel:+1234567890"
@@ -51,7 +40,7 @@ export default function MobileStickyBar() {
                 }
               }
             }}
-            className="flex flex-col items-center justify-center gap-1.5 px-4 py-3 min-w-[80px] min-h-[44px] rounded-xl hover:bg-white/10 transition-colors active:scale-95"
+            className="flex flex-col items-center justify-center gap-1.5 px-4 py-3 min-w-[80px] min-h-[44px] rounded-xl bg-transparent hover:bg-white/10 transition-colors active:scale-95"
             aria-label="Call us"
           >
             <div className="w-10 h-10 rounded-full flex items-center justify-center bg-white/20">
@@ -86,7 +75,7 @@ export default function MobileStickyBar() {
                 });
               }
             }}
-            className="flex flex-col items-center justify-center gap-1.5 px-4 py-3 min-w-[80px] min-h-[44px] rounded-xl hover:bg-white/10 transition-colors active:scale-95"
+            className="flex flex-col items-center justify-center gap-1.5 px-4 py-3 min-w-[80px] min-h-[44px] rounded-xl bg-transparent hover:bg-white/10 transition-colors active:scale-95"
             aria-label="Message us on WhatsApp"
           >
             <div className="w-10 h-10 rounded-full bg-[#25D366] flex items-center justify-center">
@@ -103,8 +92,36 @@ export default function MobileStickyBar() {
 
           {/* Book Button */}
           <a
-            href="/contact-us"
-            onClick={() => {
+            href="#pricing-guide"
+            onClick={(e) => {
+              e.preventDefault();
+              const pathname = window.location.pathname;
+              
+              if (pathname === "/") {
+                // On homepage, smooth scroll to pricing guide
+                const target = document.getElementById("pricing-guide");
+                if (target) {
+                  target.scrollIntoView({ behavior: "smooth", block: "start" });
+                  
+                  // Move focus to heading after scroll
+                  setTimeout(() => {
+                    const heading = document.getElementById("pricing-guide-heading") || 
+                      target.querySelector("h2") as HTMLElement;
+                    if (heading) {
+                      heading.setAttribute("tabindex", "-1");
+                      heading.focus({ preventScroll: true });
+                      heading.addEventListener("blur", () => {
+                        heading.removeAttribute("tabindex");
+                      }, { once: true });
+                    }
+                  }, 600);
+                }
+              } else {
+                // On other pages, navigate to homepage pricing section
+                window.location.href = "/#pricing-guide";
+              }
+              
+              // Track event
               if (typeof window !== "undefined" && (window as any).gtag) {
                 const hasConsent = localStorage.getItem("cookie-consent") === "accepted";
                 if (hasConsent) {

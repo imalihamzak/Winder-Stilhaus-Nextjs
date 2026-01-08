@@ -4,14 +4,14 @@ import Script from "next/script";
 import ConsentBanner from "@/components/ConsentBanner";
 
 export const metadata: Metadata = {
-  title: "Winder & Stilhaus | Premium Interior Design & Renovation Services in West Yorkshire",
+  title: "Winder&Stilhaus | Premium Interior Design & Renovation Services in West Yorkshire",
   description: "Luxury interior design and renovation services across West Yorkshire. Premium kitchens, bathrooms, and full-home design with expert craftsmanship. Instant pricing guide available.",
   metadataBase: new URL("https://winderstilhaus.com"),
   alternates: {
     canonical: "/",
   },
   openGraph: {
-    title: "Winder & Stilhaus | Premium Interior Design & Renovation Services",
+    title: "Winder&Stilhaus | Premium Interior Design & Renovation Services",
     description: "Luxury interior design and renovation services across West Yorkshire. Premium kitchens, bathrooms, and full-home design.",
     type: "website",
     locale: "en_GB",

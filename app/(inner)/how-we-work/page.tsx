@@ -3,7 +3,7 @@ import HowWeWorkContent from "@/components/how-we-work/how-we-work-content";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "How We Work | Winder & Stilhaus",
+  title: "How We Work | Winder&Stilhaus",
   description: "Our 5-step process for delivering premium interior design and renovation services. From initial consultation to final handover.",
   alternates: {
     canonical: "/how-we-work",

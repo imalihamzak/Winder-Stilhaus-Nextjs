@@ -132,7 +132,6 @@ export default function Testimonials() {
           >
             {/* Card shell - white with Iron border */}
             <div className="relative overflow-hidden rounded-[30px] border border-[#4A4A4A] bg-white shadow-[0_30px_90px_rgba(0,0,0,0.1)]">
-              <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(70%_55%_at_20%_0%,rgba(255,255,255,0.18),transparent_60%)]" />
 
               <div className="relative p-4 sm:p-5 md:p-7 lg:p-10">
                 <AnimatePresence mode="wait">

@@ -34,7 +34,7 @@ export default function ServiceRegulations({ service }: ServiceRegulationsProps)
   if (!regulation) return null;
 
   return (
-    <section className="bg-[#1D1D1D] py-6 md:py-8 px-3 sm:px-4 md:px-6">
+    <section className="bg-[#1D1D1D] py-6 md:py-8 px-3 sm:px-4 md:px-6 border-t border-[#CED3D7]">
       <div className="max-w-7xl mx-auto">
         <FadeIn duration={0.6}>
           <div className="rounded-[24px] border border-[#4A4A4A] bg-white p-6 sm:p-8">

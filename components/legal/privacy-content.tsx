@@ -31,7 +31,7 @@ export default function PrivacyContent() {
             <section>
               <h2 className="font-semibold text-white mb-3 font-noto-serif" style={{ fontSize: 'clamp(1.25rem, 2vw, 1.75rem)', fontWeight: 600, lineHeight: '1.5', letterSpacing: '0px', fontFamily: 'Noto Serif, serif' }}>1. Introduction</h2>
               <p>
-                Winder & Stilhaus ("we", "our", or "us") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website or use our services.
+                Winder&Stilhaus ("we", "our", or "us") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website or use our services.
               </p>
             </section>
 

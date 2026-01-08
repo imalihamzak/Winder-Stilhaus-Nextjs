@@ -50,7 +50,7 @@ export default function ServiceProcess({ service }: ServiceProcessProps) {
   ];
 
   return (
-    <section className="bg-[#1D1D1D] py-6 md:py-8 px-3 sm:px-4 md:px-6">
+    <section className="bg-[#1D1D1D] py-6 md:py-8 px-3 sm:px-4 md:px-6 border-t border-[#CED3D7]">
       <div className="max-w-7xl mx-auto">
         <FadeIn className="text-center mb-6 md:mb-8" duration={0.6}>
           <div className="flex items-center justify-center gap-3 flex-wrap mb-4">

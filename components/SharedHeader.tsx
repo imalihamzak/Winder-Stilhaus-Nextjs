@@ -176,7 +176,7 @@ export default function SharedHeader() {
       </a>
       
       {/* Sticky Header */}
-      <header className="fixed top-0 left-0 right-0 z-50" style={{ background: 'linear-gradient(180deg, #214B57 0%, #183941 100%)' }} suppressHydrationWarning>
+      <header className="fixed top-0 left-0 right-0 z-50" style={{ backgroundColor: '#214B57' }} suppressHydrationWarning>
         <div className={containerClass}>
           {/* Backdrop (mobile menu) */}
           {menuOpen && (
@@ -193,7 +193,7 @@ export default function SharedHeader() {
             {/* Official horizontal lockup: WS monogram + wordmark as single controlled mark */}
             <img
               src="/assets/ReverseLogo.png"
-              alt="Winder & Stilhaus"
+              alt="Winder&Stilhaus"
               width={200}
               height={50}
               className="h-8 sm:h-10 md:h-12 w-auto shrink-0"
@@ -246,7 +246,47 @@ export default function SharedHeader() {
 
           <div className="flex items-center gap-1.5 sm:gap-3 relative z-50">
             <a
-              href={heroContent.topActions[0].href}
+              href="#pricing-guide"
+              onClick={(e) => {
+                e.preventDefault();
+                const pathname = window.location.pathname;
+                
+                if (pathname === "/") {
+                  // On homepage, smooth scroll to pricing guide
+                  const target = document.getElementById("pricing-guide");
+                  if (target) {
+                    target.scrollIntoView({ behavior: "smooth", block: "start" });
+                    
+                    // Move focus to heading after scroll
+                    setTimeout(() => {
+                      const heading = document.getElementById("pricing-guide-heading") || 
+                        target.querySelector("h2") as HTMLElement;
+                      if (heading) {
+                        heading.setAttribute("tabindex", "-1");
+                        heading.focus({ preventScroll: true });
+                        heading.addEventListener("blur", () => {
+                          heading.removeAttribute("tabindex");
+                        }, { once: true });
+                      }
+                    }, 600);
+                  }
+                } else {
+                  // On other pages, navigate to homepage pricing section
+                  window.location.href = "/#pricing-guide";
+                }
+                
+                // Track event
+                if (typeof window !== "undefined" && (window as any).gtag) {
+                  const hasConsent = localStorage.getItem("cookie-consent") === "accepted";
+                  if (hasConsent) {
+                    (window as any).gtag("event", "cta_book_click", {
+                      event_category: "CTA",
+                      event_label: "Header - Book a consultation",
+                      value: 1,
+                    });
+                  }
+                }
+              }}
               className="
                 inline-flex items-center justify-center
                 min-w-[122px] min-h-[31px] px-5 py-2 rounded-md
@@ -331,7 +371,7 @@ export default function SharedHeader() {
 
               <div className="pt-2">
                 <a
-                  href={heroContent.topActions[0].href}
+                  href="#pricing-guide"
                   className="
                     block w-full text-center px-4 py-2 rounded-md
                     bg-white border border-[#214B57] text-[#214B57] text-sm font-normal font-dm-sans min-w-[122px] min-h-[31px]
@@ -339,7 +379,47 @@ export default function SharedHeader() {
                     shadow-[0_10px_25px_rgba(0,0,0,0.2)]
                     transition-all duration-150
                   "
-                  onClick={() => setMenuOpen(false)}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    setMenuOpen(false);
+                    const pathname = window.location.pathname;
+                    
+                    if (pathname === "/") {
+                      // On homepage, smooth scroll to pricing guide
+                      const target = document.getElementById("pricing-guide");
+                      if (target) {
+                        target.scrollIntoView({ behavior: "smooth", block: "start" });
+                        
+                        // Move focus to heading after scroll
+                        setTimeout(() => {
+                          const heading = document.getElementById("pricing-guide-heading") || 
+                            target.querySelector("h2") as HTMLElement;
+                          if (heading) {
+                            heading.setAttribute("tabindex", "-1");
+                            heading.focus({ preventScroll: true });
+                            heading.addEventListener("blur", () => {
+                              heading.removeAttribute("tabindex");
+                            }, { once: true });
+                          }
+                        }, 600);
+                      }
+                    } else {
+                      // On other pages, navigate to homepage pricing section
+                      window.location.href = "/#pricing-guide";
+                    }
+                    
+                    // Track event
+                    if (typeof window !== "undefined" && (window as any).gtag) {
+                      const hasConsent = localStorage.getItem("cookie-consent") === "accepted";
+                      if (hasConsent) {
+                        (window as any).gtag("event", "cta_book_click", {
+                          event_category: "CTA",
+                          event_label: "Mobile Menu - Book a consultation",
+                          value: 1,
+                        });
+                      }
+                    }
+                  }}
                 >
                   {heroContent.topActions[0].label}
                 </a>

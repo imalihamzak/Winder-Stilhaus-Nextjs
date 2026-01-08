@@ -1,7 +1,7 @@
 "use client";
 
-import { useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
-import { motion } from "framer-motion";
+import { useEffect, useRef, useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import {
   ArrowRight,
   ChevronLeft,
@@ -17,7 +17,6 @@ import {
   Wrench,
 } from "lucide-react";
 import FadeIn from "@/components/FadeIn";
-import MonogramUnderlay from "@/components/MonogramUnderlay";
 
 interface Service {
   title: string;
@@ -101,119 +100,119 @@ const SERVICES: Service[] = [
 ];
 
 export default function Services() {
-  const wrapRef = useRef<HTMLDivElement>(null);
-  const firstCardRef = useRef<HTMLDivElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [isHovered, setIsHovered] = useState(false);
+  const [cardWidth, setCardWidth] = useState(280);
+  const [isMobile, setIsMobile] = useState(false);
 
-  const [index, setIndex] = useState<number>(0);
-  const [stride, setStride] = useState<number>(360); // card width + gap
-  const [visible, setVisible] = useState<number>(1);
-  const [hovered, setHovered] = useState<boolean>(false);
-  
   // Touch/swipe state
-  const [touchStart, setTouchStart] = useState<number | null>(null);
-  const [touchEnd, setTouchEnd] = useState<number | null>(null);
-  const [isDragging, setIsDragging] = useState<boolean>(false);
-  const [dragOffset, setDragOffset] = useState<number>(0);
+  const touchStartX = useRef<number | null>(null);
+  const touchCurrentX = useRef<number | null>(null);
+  const [isDragging, setIsDragging] = useState(false);
+  const [dragOffset, setDragOffset] = useState(0);
 
-  const maxIndex = useMemo(() => Math.max(0, SERVICES.length - visible), [visible]);
+  // Calculate card width and visible cards
+  useEffect(() => {
+    const updateCardWidth = () => {
+      if (!containerRef.current) return;
+      
+      const containerWidth = containerRef.current.offsetWidth;
+      const mobile = containerWidth < 640;
+      setIsMobile(mobile);
 
-  // Measure card width + compute how many fit (clean, no hacks)
-  useLayoutEffect(() => {
-    const wrap = wrapRef.current;
-    const card = firstCardRef.current;
-    if (!wrap || !card) return;
-
-    const calc = () => {
-      const wrapW = wrap.getBoundingClientRect().width;
-      const cardW = card.getBoundingClientRect().width;
-
-      const gap = 16; // gap-4
-      const s = cardW + gap;
-      const v = Math.max(1, Math.floor((wrapW + gap) / s));
-
-      setStride(s);
-      setVisible(v);
-      setIndex((prev) => Math.min(Math.max(prev, 0), Math.max(0, SERVICES.length - v)));
+      if (mobile) {
+        // On mobile: card width = container width - padding (24px each side) - gap (12px)
+        const mobileCardWidth = containerWidth - 48 - 12;
+        setCardWidth(mobileCardWidth);
+      } else {
+        // Desktop: use fixed widths
+        if (containerWidth >= 1024) {
+          setCardWidth(360);
+        } else if (containerWidth >= 768) {
+          setCardWidth(320);
+        } else {
+          setCardWidth(280);
+        }
+      }
     };
 
-    calc();
-
-    const ro = new ResizeObserver(calc);
-    ro.observe(wrap);
-    ro.observe(card);
-
-    window.addEventListener("resize", calc);
-    return () => {
-      ro.disconnect();
-      window.removeEventListener("resize", calc);
-    };
+    updateCardWidth();
+    window.addEventListener("resize", updateCardWidth);
+    return () => window.removeEventListener("resize", updateCardWidth);
   }, []);
 
-  // Auto-play functionality
+  const gap = 12;
+  const stride = cardWidth + gap;
+  const maxIndex = Math.max(0, SERVICES.length - (isMobile ? 1 : Math.floor((containerRef.current?.offsetWidth || 0) / stride)));
+
+  // Auto-scroll
   useEffect(() => {
-    if (hovered || isDragging) return; // Pause on hover or when dragging
-    
+    if (isHovered || isDragging || maxIndex === 0) return;
+
     const interval = setInterval(() => {
-      setIndex((prev) => {
+      setCurrentIndex((prev) => {
         if (prev >= maxIndex) {
-          return 0; // Loop back to start
+          return 0;
         }
         return prev + 1;
       });
-    }, 4000); // Change slide every 4 seconds
+    }, 4000);
 
     return () => clearInterval(interval);
-  }, [hovered, isDragging, maxIndex]);
+  }, [isHovered, isDragging, maxIndex]);
 
-  const canPrev = index > 0;
-  const canNext = index < maxIndex;
+  // Navigation functions
+  const goToNext = () => {
+    setCurrentIndex((prev) => (prev >= maxIndex ? 0 : prev + 1));
+  };
 
-  const goPrev = () => setIndex((p) => Math.max(0, p - 1));
-  const goNext = () => setIndex((p) => Math.min(maxIndex, p + 1));
+  const goToPrev = () => {
+    setCurrentIndex((prev) => (prev <= 0 ? maxIndex : prev - 1));
+  };
 
-  // Minimum swipe distance (in pixels) to trigger navigation
-  const minSwipeDistance = 50;
-
-  const onTouchStart = (e: React.TouchEvent) => {
-    setTouchEnd(null);
-    setTouchStart(e.targetTouches[0].clientX);
+  // Touch handlers
+  const handleTouchStart = (e: React.TouchEvent) => {
+    touchStartX.current = e.touches[0].clientX;
+    touchCurrentX.current = e.touches[0].clientX;
     setIsDragging(true);
     setDragOffset(0);
   };
 
-  const onTouchMove = (e: React.TouchEvent) => {
-    if (touchStart === null) return;
-    
-    const currentTouch = e.targetTouches[0].clientX;
-    const diff = touchStart - currentTouch;
+  const handleTouchMove = (e: React.TouchEvent) => {
+    if (touchStartX.current === null) return;
+    touchCurrentX.current = e.touches[0].clientX;
+    const diff = touchStartX.current - touchCurrentX.current;
     setDragOffset(diff);
-    setTouchEnd(currentTouch);
   };
 
-  const onTouchEnd = () => {
-    if (!touchStart || touchEnd === null) {
+  const handleTouchEnd = () => {
+    if (touchStartX.current === null || touchCurrentX.current === null) {
       setIsDragging(false);
       setDragOffset(0);
-      setTouchStart(null);
-      setTouchEnd(null);
+      touchStartX.current = null;
+      touchCurrentX.current = null;
       return;
     }
 
-    const distance = touchStart - touchEnd;
-    const isLeftSwipe = distance > minSwipeDistance;
-    const isRightSwipe = distance < -minSwipeDistance;
+    const distance = touchStartX.current - touchCurrentX.current;
+    const minSwipeDistance = 50;
 
-    if (isLeftSwipe && canNext) {
-      goNext();
-    } else if (isRightSwipe && canPrev) {
-      goPrev();
+    if (Math.abs(distance) > minSwipeDistance) {
+      if (distance > 0 && currentIndex < maxIndex) {
+        goToNext();
+      } else if (distance < 0 && currentIndex > 0) {
+        goToPrev();
+      }
     }
 
     setIsDragging(false);
     setDragOffset(0);
-    setTouchStart(null);
-    setTouchEnd(null);
+    touchStartX.current = null;
+    touchCurrentX.current = null;
   };
+
+  const translateX = -currentIndex * stride - dragOffset;
 
   return (
     <section id="services" className="relative overflow-hidden">
@@ -240,119 +239,102 @@ export default function Services() {
         </FadeIn>
 
         <div
-          ref={wrapRef}
+          ref={containerRef}
           className="relative overflow-hidden"
-          onMouseEnter={() => setHovered(true)}
-          onMouseLeave={() => setHovered(false)}
+          onMouseEnter={() => setIsHovered(true)}
+          onMouseLeave={() => setIsHovered(false)}
         >
-          {/* Soft edge fades (premium, hides cut edges) */}
-          <div className="pointer-events-none absolute inset-y-0 left-0 w-16 bg-gradient-to-r from-[#1D1D1D] via-[#1D1D1D] to-transparent z-10" />
-          <div className="pointer-events-none absolute inset-y-0 right-0 w-16 bg-gradient-to-l from-[#1D1D1D] via-[#1D1D1D] to-transparent z-10" />
-
-          {/* Arrows */}
+          {/* Navigation Arrows */}
           <button
             type="button"
-            onClick={goPrev}
-            disabled={!canPrev}
+            onClick={goToPrev}
+            disabled={currentIndex === 0}
             aria-label="Previous"
-            className={`
-              absolute left-1 sm:left-2 md:left-3 top-1/2 -translate-y-1/2 z-20
-              w-9 h-9 sm:w-10 sm:h-10 md:w-11 md:h-11 rounded-full
-              border border-[#4A4A4A] bg-white
-              shadow-[0_12px_30px_rgba(0,0,0,0.1)]
-              flex items-center justify-center transition
-              ${canPrev ? "hover:bg-[#4A4A4A]/5" : "opacity-35 cursor-not-allowed"}
-            `}
+            className={`absolute left-1 sm:left-2 md:left-3 top-1/2 -translate-y-1/2 z-30 w-9 h-9 sm:w-10 sm:h-10 md:w-11 md:h-11 rounded-full border border-[#4A4A4A] bg-white shadow-[0_12px_30px_rgba(0,0,0,0.1)] flex items-center justify-center transition ${
+              currentIndex > 0 
+                ? "hover:bg-[#4A4A4A]/5 cursor-pointer opacity-100" 
+                : "opacity-35 cursor-not-allowed pointer-events-none"
+            }`}
           >
             <ChevronLeft className="text-[#1D1D1D]" size={16} />
           </button>
 
           <button
             type="button"
-            onClick={goNext}
-            disabled={!canNext}
+            onClick={goToNext}
+            disabled={currentIndex >= maxIndex}
             aria-label="Next"
-            className={`
-              absolute right-1 sm:right-2 md:right-3 top-1/2 -translate-y-1/2 z-20
-              w-9 h-9 sm:w-10 sm:h-10 md:w-11 md:h-11 rounded-full
-              border border-[#4A4A4A] bg-white
-              shadow-[0_12px_30px_rgba(0,0,0,0.1)]
-              flex items-center justify-center transition
-              ${canNext ? "hover:bg-[#4A4A4A]/5" : "opacity-35 cursor-not-allowed"}
-            `}
+            className={`absolute right-1 sm:right-2 md:right-3 top-1/2 -translate-y-1/2 z-30 w-9 h-9 sm:w-10 sm:h-10 md:w-11 md:h-11 rounded-full border border-[#4A4A4A] bg-white shadow-[0_12px_30px_rgba(0,0,0,0.1)] flex items-center justify-center transition ${
+              currentIndex < maxIndex 
+                ? "hover:bg-[#4A4A4A]/5 cursor-pointer opacity-100" 
+                : "opacity-35 cursor-not-allowed pointer-events-none"
+            }`}
           >
             <ChevronRight className="text-[#1D1D1D]" size={16} />
           </button>
 
-          {/* Track */}
-          <motion.div
-            className="flex gap-3 sm:gap-4 px-10 sm:px-14 md:px-16 py-3 cursor-grab active:cursor-grabbing"
-            animate={{ x: isDragging ? -index * stride - dragOffset : -index * stride }}
-            transition={isDragging ? { duration: 0 } : { type: "spring", stiffness: 300, damping: 30 }}
-            onTouchStart={onTouchStart}
-            onTouchMove={onTouchMove}
-            onTouchEnd={onTouchEnd}
+          {/* Carousel Track */}
+          <div
+            className="flex gap-3 py-3 px-3 sm:px-10 md:px-14 lg:px-16"
             style={{ touchAction: "pan-x" }}
+            onTouchStart={handleTouchStart}
+            onTouchMove={handleTouchMove}
+            onTouchEnd={handleTouchEnd}
           >
-            {SERVICES.map((s, i) => {
-              const Icon = s.icon;
-              return (
-                <div
-                  key={s.title + i}
-                  ref={i === 0 ? firstCardRef : undefined}
-                  className="
-                    w-[260px] sm:w-[280px] md:w-[320px] lg:w-[360px]
-                    shrink-0 rounded-[20px] sm:rounded-[22px]
-                    border border-[#4A4A4A] bg-white
-                    shadow-[0_18px_45px_rgba(0,0,0,0.1)]
-                    p-6 sm:p-7 md:p-8
-                    hover:shadow-[0_24px_60px_rgba(0,0,0,0.15)]
-                    hover:border-t-[2px] hover:border-t-[#F04E22]
-                    transition-all duration-150
-                    group
-                  "
-                >
-                  <div className="flex items-start justify-between gap-4">
-                    <div className="w-11 h-11 rounded-full border border-[#4A4A4A]/30 bg-[#4A4A4A]/5 flex items-center justify-center text-[#214B57]">
-                      <Icon className="w-5 h-5" />
+            <motion.div
+              className="flex gap-3"
+              animate={{ x: translateX }}
+              transition={isDragging ? { duration: 0 } : { type: "spring", stiffness: 300, damping: 30 }}
+              style={{ userSelect: "none" }}
+            >
+              {SERVICES.map((service, i) => {
+                const Icon = service.icon;
+                return (
+                  <div
+                    key={`${service.title}-${i}`}
+                    className="shrink-0 rounded-[20px] sm:rounded-[22px] border border-[#4A4A4A] bg-white shadow-[0_18px_45px_rgba(0,0,0,0.1)] p-5 sm:p-7 md:p-8 hover:shadow-[0_24px_60px_rgba(0,0,0,0.15)] hover:border-t-[2px] hover:border-t-[#F04E22] transition-all duration-150 group"
+                    style={{ width: `${cardWidth}px` }}
+                  >
+                    <div className="flex items-start justify-between gap-4">
+                      <div className="w-11 h-11 rounded-full border border-[#4A4A4A]/30 bg-[#4A4A4A]/5 flex items-center justify-center text-[#214B57]">
+                        <Icon className="w-5 h-5" />
+                      </div>
+                      <span className="text-[11px] uppercase tracking-[0.28em] text-[#7F8C8D] font-dm-sans">
+                        Service
+                      </span>
                     </div>
 
-                    <span className="text-[11px] uppercase tracking-[0.28em] text-[#7F8C8D] font-dm-sans">
-                      Service
-                    </span>
+                    <h3 className="mt-4 text-[#1D1D1D] font-noto-serif" style={{ fontSize: 'clamp(1.5rem, 2.5vw, 2.17rem)', fontWeight: 400, lineHeight: '1.2', letterSpacing: '0px', fontFamily: 'Noto Serif, serif' }}>
+                      {service.title}
+                    </h3>
+
+                    <p className="mt-2 text-[#7F8C8D] font-dm-sans" style={{ fontSize: 'clamp(0.875rem, 1.5vw, 1.5rem)', fontWeight: 400, lineHeight: '1.2', letterSpacing: '0px', fontFamily: 'DM Sans, sans-serif' }}>
+                      {service.description}
+                    </p>
+
+                    <a
+                      href="/contact-us"
+                      className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-[#214B57] hover:opacity-80 transition font-dm-sans"
+                    >
+                      Get a quote <ArrowRight size={14} />
+                    </a>
                   </div>
+                );
+              })}
+            </motion.div>
+          </div>
 
-                  <h3 className="mt-4 text-[#1D1D1D] font-noto-serif" style={{ fontSize: 'clamp(1.5rem, 2.5vw, 2.17rem)', fontWeight: 400, lineHeight: '1.2', letterSpacing: '0px', fontFamily: 'Noto Serif, serif' }}>
-                    {s.title}
-                  </h3>
-
-                  <p className="mt-2 text-[#7F8C8D] font-dm-sans" style={{ fontSize: 'clamp(0.875rem, 1.5vw, 1.5rem)', fontWeight: 400, lineHeight: '1.2', letterSpacing: '0px', fontFamily: 'DM Sans, sans-serif' }}>
-                    {s.description}
-                  </p>
-
-                  <a
-                    href="/contact-us"
-                    className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-[#214B57] hover:opacity-80 transition font-dm-sans"
-                  >
-                    Get a quote <ArrowRight size={14} />
-                  </a>
-                </div>
-              );
-            })}
-          </motion.div>
-
-          {/* Dots */}
+          {/* Pagination Dots */}
           {maxIndex > 0 && (
             <div className="mt-6 flex items-center justify-center gap-2">
               {Array.from({ length: maxIndex + 1 }).map((_, i) => (
                 <button
                   key={i}
                   type="button"
-                  onClick={() => setIndex(i)}
-                  className={`
-                    h-2.5 rounded-full transition
-                    ${i === index ? "w-7 bg-[#214B57]" : "w-2.5 bg-[#4A4A4A] hover:bg-[#7F8C8D]"}
-                  `}
+                  onClick={() => setCurrentIndex(i)}
+                  className={`h-2.5 rounded-full transition ${
+                    i === currentIndex ? "w-7 bg-[#214B57]" : "w-2.5 bg-[#4A4A4A] hover:bg-[#7F8C8D]"
+                  }`}
                   aria-label={`Go to slide ${i + 1}`}
                 />
               ))}
@@ -363,4 +345,3 @@ export default function Services() {
     </section>
   );
 }
-

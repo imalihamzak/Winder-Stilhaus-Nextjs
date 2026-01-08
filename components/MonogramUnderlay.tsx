@@ -1,67 +1,44 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
-
 interface MonogramUnderlayProps {
   className?: string;
+  opacity?: number;
 }
 
-export default function MonogramUnderlay({ className = "" }: MonogramUnderlayProps) {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start end", "end start"]
-  });
-  
-  // Very gentle scroll-based movement (parallax effect)
-  const y1 = useTransform(scrollYProgress, [0, 1], [0, 20]);
-  const y2 = useTransform(scrollYProgress, [0, 1], [0, -15]);
-  const x1 = useTransform(scrollYProgress, [0, 1], [0, 10]);
-  const x2 = useTransform(scrollYProgress, [0, 1], [0, -8]);
-
+export default function MonogramUnderlay({ className = "", opacity = 0.5 }: MonogramUnderlayProps) {
   return (
-    <motion.div
-      ref={containerRef}
+    <div
       aria-hidden="true"
-      className={`absolute inset-0 z-0 pointer-events-none select-none overflow-hidden ${className}`}
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ 
-        duration: 0.8, 
-        delay: 0.35, 
-        ease: [0.22, 1, 0.36, 1]
-      }}
+      className={`absolute inset-0 z-[1] pointer-events-none select-none overflow-hidden ${className}`}
     >
-      {/* Tiled monogram ring pattern - asymmetrical overlay with scroll movement */}
-      <motion.div 
-        className="absolute inset-0" 
-        style={{ 
-          backgroundImage: 'url(/assets/bgring.png)',
-          backgroundRepeat: 'repeat',
-          backgroundSize: '400px 400px',
-          backgroundPosition: '20% 30%',
-          opacity: 0.03,
-          transform: 'rotate(-5deg)',
-          x: x1,
-          y: y1
-        }} 
+      {/* Mobile: ring half visible on right side */}
+      <img
+        src="/assets/ring.png"
+        alt=""
+        className="absolute md:hidden"
+        style={{
+          height: '100%',
+          width: 'auto',
+          right: '-40%', // Adjust this value: more negative = more visible, less negative = less visible
+          top: '50%',
+          transform: 'translateY(-50%)',
+          opacity: opacity,
+        }}
       />
-      {/* Additional layer for depth - offset position with scroll movement */}
-      <motion.div 
-        className="absolute inset-0" 
-        style={{ 
-          backgroundImage: 'url(/assets/bgring.png)',
-          backgroundRepeat: 'repeat',
-          backgroundSize: '350px 350px',
-          backgroundPosition: '80% 70%',
-          opacity: 0.02,
-          transform: 'rotate(3deg)',
-          x: x2,
-          y: y2
-        }} 
+      {/* Desktop: ring positioned at 120% */}
+      <div
+        className="hidden md:block absolute inset-0"
+        style={{
+          backgroundImage: 'url(/assets/ring.png)',
+          backgroundRepeat: 'no-repeat',
+          backgroundSize: 'auto 100%',
+          backgroundPosition: '125% center',
+          width: '100%',
+          height: '100%',
+          opacity: opacity,
+        }}
       />
-    </motion.div>
+    </div>
   );
 }
 

@@ -22,7 +22,7 @@ export default function AboutHero() {
           <div className="text-center mb-3">
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#FFFFFF] border border-[#CED3D7] text-sm font-medium text-[#1D1D1D] mb-3 font-dm-sans" style={{ fontSize: 'clamp(0.875rem, 1.25vw, 1rem)', fontWeight: 400, lineHeight: '1.2', letterSpacing: '0px', fontFamily: 'DM Sans, sans-serif' }}>
               <span className="h-2 w-2 rounded-full" style={{ backgroundColor: '#F04E22' }}></span>
-              About Winder & Stilhaus
+              About Winder&Stilhaus
             </div>
             <h1 className="text-white font-noto-serif mb-4" style={{ fontSize: 'clamp(2.5rem, 5vw, 4.5rem)', fontWeight: 700, lineHeight: '1.5', letterSpacing: '0px', fontFamily: 'Noto Serif, serif', color: '#FFFFFF' }}>
               Crafting Luxury Interiors

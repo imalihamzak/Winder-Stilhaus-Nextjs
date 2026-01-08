@@ -197,7 +197,7 @@ export default function HeroSection() {
               {/* Horizontal lockup: Official logo from brand pack */}
               <img
                 src="/assets/ReverseLogo.png"
-                alt="Winder & Stilhaus logo"
+                alt="Winder&Stilhaus logo"
                 width={150}
                 height={40}
                 className="h-8 sm:h-10 md:h-12 w-auto shrink-0"
@@ -233,8 +233,36 @@ export default function HeroSection() {
 
             <div className="flex items-center gap-2 sm:gap-3 relative z-50">
               <a
-                href={heroContent.topActions[0].href}
-                onClick={() => {
+                href="#pricing-guide"
+                onClick={(e) => {
+                  e.preventDefault();
+                  const pathname = window.location.pathname;
+                  
+                  if (pathname === "/") {
+                    // On homepage, smooth scroll to pricing guide
+                    const target = document.getElementById("pricing-guide");
+                    if (target) {
+                      target.scrollIntoView({ behavior: "smooth", block: "start" });
+                      
+                      // Move focus to heading after scroll
+                      setTimeout(() => {
+                        const heading = document.getElementById("pricing-guide-heading") || 
+                          target.querySelector("h2") as HTMLElement;
+                        if (heading) {
+                          heading.setAttribute("tabindex", "-1");
+                          heading.focus({ preventScroll: true });
+                          heading.addEventListener("blur", () => {
+                            heading.removeAttribute("tabindex");
+                          }, { once: true });
+                        }
+                      }, 600);
+                    }
+                  } else {
+                    // On other pages, navigate to homepage pricing section
+                    window.location.href = "/#pricing-guide";
+                  }
+                  
+                  // Track event
                   if (typeof window !== "undefined" && (window as any).gtag) {
                     const hasConsent = localStorage.getItem("cookie-consent") === "accepted";
                     if (hasConsent) {
@@ -315,16 +343,47 @@ export default function HeroSection() {
 
                 <div className="pt-2">
                   <a
-                    href={heroContent.topActions[0].href}
-                    onClick={() => {
-                      if (typeof window !== "undefined" && (window as any).gtag) {
-                        (window as any).gtag("event", "cta_book", {
-                          event_category: "CTA",
-                          event_label: "Mobile Menu - Book a consultation",
-                          value: 1,
-                        });
-                      }
+                    href="#pricing-guide"
+                    onClick={(e) => {
+                      e.preventDefault();
                       setMenuOpen(false);
+                      const pathname = window.location.pathname;
+                      
+                      if (pathname === "/") {
+                        // On homepage, smooth scroll to pricing guide
+                        const target = document.getElementById("pricing-guide");
+                        if (target) {
+                          target.scrollIntoView({ behavior: "smooth", block: "start" });
+                          
+                          // Move focus to heading after scroll
+                          setTimeout(() => {
+                            const heading = document.getElementById("pricing-guide-heading") || 
+                              target.querySelector("h2") as HTMLElement;
+                            if (heading) {
+                              heading.setAttribute("tabindex", "-1");
+                              heading.focus({ preventScroll: true });
+                              heading.addEventListener("blur", () => {
+                                heading.removeAttribute("tabindex");
+                              }, { once: true });
+                            }
+                          }, 600);
+                        }
+                      } else {
+                        // On other pages, navigate to homepage pricing section
+                        window.location.href = "/#pricing-guide";
+                      }
+                      
+                      // Track event
+                      if (typeof window !== "undefined" && (window as any).gtag) {
+                        const hasConsent = localStorage.getItem("cookie-consent") === "accepted";
+                        if (hasConsent) {
+                          (window as any).gtag("event", "cta_book_click", {
+                            event_category: "CTA",
+                            event_label: "Mobile Menu - Book a consultation",
+                            value: 1,
+                          });
+                        }
+                      }
                     }}
                     className="
                       block w-full text-center min-w-[122px] min-h-[31px] px-4 py-2 rounded-md
@@ -353,13 +412,13 @@ export default function HeroSection() {
           pt-20 sm:pt-24 md:pt-28 pb-7 sm:pb-10 md:pb-12
         "
         style={{ 
-          background: 'linear-gradient(180deg, #214B57 0%, #183941 100%)',
+          background: 'linear-gradient(135deg, #214B57 0%, #183941 100%)',
           overflow: 'hidden' 
         }}
         suppressHydrationWarning
       >
-        {/* Monogram ring underlay: tiled pattern, asymmetrical overlay, 4-7% opacity, scroll-based movement */}
-        <MonogramUnderlay />
+        {/* Ring pattern underlay: large scale, cropped off-edge, visible opacity, subtle parallax */}
+        <MonogramUnderlay opacity={0.5} />
 
         <div className={`${containerClass} relative z-10`}>
           {/* Hero Content */}

@@ -44,7 +44,7 @@ const features: Feature[] = [
 
 export default function WhyChooseUs() {
   return (
-    <section className="bg-[#1D1D1D] py-8 sm:py-10 md:py-12 text-white">
+    <section className="bg-[#1D1D1D] py-8 sm:py-10 md:py-12 text-white border-t border-[#CED3D7]">
       <div className="max-w-7xl mx-auto px-3 sm:px-4 md:px-6">
         <FadeIn direction="up" delay={0.2} duration={0.6}>
             <div className="text-center mb-8">
