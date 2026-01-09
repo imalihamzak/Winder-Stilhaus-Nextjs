@@ -20,7 +20,7 @@ export default function AboutCTA() {
             className="flex  max-w-80 items-center justify-between bg-primary  border border-gray-300 p-3 rounded-full text-sm text-white "
           >
             <p>Contact</p>
-            <span className="w-8 h-8 rounded-full  bg-white text-black flex items-center justify-center text-xs">
+            <span className="w-8 h-8 rounded-full ws-double-ring ws-double-ring--tight bg-white text-black flex items-center justify-center text-xs">
               →
             </span>
           </a>

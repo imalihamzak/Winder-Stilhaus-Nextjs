@@ -94,7 +94,7 @@ export default function TimelineSection() {
                   <div className="relative z-10">
                     {/* Year and Icon */}
                     <div className="flex items-center justify-between mb-4">
-                      <div className={`w-12 h-12 rounded-full ${milestone.color} flex items-center justify-center`}>
+                      <div className={`w-12 h-12 rounded-full ws-double-ring ws-double-ring--tight ws-double-ring--on-dark ${milestone.color} flex items-center justify-center`}>
                         <Icon className={`text-xl ${milestone.iconColor}`} />
                       </div>
                       <div className="text-right">

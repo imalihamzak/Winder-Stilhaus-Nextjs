@@ -36,7 +36,7 @@ function LocationWhyChooseUs({ location }: LocationWhyChooseUsProps) {
           {points.map((point, i) => (
             <FadeIn key={i} direction="up" delay={i * 0.15} duration={0.6}>
               <div className="flex items-center gap-3 rounded-[20px] border border-[#4A4A4A] bg-white shadow-[0_12px_30px_rgba(0,0,0,0.1)] p-5">
-                <div className="w-8 h-8 rounded-full flex items-center justify-center shrink-0" style={{ backgroundColor: '#214B57' }}>
+                <div className="w-8 h-8 rounded-full ws-double-ring ws-double-ring--tight ws-double-ring--on-dark flex items-center justify-center shrink-0" style={{ backgroundColor: '#214B57' }}>
                   <CheckCircle className="text-white text-sm" size={16} />
                 </div>
                 <p className="text-[#1D1D1D] font-semibold font-dm-sans" style={{ fontSize: 'clamp(0.875rem, 1.25vw, 1rem)', fontWeight: 400, lineHeight: '1.2', letterSpacing: '0px', fontFamily: 'DM Sans, sans-serif' }}>{point}</p>

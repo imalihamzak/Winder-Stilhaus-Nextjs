@@ -39,7 +39,7 @@ export default function WhatsIncluded({ service }: WhatsIncludedProps) {
               <div
                 className="flex items-center gap-3 rounded-[20px] border border-[#4A4A4A] bg-white shadow-[0_12px_30px_rgba(0,0,0,0.1)] p-5"
             >
-                <div className="w-8 h-8 rounded-full bg-[#214B57] flex items-center justify-center shrink-0">
+                <div className="w-8 h-8 rounded-full ws-double-ring ws-double-ring--tight ws-double-ring--on-dark bg-[#214B57] flex items-center justify-center shrink-0">
                   <Check className="text-white text-sm" size={16} />
             </div>
                 <p className="text-[#1D1D1D] font-dm-sans" style={{ fontSize: 'clamp(0.875rem, 1.25vw, 1rem)', fontWeight: 400, lineHeight: '1.2', letterSpacing: '0px', fontFamily: 'DM Sans, sans-serif' }}>{item}</p>

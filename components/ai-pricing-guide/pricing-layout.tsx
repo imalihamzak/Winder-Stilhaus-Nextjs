@@ -144,8 +144,8 @@ export default function InstantPricingGuide() {
                         {/* Step Circle - smaller and more refined */}
                         <div
                           style={{
-                            ["--ws-ring-outer" as any]: isActive || isDone ? "rgba(33, 75, 87, 0.40)" : "rgba(74, 74, 74, 0.22)",
-                            ["--ws-ring-inner" as any]: isActive || isDone ? "rgba(33, 75, 87, 0.18)" : "rgba(74, 74, 74, 0.12)",
+                            ["--ws-ring-outer" as any]: isActive || isDone ? "rgba(33, 75, 87, 0.22)" : "rgba(74, 74, 74, 0.14)",
+                            ["--ws-ring-inner" as any]: isActive || isDone ? "rgba(33, 75, 87, 0.14)" : "rgba(74, 74, 74, 0.10)",
                           }}
                           className={`relative z-10 w-8 h-8 rounded-full ws-double-ring ws-double-ring--tight flex items-center justify-center text-xs font-semibold transition-all mb-1.5
                             ${
@@ -215,16 +215,16 @@ export default function InstantPricingGuide() {
                         <div className="flex flex-col items-center min-w-[50px]">
                           <div
                             style={{
-                              ["--ws-ring-outer" as any]: isActive || isDone ? "rgba(33, 75, 87, 0.40)" : "rgba(74, 74, 74, 0.22)",
-                              ["--ws-ring-inner" as any]: isActive || isDone ? "rgba(33, 75, 87, 0.18)" : "rgba(74, 74, 74, 0.12)",
+                              ["--ws-ring-outer" as any]: isActive || isDone ? "rgba(33, 75, 87, 0.22)" : "rgba(74, 74, 74, 0.14)",
+                              ["--ws-ring-inner" as any]: isActive || isDone ? "rgba(33, 75, 87, 0.14)" : "rgba(74, 74, 74, 0.10)",
                             }}
-                            className={`relative z-10 w-7 h-7 rounded-full flex items-center justify-center text-[10px] font-semibold border transition-all
+                            className={`relative z-10 w-7 h-7 rounded-full ws-double-ring ws-double-ring--tight flex items-center justify-center text-[10px] font-semibold transition-all
                               ${
                                 isActive
-                                  ? "bg-[#214B57] text-white ws-double-ring ws-double-ring--tight shadow-sm border-transparent"
+                                  ? "bg-[#214B57] text-white shadow-sm"
                                   : isDone
-                                  ? "bg-white text-[#214B57] ws-double-ring ws-double-ring--tight border-transparent"
-                                  : "bg-white text-[#85929D] ws-double-ring ws-double-ring--tight border-transparent"
+                                  ? "bg-white text-[#214B57]"
+                                  : "bg-white text-[#85929D]"
                               }`}
                           >
                             {isDone ? (
