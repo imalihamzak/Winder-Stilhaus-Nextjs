@@ -20,9 +20,9 @@ export default function ServiceHero({ service }: ServiceHeroProps) {
   return (
     <section 
       className="relative mx-auto text-white pt-20 sm:pt-24 md:pt-28 pb-7 sm:pb-10 md:pb-28 overflow-hidden -mt-20 sm:-mt-24 md:-mt-24 md:min-h-[100svh] md:flex md:items-center"
-      style={{ 
-        background: 'linear-gradient(135deg, #214B57 0%, #183941 100%)'
-      }}
+  style={{
+    background: 'linear-gradient(135deg, #214B57 0%, #183941 80%, #142F36 100%)'
+  }}
     >
       {/* Ring pattern underlay: large scale, cropped off-edge, visible opacity, subtle parallax */}
       <MonogramUnderlay opacity={0.5} />
