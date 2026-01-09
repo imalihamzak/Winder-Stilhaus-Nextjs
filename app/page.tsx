@@ -65,14 +65,14 @@ const Page = () => {
           <HeroSection />
 
           {/* Services section - Charcoal background with white cards */}
-          <div className="bg-[#1D1D1D] border-t border-[#4A4A4A]">
+          <div className="bg-[#1D1D1D] border-t border-[#CED3D7]">
             <FadeIn direction="up" delay={0} duration={0.6}>
               <ServicesAbout />
             </FadeIn>
           </div>
 
           {/* Pricing guide - Charcoal background */}
-          <div className="bg-[#1D1D1D] border-t border-[#4A4A4A]">
+          <div className="bg-[#1D1D1D] border-t border-[#CED3D7]">
             <FadeIn direction="up" delay={0} duration={0.6}>
               <Suspense fallback={
                 <div className="min-h-[400px] flex items-center justify-center">
@@ -88,21 +88,21 @@ const Page = () => {
           </div>
 
           {/* Testimonials - Charcoal background with white cards */}
-          <div className="bg-[#1D1D1D] border-t border-[#4A4A4A]">
+          <div className="bg-[#1D1D1D] border-t border-[#CED3D7]">
             <FadeIn direction="up" delay={0} duration={0.6}>
               <Testimonials />
             </FadeIn>
           </div>
 
           {/* FAQ - Charcoal background */}
-          <div className="bg-[#1D1D1D] border-t border-[#4A4A4A]">
+          <div className="bg-[#1D1D1D] border-t border-[#CED3D7]">
             <FadeIn direction="up" delay={0} duration={0.6}>
               <FAQSection />
             </FadeIn>
           </div>
 
           {/* Blog section handles its own animations internally */}
-          <div className="border-t border-[#4A4A4A]">
+          <div className="border-t border-[#CED3D7]">
             <BlogLayout />
           </div>
 

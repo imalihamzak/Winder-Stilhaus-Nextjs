@@ -1,6 +1,26 @@
 "use client";
 
+import { useState, useEffect } from "react";
+
 export default function MobileStickyBar() {
+  const [isMobile, setIsMobile] = useState<boolean>(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+
+    return () => {
+      window.removeEventListener("resize", checkMobile);
+    };
+  }, []);
+
+  // Only show on mobile screens - visible from landing
+  if (!isMobile) return null;
+
   return (
     <div className="fixed bottom-0 left-0 right-0 z-50 md:hidden" style={{ paddingBottom: 'env(safe-area-inset-bottom, 0)' }}>
       <div className="bg-[#214B57] border-t border-[#4A4A4A]/50 shadow-[0_-4px_20px_rgba(0,0,0,0.3)] w-full">
