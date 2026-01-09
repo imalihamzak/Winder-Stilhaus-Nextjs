@@ -120,28 +120,21 @@ export default function MonogramUnderlay({
         ["--ws-ring-opacity" as any]: `${maxOpacity}`,
       }}
     >
-      {/* Mobile */}
-      <img
-        src="/assets/ring.png"
-        alt=""
-        className="absolute md:hidden max-w-none"
+      {/* Mobile (use background-image to guarantee no vertical cropping) */}
+      <div
+        className="md:hidden absolute inset-0"
         style={{
-          // Mobile: keep ring fully inside the section (no top/bottom cropping)
-          // Use an explicit inset + height so it can never exceed the section box.
-          top: "12px",
-          height: "calc(100% - 24px)",
-          width: "auto",
-          // Keep a reasonable cap based on viewport width.
-          maxHeight: "140vw",
-          maxWidth: "140vw",
-          right: "-28%",
+          backgroundImage: "url(/assets/ring.png)",
+          backgroundRepeat: "no-repeat",
+          // Scale with section height, always fully visible top/bottom
+          backgroundSize: "auto 100%",
+          // Keep it inside the section on the right (slightly inset)
+          backgroundPosition: "right 12px center",
           transform:
-            // Mobile: keep ring fully visible (no vertical drift that can clip top/bottom)
+            // Mobile: no vertical drift (prevents top/bottom clipping)
             "translate3d(calc(var(--ws-ring-tx) + var(--ws-ring-idle-x)), 0px, 0)",
           opacity: "var(--ws-ring-opacity)" as any,
         }}
-        loading="eager"
-        decoding="async"
       />
 
       {/* Desktop */}
