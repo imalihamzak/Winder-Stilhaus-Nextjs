@@ -3,7 +3,6 @@
 import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import FadeIn from "@/components/FadeIn";
-import MonogramUnderlay from "@/components/MonogramUnderlay";
 import TrustBoosters from "@/components/location-based-page/testimonials/trust-booster";
 
 interface Testimonial {
@@ -100,7 +99,6 @@ export default function Testimonials() {
 
   return (
     <section className="px-3 sm:px-4 md:px-6 py-14 md:py-18 relative overflow-hidden select-none bg-[#1D1D1D]">
-      <MonogramUnderlay opacity={0.06} />
       <div className="max-w-7xl mx-auto relative z-10">
         {/* Heading */}
         <FadeIn className="relative text-center mb-10 md:mb-12 px-2">
