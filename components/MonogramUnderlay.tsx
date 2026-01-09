@@ -26,7 +26,7 @@ export default function MonogramUnderlay({
   const maxOpacity = useMemo(() => clamp(typeof opacity === "number" ? opacity : 0.06, 0.04, 0.07), [opacity]);
   const minOpacity = 0.04;
   const ringSize = useMemo(
-    () => clamp(typeof sizePercent === "number" ? sizePercent : 100),
+    () => clamp(typeof sizePercent === "number" ? sizePercent : 100, 120, 240),
     [sizePercent]
   );
 
