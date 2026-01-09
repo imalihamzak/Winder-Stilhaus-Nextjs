@@ -30,6 +30,9 @@ export default function MonogramUnderlay({
     [sizePercent]
   );
 
+  // Mobile should be smaller than desktop to avoid overpowering the section.
+  const mobileRingSize = useMemo(() => clamp(ringSize * 0.72, 60, 160), [ringSize]);
+
   // Scroll-based parallax (unchanged)
   useEffect(() => {
     const el = ref.current;
@@ -127,7 +130,7 @@ export default function MonogramUnderlay({
           backgroundImage: "url(/assets/ring.png)",
           backgroundRepeat: "no-repeat",
           // Scale with section height, always fully visible top/bottom
-          backgroundSize: "auto 100%",
+          backgroundSize: `auto min(${mobileRingSize}%, 90vw)`,
           // Keep it inside the section on the right (slightly inset)
           backgroundPosition: "right 12px center",
           transform:
