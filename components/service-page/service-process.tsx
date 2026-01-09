@@ -77,7 +77,7 @@ export default function ServiceProcess({ service }: ServiceProcessProps) {
                 <div
                   className="rounded-[24px] border border-[#4A4A4A] bg-white shadow-[0_18px_45px_rgba(0,0,0,0.1)] p-6 text-center h-full"
             >
-                  <div className="w-14 h-14 mx-auto flex items-center justify-center text-[#214B57] text-xl mb-4 bg-[#214B57]/10 rounded-full">
+                  <div className="w-14 h-14 mx-auto flex items-center justify-center text-[#214B57] text-xl mb-4 bg-[#214B57]/10 rounded-full ws-double-ring">
                     <Icon />
               </div>
                   <h4 className="font-semibold text-[#1D1D1D] mb-2 font-noto-serif" style={{ fontSize: 'clamp(1rem, 1.5vw, 1.5rem)', fontWeight: 400, lineHeight: '1.2', letterSpacing: '0px', fontFamily: 'Noto Serif, serif', color: '#1D1D1D' }}>

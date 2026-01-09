@@ -58,9 +58,9 @@ export default function StickyCTA() {
                 -right-3 
                 w-8 
                 h-8 
-                rounded-full 
+                rounded-full ws-double-ring ws-double-ring--tight
                 border 
-                border-[#214B57] 
+                border-transparent 
                 bg-white 
                 text-[#214B57]
                 hover:bg-[#214B57] hover:text-white hover:border-[#F04E22] hover:border-2
