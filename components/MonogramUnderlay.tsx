@@ -129,11 +129,14 @@ export default function MonogramUnderlay({
           // Mobile: grow with section height, but cap so it stays visible
           height: `min(${ringSize}%, 140vw)`,
           width: "auto",
+          // Prevent top/bottom clipping inside the section (also allows small parallax motion)
+          maxHeight: "calc(100% - 24px)",
           maxWidth: "140vw",
           right: "-28%",
           top: "50%",
           transform:
-            "translateY(-50%) translate3d(calc(var(--ws-ring-tx) + var(--ws-ring-idle-x)), calc(var(--ws-ring-ty) + var(--ws-ring-idle-y)), 0)",
+            // Mobile: keep ring fully visible (no vertical drift that can clip top/bottom)
+            "translateY(-50%) translate3d(calc(var(--ws-ring-tx) + var(--ws-ring-idle-x)), 0px, 0)",
           opacity: "var(--ws-ring-opacity)" as any,
         }}
         loading="eager"
