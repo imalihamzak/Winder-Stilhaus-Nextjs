@@ -129,6 +129,8 @@ export default function MonogramUnderlay({
           // Mobile: grow with section height, but cap so it stays visible
           height: `min(${ringSize}%, 140vw)`,
           width: "auto",
+          // Prevent top/bottom clipping inside the section (also allows small parallax motion)
+          maxHeight: "calc(100% - 24px)",
           maxWidth: "140vw",
           right: "-28%",
           top: "50%",
