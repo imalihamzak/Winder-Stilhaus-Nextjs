@@ -164,7 +164,7 @@ export default function Testimonials() {
                       {/* Quote */}
                       <div className="mt-6">
                         <div className="inline-flex items-center gap-3 mb-4">
-                          <div className="w-11 h-11 rounded-full bg-[#1D1D1D] text-white flex items-center justify-center text-xl font-bold shadow-[0_14px_35px_rgba(26,29,41,0.09)]">
+                          <div className="w-11 h-11 rounded-full ws-double-ring ws-double-ring--tight ws-double-ring--on-dark bg-[#1D1D1D] text-white flex items-center justify-center text-xl font-bold shadow-[0_14px_35px_rgba(26,29,41,0.09)]">
                             &quot;
                           </div>
                           <div className="h-px flex-1 bg-black/10" />
@@ -237,14 +237,14 @@ export default function Testimonials() {
               <button
                 onClick={prevSlide}
                 aria-label="Previous testimonial"
-                className="hidden md:flex absolute left-4 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full border border-[#4A4A4A] bg-white text-[#1D1D1D] items-center justify-center shadow-[0_18px_45px_rgba(0,0,0,0.1)] hover:bg-[#4A4A4A]/5 transition"
+                className="hidden md:flex absolute left-4 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full ws-double-ring bg-white text-[#1D1D1D] items-center justify-center shadow-[0_18px_45px_rgba(0,0,0,0.1)] hover:bg-[#4A4A4A]/5 transition"
               >
                 ←
               </button>
               <button
                 onClick={nextSlide}
                 aria-label="Next testimonial"
-                className="hidden md:flex absolute right-4 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full border border-[#4A4A4A] bg-white text-[#1D1D1D] items-center justify-center shadow-[0_18px_45px_rgba(0,0,0,0.1)] hover:bg-[#4A4A4A]/5 transition"
+                className="hidden md:flex absolute right-4 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full ws-double-ring bg-white text-[#1D1D1D] items-center justify-center shadow-[0_18px_45px_rgba(0,0,0,0.1)] hover:bg-[#4A4A4A]/5 transition"
               >
                 →
               </button>

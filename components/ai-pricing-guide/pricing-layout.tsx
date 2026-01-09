@@ -143,13 +143,17 @@ export default function InstantPricingGuide() {
                       <div key={label} className="relative flex flex-col items-center flex-1">
                         {/* Step Circle - smaller and more refined */}
                         <div
-                          className={`relative z-10 w-8 h-8 rounded-full flex items-center justify-center text-xs font-semibold border transition-all mb-1.5
+                          style={{
+                            ["--ws-ring-outer" as any]: isActive || isDone ? "rgba(33, 75, 87, 0.40)" : "rgba(74, 74, 74, 0.22)",
+                            ["--ws-ring-inner" as any]: isActive || isDone ? "rgba(33, 75, 87, 0.18)" : "rgba(74, 74, 74, 0.12)",
+                          }}
+                          className={`relative z-10 w-8 h-8 rounded-full ws-double-ring ws-double-ring--tight flex items-center justify-center text-xs font-semibold transition-all mb-1.5
                             ${
                               isActive
-                                ? "bg-[#214B57] text-white border-[#214B57] shadow-sm"
+                                ? "bg-[#214B57] text-white shadow-sm"
                                 : isDone
-                                ? "bg-white text-[#214B57] border-[#214B57]"
-                                : "bg-white text-[#85929D] border-[#4A4A4A]/30"
+                                ? "bg-white text-[#214B57]"
+                                : "bg-white text-[#85929D]"
                             }`}
                         >
                           {isDone ? (
@@ -210,13 +214,17 @@ export default function InstantPricingGuide() {
                       <div key={label} className="flex items-center flex-shrink-0">
                         <div className="flex flex-col items-center min-w-[50px]">
                           <div
+                            style={{
+                              ["--ws-ring-outer" as any]: isActive || isDone ? "rgba(33, 75, 87, 0.40)" : "rgba(74, 74, 74, 0.22)",
+                              ["--ws-ring-inner" as any]: isActive || isDone ? "rgba(33, 75, 87, 0.18)" : "rgba(74, 74, 74, 0.12)",
+                            }}
                             className={`relative z-10 w-7 h-7 rounded-full flex items-center justify-center text-[10px] font-semibold border transition-all
                               ${
                                 isActive
-                                  ? "bg-[#214B57] text-white border-[#214B57] shadow-sm"
+                                  ? "bg-[#214B57] text-white ws-double-ring ws-double-ring--tight shadow-sm border-transparent"
                                   : isDone
-                                  ? "bg-white text-[#214B57] border-[#214B57]"
-                                  : "bg-white text-[#85929D] border-[#4A4A4A]/30"
+                                  ? "bg-white text-[#214B57] ws-double-ring ws-double-ring--tight border-transparent"
+                                  : "bg-white text-[#85929D] ws-double-ring ws-double-ring--tight border-transparent"
                               }`}
                           >
                             {isDone ? (

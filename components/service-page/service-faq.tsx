@@ -83,7 +83,7 @@ export default function ServiceFAQ({ service }: ServiceFAQProps) {
                         </p>
                       </div>
                       <span
-                        className={`shrink-0 w-10 h-10 rounded-full border border-[#4A4A4A] bg-white flex items-center justify-center shadow-[0_12px_30px_rgba(0,0,0,0.1)] transition-transform duration-300 ease-in-out ${isOpen ? 'rotate-180' : ''}`}
+                        className={`shrink-0 w-10 h-10 rounded-full ws-double-ring ws-double-ring--tight bg-white flex items-center justify-center shadow-[0_12px_30px_rgba(0,0,0,0.1)] transition-transform duration-300 ease-in-out ${isOpen ? 'rotate-180' : ''}`}
                       >
                         <ChevronDown className="text-[#214B57]" size={20} />
                       </span>

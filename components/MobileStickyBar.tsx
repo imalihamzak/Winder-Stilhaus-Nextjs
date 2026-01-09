@@ -23,7 +23,7 @@ export default function MobileStickyBar() {
             className="flex flex-col items-center justify-center gap-1.5 px-4 py-3 min-w-[80px] min-h-[44px] rounded-xl bg-transparent hover:bg-white/10 transition-colors active:scale-95"
             aria-label="Call us"
           >
-            <div className="w-10 h-10 rounded-full flex items-center justify-center bg-white/20">
+            <div className="w-10 h-10 rounded-full ws-double-ring ws-double-ring--on-dark flex items-center justify-center bg-white/20">
               <svg
                 className="w-5 h-5 text-white"
                 fill="none"
@@ -58,7 +58,7 @@ export default function MobileStickyBar() {
             className="flex flex-col items-center justify-center gap-1.5 px-4 py-3 min-w-[80px] min-h-[44px] rounded-xl bg-transparent hover:bg-white/10 transition-colors active:scale-95"
             aria-label="Message us on WhatsApp"
           >
-            <div className="w-10 h-10 rounded-full bg-[#25D366] flex items-center justify-center">
+            <div className="w-10 h-10 rounded-full ws-double-ring ws-double-ring--on-dark bg-[#25D366] flex items-center justify-center">
               <svg
                 className="w-5 h-5 text-white"
                 fill="currentColor"
@@ -117,7 +117,7 @@ export default function MobileStickyBar() {
             aria-label="Book a consultation"
           >
             <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#F04E22] group-hover:h-1 transition-all" />
-            <div className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center">
+            <div className="w-10 h-10 rounded-full ws-double-ring ws-double-ring--on-dark bg-white/20 flex items-center justify-center">
               <svg
                 className="w-5 h-5 text-white"
                 fill="none"

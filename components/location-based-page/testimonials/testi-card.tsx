@@ -42,10 +42,10 @@ export default function TestimonialCard({ data }: TestimonialCardProps) {
           <img
           src={data.img}
           alt={data.name}
-            className="w-20 h-20 rounded-full mx-auto mb-4 object-cover border-2 border-white shadow-[0_12px_30px_rgba(26,29,41,0.06)]"
+            className="w-20 h-20 rounded-full ws-double-ring mx-auto mb-4 object-cover shadow-[0_12px_30px_rgba(26,29,41,0.06)]"
         />
       ) : (
-          <div className="w-20 h-20 rounded-full mx-auto mb-4 flex items-center justify-center text-white text-xl font-semibold shadow-[0_12px_30px_rgba(26,29,41,0.06)]" style={{ backgroundColor: '#214B57' }}>
+          <div className="w-20 h-20 rounded-full ws-double-ring ws-double-ring--on-dark mx-auto mb-4 flex items-center justify-center text-white text-xl font-semibold shadow-[0_12px_30px_rgba(26,29,41,0.06)]" style={{ backgroundColor: '#214B57' }}>
           {data.name[0]}
         </div>
       )}

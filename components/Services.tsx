@@ -250,7 +250,7 @@ export default function Services() {
             onClick={goToPrev}
             disabled={currentIndex === 0}
             aria-label="Previous"
-            className={`absolute left-1 sm:left-2 md:left-3 top-1/2 -translate-y-1/2 z-30 w-9 h-9 sm:w-10 sm:h-10 md:w-11 md:h-11 rounded-full border border-[#4A4A4A] bg-white shadow-[0_12px_30px_rgba(0,0,0,0.1)] flex items-center justify-center transition ${
+            className={`absolute left-1 sm:left-2 md:left-3 top-1/2 -translate-y-1/2 z-30 w-9 h-9 sm:w-10 sm:h-10 md:w-11 md:h-11 rounded-full ws-double-ring bg-white shadow-[0_12px_30px_rgba(0,0,0,0.1)] flex items-center justify-center transition ${
               currentIndex > 0 
                 ? "hover:bg-[#4A4A4A]/5 cursor-pointer opacity-100" 
                 : "opacity-35 cursor-not-allowed pointer-events-none"
@@ -264,7 +264,7 @@ export default function Services() {
             onClick={goToNext}
             disabled={currentIndex >= maxIndex}
             aria-label="Next"
-            className={`absolute right-1 sm:right-2 md:right-3 top-1/2 -translate-y-1/2 z-30 w-9 h-9 sm:w-10 sm:h-10 md:w-11 md:h-11 rounded-full border border-[#4A4A4A] bg-white shadow-[0_12px_30px_rgba(0,0,0,0.1)] flex items-center justify-center transition ${
+            className={`absolute right-1 sm:right-2 md:right-3 top-1/2 -translate-y-1/2 z-30 w-9 h-9 sm:w-10 sm:h-10 md:w-11 md:h-11 rounded-full ws-double-ring bg-white shadow-[0_12px_30px_rgba(0,0,0,0.1)] flex items-center justify-center transition ${
               currentIndex < maxIndex 
                 ? "hover:bg-[#4A4A4A]/5 cursor-pointer opacity-100" 
                 : "opacity-35 cursor-not-allowed pointer-events-none"
@@ -296,7 +296,7 @@ export default function Services() {
                     style={{ width: `${cardWidth}px` }}
                   >
                     <div className="flex items-start justify-between gap-4">
-                      <div className="w-11 h-11 rounded-full border border-[#4A4A4A]/30 bg-[#4A4A4A]/5 flex items-center justify-center text-[#214B57]">
+                      <div className="w-11 h-11 rounded-full ws-double-ring bg-[#4A4A4A]/5 flex items-center justify-center text-[#214B57]">
                         <Icon className="w-5 h-5" />
                       </div>
                       <span className="text-[11px] uppercase tracking-[0.28em] text-[#7F8C8D] font-dm-sans">

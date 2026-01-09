@@ -49,28 +49,28 @@ const FooterSection = () => {
                 <div className="flex items-center justify-center gap-3">
                   <Link
                     href="#"
-                    className="w-11 h-11 rounded-full border border-white/20 bg-white/10 flex items-center justify-center text-white shadow-[0_12px_30px_rgba(0,0,0,0.2)] hover:bg-white/20 transition"
+                    className="w-11 h-11 rounded-full ws-double-ring ws-double-ring--on-dark bg-white/10 flex items-center justify-center text-white shadow-[0_12px_30px_rgba(0,0,0,0.2)] hover:bg-white/20 transition"
                     aria-label="Facebook"
                   >
                     <Facebook size={18} />
                   </Link>
                   <Link
                     href="#"
-                    className="w-11 h-11 rounded-full border border-white/20 bg-white/10 flex items-center justify-center text-white shadow-[0_12px_30px_rgba(0,0,0,0.2)] hover:bg-white/20 transition"
+                    className="w-11 h-11 rounded-full ws-double-ring ws-double-ring--on-dark bg-white/10 flex items-center justify-center text-white shadow-[0_12px_30px_rgba(0,0,0,0.2)] hover:bg-white/20 transition"
                     aria-label="Instagram"
                   >
                     <Instagram size={18} />
                   </Link>
                   <Link
                     href="#"
-                    className="w-11 h-11 rounded-full border border-white/20 bg-white/10 flex items-center justify-center text-white shadow-[0_12px_30px_rgba(0,0,0,0.2)] hover:bg-white/20 transition"
+                    className="w-11 h-11 rounded-full ws-double-ring ws-double-ring--on-dark bg-white/10 flex items-center justify-center text-white shadow-[0_12px_30px_rgba(0,0,0,0.2)] hover:bg-white/20 transition"
                     aria-label="Twitter"
                   >
                     <Twitter size={18} />
                   </Link>
                   <Link
                     href="#"
-                    className="w-11 h-11 rounded-full border border-white/20 bg-white/10 flex items-center justify-center text-white shadow-[0_12px_30px_rgba(0,0,0,0.2)] hover:bg-white/20 transition"
+                    className="w-11 h-11 rounded-full ws-double-ring ws-double-ring--on-dark bg-white/10 flex items-center justify-center text-white shadow-[0_12px_30px_rgba(0,0,0,0.2)] hover:bg-white/20 transition"
                     aria-label="LinkedIn"
                   >
                     <Linkedin size={18} />
