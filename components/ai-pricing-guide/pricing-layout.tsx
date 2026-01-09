@@ -144,8 +144,8 @@ export default function InstantPricingGuide() {
                         {/* Step Circle - smaller and more refined */}
                         <div
                           style={{
-                            ["--ws-ring-outer" as any]: isActive || isDone ? "rgba(33, 75, 87, 0.40)" : "rgba(74, 74, 74, 0.22)",
-                            ["--ws-ring-inner" as any]: isActive || isDone ? "rgba(33, 75, 87, 0.18)" : "rgba(74, 74, 74, 0.12)",
+                            ["--ws-ring-outer" as any]: isActive || isDone ? "rgba(33, 75, 87, 0.22)" : "rgba(74, 74, 74, 0.14)",
+                            ["--ws-ring-inner" as any]: isActive || isDone ? "rgba(33, 75, 87, 0.14)" : "rgba(74, 74, 74, 0.10)",
                           }}
                           className={`relative z-10 w-8 h-8 rounded-full ws-double-ring ws-double-ring--tight flex items-center justify-center text-xs font-semibold transition-all mb-1.5
                             ${
@@ -215,8 +215,8 @@ export default function InstantPricingGuide() {
                         <div className="flex flex-col items-center min-w-[50px]">
                           <div
                             style={{
-                              ["--ws-ring-outer" as any]: isActive || isDone ? "rgba(33, 75, 87, 0.40)" : "rgba(74, 74, 74, 0.22)",
-                              ["--ws-ring-inner" as any]: isActive || isDone ? "rgba(33, 75, 87, 0.18)" : "rgba(74, 74, 74, 0.12)",
+                              ["--ws-ring-outer" as any]: isActive || isDone ? "rgba(33, 75, 87, 0.22)" : "rgba(74, 74, 74, 0.14)",
+                              ["--ws-ring-inner" as any]: isActive || isDone ? "rgba(33, 75, 87, 0.14)" : "rgba(74, 74, 74, 0.10)",
                             }}
                             className={`relative z-10 w-7 h-7 rounded-full ws-double-ring ws-double-ring--tight flex items-center justify-center text-[10px] font-semibold transition-all
                               ${

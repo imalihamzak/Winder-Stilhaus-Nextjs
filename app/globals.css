@@ -251,8 +251,9 @@ body,
 .ws-double-ring {
   position: relative;
   border-radius: 9999px;
-  --ws-ring-outer: rgba(33, 75, 87, 0.26); /* Ocean Blue */
-  --ws-ring-inner: rgba(33, 75, 87, 0.14);
+  /* Outer ring is thicker but stays subtle */
+  --ws-ring-outer: rgba(33, 75, 87, 0.16); /* Ocean Blue */
+  --ws-ring-inner: rgba(33, 75, 87, 0.12);
   --ws-ring-gap: 3px;
 }
 
@@ -276,8 +277,8 @@ body,
 
 /* Use on dark/colored backgrounds */
 .ws-double-ring--on-dark {
-  --ws-ring-outer: rgba(255, 255, 255, 0.28);
-  --ws-ring-inner: rgba(255, 255, 255, 0.14);
+  --ws-ring-outer: rgba(255, 255, 255, 0.18);
+  --ws-ring-inner: rgba(255, 255, 255, 0.12);
 }
 
 /* Tighter inner ring for smaller circles (e.g., step numbers) */
