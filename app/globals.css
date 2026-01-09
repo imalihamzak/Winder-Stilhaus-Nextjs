@@ -186,6 +186,13 @@ html, body {
   color: #FFFFFF;
 }
 
+/* Reduce overall scale on mobile (~10%) */
+@media (max-width: 767px) {
+  html {
+    font-size: 90%;
+  }
+}
+
 /* Hide scrollbar for Chrome, Safari and Opera */
 html::-webkit-scrollbar,
 body::-webkit-scrollbar,
