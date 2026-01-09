@@ -34,7 +34,7 @@ const values: Value[] = [
 
 export default function CoreValues() {
   return (
-    <section className="bg-[#1D1D1D] py-8 sm:py-10 md:py-12 text-white border-t border-[#CED3D7]">
+    <section className="bg-[#1D1D1D] py-8 sm:py-10 md:py-12 text-white border-t border-[#4A4A4A]">
       <div className="max-w-7xl mx-auto px-3 sm:px-4 md:px-6">
         <FadeIn direction="up" delay={0.2} duration={0.6}>
             <div className="text-center mb-8">

@@ -8,9 +8,9 @@ import MonogramUnderlay from "@/components/MonogramUnderlay";
 const FooterSection = () => {
   return (
     <footer 
-      className="text-white px-3 sm:px-4 md:px-6 pt-6 border-t border-[#CED3D7] relative overflow-hidden"
+      className="text-white px-3 sm:px-4 md:px-6 pt-6 border-t border-[#4A4A4A] relative overflow-hidden"
       style={{ 
-        background: 'linear-gradient(135deg, #214B57 0%, #183941 100%)'
+        background: 'linear-gradient(315deg, #214B57 0%, #183941 100%)'
       }}
     >
       {/* Ring pattern underlay: large scale, cropped off-edge, visible opacity, subtle parallax */}
@@ -32,9 +32,9 @@ const FooterSection = () => {
                     <img
                       src="/assets/MonogramLogo.png"
                       alt="Winder&Stilhaus monogram"
-                      width={120}
-                      height={120}
-                      className="h-20 sm:h-24 md:h-28 w-auto shrink-0"
+                      width={150}
+                      height={150}
+                      className="h-[100px] sm:h-[120px] md:h-[140px] w-auto shrink-0"
                       loading="lazy"
                       suppressHydrationWarning
                     />

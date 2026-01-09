@@ -73,7 +73,7 @@ export default function TestimonialsContent() {
         </div>
       </section>
 
-      <section className="bg-[#1D1D1D] py-6 md:py-8 px-3 sm:px-4 md:px-6 border-t border-[#CED3D7]">
+      <section className="bg-[#1D1D1D] py-6 md:py-8 px-3 sm:px-4 md:px-6 border-t border-[#4A4A4A]">
         <div className="max-w-7xl mx-auto">
         {/* Testimonials Slider */}
         <FadeIn className="relative mb-12" duration={0.6} delay={0.2}>
