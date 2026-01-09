@@ -23,19 +23,24 @@ export default function MonogramUnderlay({
 }: MonogramUnderlayProps) {
   const ref = useRef<HTMLDivElement>(null);
 
-  const maxOpacity = useMemo(() => clamp(typeof opacity === "number" ? opacity : 0.06, 0.04, 0.07), [opacity]);
+  const maxOpacity = useMemo(
+    () => clamp(typeof opacity === "number" ? opacity : 0.06, 0.04, 0.07),
+    [opacity]
+  );
   const minOpacity = 0.04;
-const ringSize = useMemo(
-  () => clamp(typeof sizePercent === "number" ? sizePercent : 100, 80, 240),
-  [sizePercent]
-);
 
+  const ringSize = useMemo(
+    () => clamp(typeof sizePercent === "number" ? sizePercent : 100, 80, 240),
+    [sizePercent]
+  );
 
+  /**
+   * Scroll-reactive parallax + opacity
+   */
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
 
-    // Respect reduced motion.
     const prefersReducedMotion =
       typeof window !== "undefined" &&
       window.matchMedia &&
@@ -53,11 +58,9 @@ const ringSize = useMemo(
       const centerOffset = rect.top + rect.height / 2 - viewportH / 2;
       const progress = clamp(centerOffset / viewportH, -1, 1);
 
-      // Small scroll translate: 8–12px range (we keep it subtle and consistent).
-      const tx = -progress * 10; // px
-      const ty = progress * 10; // px
+      const tx = -progress * 10; // 8–12px range
+      const ty = progress * 10;
 
-      // Opacity range: 4–7%, strongest near viewport center.
       const t = 1 - Math.min(1, Math.abs(progress));
       const o = minOpacity + (maxOpacity - minOpacity) * t;
 
@@ -68,7 +71,7 @@ const ringSize = useMemo(
 
     const onScrollOrResize = () => {
       if (rafId) return;
-      rafId = window.requestAnimationFrame(update);
+      rafId = requestAnimationFrame(update);
     };
 
     update();
@@ -76,11 +79,45 @@ const ringSize = useMemo(
     window.addEventListener("resize", onScrollOrResize, { passive: true });
 
     return () => {
-      if (rafId) window.cancelAnimationFrame(rafId);
+      if (rafId) cancelAnimationFrame(rafId);
       window.removeEventListener("scroll", onScrollOrResize);
       window.removeEventListener("resize", onScrollOrResize);
     };
   }, [maxOpacity]);
+
+  /**
+   * Subtle idle motion (smooth continuous drift)
+   */
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+
+    const prefersReducedMotion =
+      typeof window !== "undefined" &&
+      window.matchMedia &&
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    if (prefersReducedMotion) return;
+
+    let rafId = 0;
+    const start = performance.now();
+
+    const loop = (time: number) => {
+      const t = (time - start) / 1000;
+
+      const ix = Math.sin(t * 0.35) * 3; // ±3px
+      const iy = Math.cos(t * 0.28) * 3;
+
+      el.style.setProperty("--ws-ring-idle-x", `${ix.toFixed(2)}px`);
+      el.style.setProperty("--ws-ring-idle-y", `${iy.toFixed(2)}px`);
+
+      rafId = requestAnimationFrame(loop);
+    };
+
+    rafId = requestAnimationFrame(loop);
+
+    return () => cancelAnimationFrame(rafId);
+  }, []);
 
   return (
     <div
@@ -88,13 +125,14 @@ const ringSize = useMemo(
       ref={ref}
       className={`absolute inset-0 z-[1] pointer-events-none select-none overflow-hidden ${className}`}
       style={{
-        // Default values for first paint (then updated on scroll).
         ["--ws-ring-tx" as any]: "0px",
         ["--ws-ring-ty" as any]: "0px",
+        ["--ws-ring-idle-x" as any]: "0px",
+        ["--ws-ring-idle-y" as any]: "0px",
         ["--ws-ring-opacity" as any]: `${maxOpacity}`,
       }}
     >
-      {/* Mobile: ring half visible on right side */}
+      {/* Mobile */}
       <img
         src="/assets/ring.png"
         alt=""
@@ -102,16 +140,17 @@ const ringSize = useMemo(
         style={{
           height: `${ringSize}%`,
           width: "auto",
-          right: "-40%", // Adjust this value: more negative = more visible, less negative = less visible
+          right: "-40%",
           top: "50%",
           transform:
-            "translateY(-50%) translate3d(var(--ws-ring-tx), var(--ws-ring-ty), 0)",
+            "translateY(-50%) translate3d(calc(var(--ws-ring-tx) + var(--ws-ring-idle-x)), calc(var(--ws-ring-ty) + var(--ws-ring-idle-y)), 0)",
           opacity: "var(--ws-ring-opacity)" as any,
         }}
         loading="eager"
         decoding="async"
       />
-      {/* Desktop: ring positioned at 120% */}
+
+      {/* Desktop */}
       <div
         className="hidden md:block absolute inset-0"
         style={{
@@ -121,11 +160,11 @@ const ringSize = useMemo(
           backgroundPosition: "125% center",
           width: "100%",
           height: "100%",
-          transform: "translate3d(var(--ws-ring-tx), var(--ws-ring-ty), 0)",
+          transform:
+            "translate3d(calc(var(--ws-ring-tx) + var(--ws-ring-idle-x)), calc(var(--ws-ring-ty) + var(--ws-ring-idle-y)), 0)",
           opacity: "var(--ws-ring-opacity)" as any,
         }}
       />
     </div>
   );
 }
-
