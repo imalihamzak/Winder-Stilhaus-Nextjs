@@ -57,7 +57,7 @@ export default function CoreValues() {
             return (
               <FadeIn key={i} direction="up" delay={0.3 + (i * 0.15)} duration={0.6}>
                 <div className="relative bg-white border border-[#4A4A4A] p-8 rounded-[28px] text-center hover:shadow-[0_25px_70px_rgba(0,0,0,0.1)] transition-all group">
-                  <div className="w-16 h-16 rounded-full bg-[#214B57]/10 flex items-center justify-center mx-auto mb-6 group-hover:bg-[#214B57] transition-colors">
+                  <div className="w-16 h-16 rounded-full ws-double-ring bg-[#214B57]/10 flex items-center justify-center mx-auto mb-6 group-hover:bg-[#214B57] transition-colors group-hover:[--ws-ring-outer:rgba(255,255,255,0.28)] group-hover:[--ws-ring-inner:rgba(255,255,255,0.14)]">
                     <Icon className="text-2xl text-[#214B57] group-hover:text-white transition-colors" />
                   </div>
                   <h4 className="font-semibold text-[#1D1D1D] mb-3 font-noto-serif" style={{ fontSize: 'clamp(1.25rem, 2vw, 1.75rem)', fontWeight: 400, lineHeight: '1.2', letterSpacing: '0px', fontFamily: 'Noto Serif, serif', color: '#1D1D1D' }}>

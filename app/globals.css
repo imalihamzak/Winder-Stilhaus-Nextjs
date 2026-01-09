@@ -266,7 +266,7 @@ body,
 }
 
 .ws-double-ring::before {
-  border: 1px solid var(--ws-ring-outer);
+  border: 2px solid var(--ws-ring-outer);
 }
 
 .ws-double-ring::after {

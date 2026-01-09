@@ -39,7 +39,7 @@ export default function ServiceRegulations({ service }: ServiceRegulationsProps)
         <FadeIn duration={0.6}>
           <div className="rounded-[24px] border border-[#4A4A4A] bg-white p-6 sm:p-8">
             <div className="flex items-start gap-4">
-              <div className="flex-shrink-0 w-10 h-10 rounded-full bg-[#214B57]/10 flex items-center justify-center">
+              <div className="flex-shrink-0 w-10 h-10 rounded-full ws-double-ring ws-double-ring--tight bg-[#214B57]/10 flex items-center justify-center">
                 <AlertCircle className="text-[#214B57]" size={20} />
               </div>
               <div className="flex-1">

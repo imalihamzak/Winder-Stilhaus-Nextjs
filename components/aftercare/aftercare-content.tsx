@@ -151,7 +151,7 @@ export default function AftercareContent() {
                 key={i}
                 className="relative rounded-[20px] border border-[#4A4A4A] bg-white shadow-[0_12px_30px_rgba(0,0,0,0.1)] p-6"
               >
-                <div className="absolute -top-4 -left-4 w-12 h-12 rounded-full text-white flex items-center justify-center font-bold shadow-md" style={{ backgroundColor: '#214B57' }}>
+                <div className="absolute -top-4 -left-4 w-12 h-12 rounded-full ws-double-ring ws-double-ring--on-dark text-white flex items-center justify-center font-bold shadow-md" style={{ backgroundColor: '#214B57' }}>
                   {item.step}
                 </div>
                 <h3 className="font-semibold text-[#1D1D1D] mb-2 mt-2 font-noto-serif" style={{ fontSize: 'clamp(1rem, 1.5vw, 1.5rem)', fontWeight: 400, lineHeight: '1.2', letterSpacing: '0px', fontFamily: 'Noto Serif, serif' }}>

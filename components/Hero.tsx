@@ -298,7 +298,7 @@ export default function HeroSection() {
                 aria-expanded={menuOpen}
                 className="
                   md:hidden flex flex-col justify-between w-10 h-9 p-2
-                  rounded-full border border-white/20 bg-white/10
+                  rounded-full ws-double-ring ws-double-ring--on-dark border border-white/0 bg-white/10
                   text-white relative z-[120]
                 "
               >
