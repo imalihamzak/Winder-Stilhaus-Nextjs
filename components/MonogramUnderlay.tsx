@@ -5,10 +5,6 @@ import { useEffect, useMemo, useRef } from "react";
 interface MonogramUnderlayProps {
   className?: string;
   opacity?: number;
-  /**
-   * Controls the rendered ring size as a percentage.
-   * Example: 200 means "200%".
-   */
   sizePercent?: number;
 }
 
@@ -34,17 +30,13 @@ export default function MonogramUnderlay({
     [sizePercent]
   );
 
-  /**
-   * Scroll-reactive parallax + opacity
-   */
+  // Scroll-based parallax (unchanged)
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
 
     const prefersReducedMotion =
-      typeof window !== "undefined" &&
-      window.matchMedia &&
-      window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      window.matchMedia?.("(prefers-reduced-motion: reduce)").matches;
 
     if (prefersReducedMotion) return;
 
@@ -58,7 +50,7 @@ export default function MonogramUnderlay({
       const centerOffset = rect.top + rect.height / 2 - viewportH / 2;
       const progress = clamp(centerOffset / viewportH, -1, 1);
 
-      const tx = -progress * 10; // 8–12px range
+      const tx = -progress * 10;
       const ty = progress * 10;
 
       const t = 1 - Math.min(1, Math.abs(progress));
@@ -85,17 +77,13 @@ export default function MonogramUnderlay({
     };
   }, [maxOpacity]);
 
-  /**
-   * Subtle idle motion (smooth continuous drift)
-   */
+  // 🔥 Faster idle motion
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
 
     const prefersReducedMotion =
-      typeof window !== "undefined" &&
-      window.matchMedia &&
-      window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      window.matchMedia?.("(prefers-reduced-motion: reduce)").matches;
 
     if (prefersReducedMotion) return;
 
@@ -105,8 +93,9 @@ export default function MonogramUnderlay({
     const loop = (time: number) => {
       const t = (time - start) / 1000;
 
-      const ix = Math.sin(t * 0.35) * 3; // ±3px
-      const iy = Math.cos(t * 0.28) * 3;
+      // Increased speed + slightly larger amplitude
+      const ix = Math.sin(t * 0.9) * 5; // was 0.35 / 3px
+      const iy = Math.cos(t * 0.75) * 5;
 
       el.style.setProperty("--ws-ring-idle-x", `${ix.toFixed(2)}px`);
       el.style.setProperty("--ws-ring-idle-y", `${iy.toFixed(2)}px`);
@@ -115,7 +104,6 @@ export default function MonogramUnderlay({
     };
 
     rafId = requestAnimationFrame(loop);
-
     return () => cancelAnimationFrame(rafId);
   }, []);
 
