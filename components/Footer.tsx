@@ -9,9 +9,9 @@ const FooterSection = () => {
   return (
     <footer 
       className="text-white px-3 sm:px-4 md:px-6 pt-6 border-t border-[#4A4A4A] relative overflow-hidden"
-      style={{ 
-        background: 'linear-gradient(315deg, #214B57 0%, #183941 100%)'
-      }}
+  style={{
+    background: 'linear-gradient(315deg, #214B57 0%, #183941 80%, #142F36 100%)'
+  }}
     >
       {/* Ring pattern underlay: large scale, cropped off-edge, visible opacity, subtle parallax */}
       <div className="hidden md:block">
