@@ -19,7 +19,7 @@ function clamp(value: number, min: number, max: number) {
 export default function MonogramUnderlay({
   className = "",
   opacity = 0.06,
-  sizePercent = 170,
+  sizePercent = 120,
 }: MonogramUnderlayProps) {
   const ref = useRef<HTMLDivElement>(null);
 
