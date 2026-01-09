@@ -49,9 +49,7 @@ export default function FAQSection() {
   return (
     <section className="px-3 sm:px-4 md:px-6 py-14 md:py-16 relative overflow-hidden" style={{ background: 'linear-gradient(180deg, #214B57 0%, #183941 100%)' }}>
       {/* Ring pattern underlay: large scale, cropped off-edge, visible opacity, subtle parallax */}
-      <div className="hidden md:block">
-        <MonogramUnderlay opacity={0.2} />
-      </div>
+      <MonogramUnderlay opacity={0.2} />
       <div className="max-w-7xl mx-auto relative z-10">
         {/* Heading */}
         <FadeIn className="text-center mb-10 md:mb-12">

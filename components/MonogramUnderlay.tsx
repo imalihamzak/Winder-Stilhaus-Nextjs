@@ -124,7 +124,7 @@ export default function MonogramUnderlay({
       <img
         src="/assets/ring.png"
         alt=""
-        className="absolute md:hidden"
+        className="absolute md:hidden max-w-none"
         style={{
           height: `${ringSize}%`,
           width: "auto",
