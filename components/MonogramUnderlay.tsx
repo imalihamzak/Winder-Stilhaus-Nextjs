@@ -19,14 +19,14 @@ function clamp(value: number, min: number, max: number) {
 export default function MonogramUnderlay({
   className = "",
   opacity = 0.06,
-  sizePercent = 170,
+  sizePercent = 150,
 }: MonogramUnderlayProps) {
   const ref = useRef<HTMLDivElement>(null);
 
   const maxOpacity = useMemo(() => clamp(typeof opacity === "number" ? opacity : 0.06, 0.04, 0.07), [opacity]);
   const minOpacity = 0.04;
   const ringSize = useMemo(
-    () => clamp(typeof sizePercent === "number" ? sizePercent : 170, 120, 240),
+    () => clamp(typeof sizePercent === "number" ? sizePercent : 150, 120, 240),
     [sizePercent]
   );
 
