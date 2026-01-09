@@ -5,17 +5,30 @@ import { useEffect, useMemo, useRef } from "react";
 interface MonogramUnderlayProps {
   className?: string;
   opacity?: number;
+  /**
+   * Controls the rendered ring size as a percentage.
+   * Example: 200 means "200%".
+   */
+  sizePercent?: number;
 }
 
 function clamp(value: number, min: number, max: number) {
   return Math.min(max, Math.max(min, value));
 }
 
-export default function MonogramUnderlay({ className = "", opacity = 0.06 }: MonogramUnderlayProps) {
+export default function MonogramUnderlay({
+  className = "",
+  opacity = 0.06,
+  sizePercent = 170,
+}: MonogramUnderlayProps) {
   const ref = useRef<HTMLDivElement>(null);
 
   const maxOpacity = useMemo(() => clamp(typeof opacity === "number" ? opacity : 0.06, 0.04, 0.07), [opacity]);
   const minOpacity = 0.04;
+  const ringSize = useMemo(
+    () => clamp(typeof sizePercent === "number" ? sizePercent : 170, 120, 240),
+    [sizePercent]
+  );
 
   useEffect(() => {
     const el = ref.current;
@@ -86,7 +99,7 @@ export default function MonogramUnderlay({ className = "", opacity = 0.06 }: Mon
         alt=""
         className="absolute md:hidden"
         style={{
-          height: "200%",
+          height: `${ringSize}%`,
           width: "auto",
           right: "-40%", // Adjust this value: more negative = more visible, less negative = less visible
           top: "50%",
@@ -103,7 +116,7 @@ export default function MonogramUnderlay({ className = "", opacity = 0.06 }: Mon
         style={{
           backgroundImage: "url(/assets/ring.png)",
           backgroundRepeat: "no-repeat",
-          backgroundSize: "auto 200%",
+          backgroundSize: `auto ${ringSize}%`,
           backgroundPosition: "125% center",
           width: "100%",
           height: "100%",
