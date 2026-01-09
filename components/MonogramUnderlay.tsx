@@ -124,11 +124,13 @@ export default function MonogramUnderlay({
       <img
         src="/assets/ring.png"
         alt=""
-        className="absolute md:hidden"
+        className="absolute md:hidden max-w-none"
         style={{
-          height: `${ringSize}%`,
+          // Mobile: grow with section height, but cap so it stays visible
+          height: `min(${ringSize}%, 140vw)`,
           width: "auto",
-          right: "-40%",
+          maxWidth: "140vw",
+          right: "-28%",
           top: "50%",
           transform:
             "translateY(-50%) translate3d(calc(var(--ws-ring-tx) + var(--ws-ring-idle-x)), calc(var(--ws-ring-ty) + var(--ws-ring-idle-y)), 0)",
