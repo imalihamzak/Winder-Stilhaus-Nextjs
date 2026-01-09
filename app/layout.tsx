@@ -150,6 +150,10 @@ export default function RootLayout({
 
         {/* Preload ring underlay so it paints instantly */}
         <link rel="preload" as="image" href="/assets/ring.png" fetchPriority="high" />
+
+        {/* Preload key brand marks (above the fold) */}
+        <link rel="preload" as="image" href="/assets/ReverseLogo.png" fetchPriority="high" />
+        <link rel="preload" as="image" href="/assets/MonogramLogo.png" />
         
         {/* Load main fonts with display=swap for better performance */}
         <link
