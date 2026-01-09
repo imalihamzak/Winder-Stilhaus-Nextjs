@@ -254,7 +254,8 @@ body,
   /* Outer ring is thicker but stays subtle */
   --ws-ring-outer: rgba(33, 75, 87, 0.16); /* Ocean Blue */
   --ws-ring-inner: rgba(33, 75, 87, 0.12);
-  --ws-ring-gap: 3px;
+  /* Gap must exceed outer stroke (2px) to read as 2 rings */
+  --ws-ring-gap: 4px;
 }
 
 .ws-double-ring::before,
@@ -283,5 +284,5 @@ body,
 
 /* Tighter inner ring for smaller circles (e.g., step numbers) */
 .ws-double-ring--tight {
-  --ws-ring-gap: 2px;
+  --ws-ring-gap: 3px;
 }
