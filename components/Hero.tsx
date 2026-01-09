@@ -411,10 +411,10 @@ export default function HeroSection() {
           text-white
           pt-20 sm:pt-24 md:pt-28 pb-7 sm:pb-10 md:pb-12
         "
-        style={{ 
-          background: 'linear-gradient(135deg, #214B57 0%, #183941 100%)',
-          overflow: 'hidden' 
-        }}
+  style={{
+    background: 'linear-gradient(135deg, #214B57 0%, #183941 80%, #142F36 100%)',
+    overflow: 'hidden'
+  }}
         suppressHydrationWarning
       >
         {/* Ring pattern underlay: large scale, cropped off-edge, visible opacity, subtle parallax */}
