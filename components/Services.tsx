@@ -240,88 +240,108 @@ export default function Services() {
 
         <div
           ref={containerRef}
-          className="relative overflow-hidden"
+          className="relative"
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
         >
-          {/* Navigation Arrows */}
-          <button
-            type="button"
-            onClick={goToPrev}
-            disabled={currentIndex === 0}
-            aria-label="Previous"
-            className={`absolute left-1 sm:left-2 md:left-3 top-1/2 -translate-y-1/2 z-30 w-9 h-9 sm:w-10 sm:h-10 md:w-11 md:h-11 rounded-full ws-double-ring bg-white shadow-[0_12px_30px_rgba(0,0,0,0.1)] flex items-center justify-center transition ${
-              currentIndex > 0 
-                ? "hover:bg-[#4A4A4A]/5 cursor-pointer opacity-100" 
-                : "opacity-35 cursor-not-allowed pointer-events-none"
-            }`}
-          >
-            <ChevronLeft className="text-[#1D1D1D]" size={16} />
-          </button>
-
-          <button
-            type="button"
-            onClick={goToNext}
-            disabled={currentIndex >= maxIndex}
-            aria-label="Next"
-            className={`absolute right-1 sm:right-2 md:right-3 top-1/2 -translate-y-1/2 z-30 w-9 h-9 sm:w-10 sm:h-10 md:w-11 md:h-11 rounded-full ws-double-ring bg-white shadow-[0_12px_30px_rgba(0,0,0,0.1)] flex items-center justify-center transition ${
-              currentIndex < maxIndex 
-                ? "hover:bg-[#4A4A4A]/5 cursor-pointer opacity-100" 
-                : "opacity-35 cursor-not-allowed pointer-events-none"
-            }`}
-          >
-            <ChevronRight className="text-[#1D1D1D]" size={16} />
-          </button>
-
-          {/* Carousel Track */}
+          {/* Carousel Track (arrows positioned relative to cards) */}
           <div
-            className="flex gap-3 py-3 px-3 sm:px-10 md:px-14 lg:px-16"
+            className="relative py-3 px-3 sm:px-10 md:px-14 lg:px-16"
             style={{ touchAction: "pan-x" }}
             onTouchStart={handleTouchStart}
             onTouchMove={handleTouchMove}
             onTouchEnd={handleTouchEnd}
           >
-            <motion.div
-              className="flex gap-3"
-              animate={{ x: translateX }}
-              transition={isDragging ? { duration: 0 } : { type: "spring", stiffness: 300, damping: 30 }}
-              style={{ userSelect: "none" }}
+            {/* Navigation Arrows */}
+            <button
+              type="button"
+              onClick={goToPrev}
+              disabled={currentIndex === 0}
+              aria-label="Previous"
+              className={`absolute left-1 sm:left-2 md:left-3 top-1/2 -translate-y-1/2 z-30 w-9 h-9 sm:w-10 sm:h-10 md:w-11 md:h-11 rounded-full ws-double-ring bg-white shadow-[0_12px_30px_rgba(0,0,0,0.1)] flex items-center justify-center transition ${
+                currentIndex > 0
+                  ? "hover:bg-[#4A4A4A]/5 cursor-pointer opacity-100"
+                  : "opacity-35 cursor-not-allowed pointer-events-none"
+              }`}
             >
-              {SERVICES.map((service, i) => {
-                const Icon = service.icon;
-                return (
-                  <div
-                    key={`${service.title}-${i}`}
-                    className="shrink-0 rounded-[20px] sm:rounded-[22px] border border-[#4A4A4A] bg-white shadow-[0_18px_45px_rgba(0,0,0,0.1)] p-5 sm:p-7 md:p-8 hover:shadow-[0_24px_60px_rgba(0,0,0,0.15)] hover:border-t-[2px] hover:border-t-[#F04E22] transition-all duration-150 group"
-                    style={{ width: `${cardWidth}px` }}
-                  >
-                    <div className="flex items-start justify-between gap-4">
-                      <div className="w-11 h-11 rounded-full ws-double-ring bg-[#4A4A4A]/5 flex items-center justify-center text-[#214B57]">
-                        <Icon className="w-5 h-5" />
-                      </div>
-                      <span className="text-[11px] uppercase tracking-[0.28em] text-[#7F8C8D] font-dm-sans">
-                        Service
-                      </span>
-                    </div>
+              <ChevronLeft className="text-[#1D1D1D]" size={16} />
+            </button>
 
-                    <h3 className="mt-4 text-[#1D1D1D] font-noto-serif" style={{ fontSize: 'clamp(1.5rem, 2.5vw, 2.17rem)', fontWeight: 400, lineHeight: '1.2', letterSpacing: '0px', fontFamily: 'Noto Serif, serif' }}>
-                      {service.title}
-                    </h3>
+            <button
+              type="button"
+              onClick={goToNext}
+              disabled={currentIndex >= maxIndex}
+              aria-label="Next"
+              className={`absolute right-1 sm:right-2 md:right-3 top-1/2 -translate-y-1/2 z-30 w-9 h-9 sm:w-10 sm:h-10 md:w-11 md:h-11 rounded-full ws-double-ring bg-white shadow-[0_12px_30px_rgba(0,0,0,0.1)] flex items-center justify-center transition ${
+                currentIndex < maxIndex
+                  ? "hover:bg-[#4A4A4A]/5 cursor-pointer opacity-100"
+                  : "opacity-35 cursor-not-allowed pointer-events-none"
+              }`}
+            >
+              <ChevronRight className="text-[#1D1D1D]" size={16} />
+            </button>
 
-                    <p className="mt-2 text-[#7F8C8D] font-dm-sans" style={{ fontSize: 'clamp(0.875rem, 1.5vw, 1.5rem)', fontWeight: 400, lineHeight: '1.2', letterSpacing: '0px', fontFamily: 'DM Sans, sans-serif' }}>
-                      {service.description}
-                    </p>
-
-                    <a
-                      href="/contact-us"
-                      className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-[#214B57] hover:opacity-80 transition font-dm-sans"
+            <div className="overflow-hidden">
+              <motion.div
+                className="flex gap-3"
+                animate={{ x: translateX }}
+                transition={isDragging ? { duration: 0 } : { type: "spring", stiffness: 300, damping: 30 }}
+                style={{ userSelect: "none" }}
+              >
+                {SERVICES.map((service, i) => {
+                  const Icon = service.icon;
+                  return (
+                    <div
+                      key={`${service.title}-${i}`}
+                      className="shrink-0 rounded-[20px] sm:rounded-[22px] border border-[#4A4A4A] bg-white shadow-[0_18px_45px_rgba(0,0,0,0.1)] p-5 sm:p-7 md:p-8 hover:shadow-[0_24px_60px_rgba(0,0,0,0.15)] hover:border-t-[2px] hover:border-t-[#F04E22] transition-all duration-150 group"
+                      style={{ width: `${cardWidth}px` }}
                     >
-                      Get a quote <ArrowRight size={14} />
-                    </a>
-                  </div>
-                );
-              })}
-            </motion.div>
+                      <div className="flex items-start justify-between gap-4">
+                        <div className="w-11 h-11 rounded-full ws-double-ring bg-[#4A4A4A]/5 flex items-center justify-center text-[#214B57]">
+                          <Icon className="w-5 h-5" />
+                        </div>
+                        <span className="text-[11px] uppercase tracking-[0.28em] text-[#7F8C8D] font-dm-sans">
+                          Service
+                        </span>
+                      </div>
+
+                      <h3
+                        className="mt-4 text-[#1D1D1D] font-noto-serif"
+                        style={{
+                          fontSize: "clamp(1.5rem, 2.5vw, 2.17rem)",
+                          fontWeight: 400,
+                          lineHeight: "1.2",
+                          letterSpacing: "0px",
+                          fontFamily: "Noto Serif, serif",
+                        }}
+                      >
+                        {service.title}
+                      </h3>
+
+                      <p
+                        className="mt-2 text-[#7F8C8D] font-dm-sans"
+                        style={{
+                          fontSize: "clamp(0.875rem, 1.5vw, 1.5rem)",
+                          fontWeight: 400,
+                          lineHeight: "1.2",
+                          letterSpacing: "0px",
+                          fontFamily: "DM Sans, sans-serif",
+                        }}
+                      >
+                        {service.description}
+                      </p>
+
+                      <a
+                        href="/contact-us"
+                        className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-[#214B57] hover:opacity-80 transition font-dm-sans"
+                      >
+                        Get a quote <ArrowRight size={14} />
+                      </a>
+                    </div>
+                  );
+                })}
+              </motion.div>
+            </div>
           </div>
 
           {/* Pagination Dots */}
