@@ -54,7 +54,7 @@ export default function LocationServices() {
             return (
               <FadeIn key={i} direction="up" delay={i * 0.2} duration={0.6}>
                 <div className="rounded-[24px] border border-[#4A4A4A] bg-white shadow-[0_18px_45px_rgba(0,0,0,0.1)] p-5 sm:p-6">
-                  <div className="w-11 h-11 rounded-full border border-[#4A4A4A]/20 bg-[#214B57]/10 flex items-center justify-center text-[#214B57] mb-4">
+                  <div className="w-11 h-11 rounded-full ws-double-ring bg-[#214B57]/10 flex items-center justify-center text-[#214B57] mb-4">
                     <Icon className="w-5 h-5" />
                   </div>
                   <h3 className="font-semibold text-[#1D1D1D] mb-2 font-noto-serif" style={{ fontSize: 'clamp(1rem, 1.5vw, 1.5rem)', fontWeight: 400, lineHeight: '1.2', letterSpacing: '0px', fontFamily: 'Noto Serif, serif' }}>

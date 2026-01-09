@@ -246,3 +246,41 @@ body,
 }
 
 /* Monogram ring parallax is scroll-reactive (JS-driven). */
+
+/* Brand motif: double ring outlines (to match monogram rings) */
+.ws-double-ring {
+  position: relative;
+  border-radius: 9999px;
+  --ws-ring-outer: rgba(33, 75, 87, 0.26); /* Ocean Blue */
+  --ws-ring-inner: rgba(33, 75, 87, 0.14);
+  --ws-ring-gap: 3px;
+}
+
+.ws-double-ring::before,
+.ws-double-ring::after {
+  content: "";
+  position: absolute;
+  border-radius: inherit;
+  pointer-events: none;
+  inset: 0;
+}
+
+.ws-double-ring::before {
+  border: 1px solid var(--ws-ring-outer);
+}
+
+.ws-double-ring::after {
+  inset: var(--ws-ring-gap);
+  border: 1px solid var(--ws-ring-inner);
+}
+
+/* Use on dark/colored backgrounds */
+.ws-double-ring--on-dark {
+  --ws-ring-outer: rgba(255, 255, 255, 0.28);
+  --ws-ring-inner: rgba(255, 255, 255, 0.14);
+}
+
+/* Tighter inner ring for smaller circles (e.g., step numbers) */
+.ws-double-ring--tight {
+  --ws-ring-gap: 2px;
+}

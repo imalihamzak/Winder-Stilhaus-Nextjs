@@ -57,7 +57,7 @@ export default function TrustBadges() {
                 duration={0.6}
               >
                 <div className="relative overflow-hidden rounded-[28px] border border-[#4A4A4A] bg-white p-8 text-center hover:shadow-[0_25px_70px_rgba(0,0,0,0.1)] transition-all">
-                  <div className="w-16 h-16 rounded-full bg-[#214B57]/10 flex items-center justify-center mx-auto mb-4">
+                  <div className="w-16 h-16 rounded-full ws-double-ring bg-[#214B57]/10 flex items-center justify-center mx-auto mb-4">
                     <Icon className="text-2xl text-[#214B57]" size={32} />
                   </div>
                   <h3 className="font-semibold text-[#1D1D1D] mb-3 font-noto-serif" style={{ fontSize: 'clamp(1.25rem, 2vw, 1.75rem)', fontWeight: 400, lineHeight: '1.2', letterSpacing: '0px', fontFamily: 'Noto Serif, serif', color: '#1D1D1D' }}>

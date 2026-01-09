@@ -86,14 +86,14 @@ export default function TestimonialsSlider({location}: TestimonialsSliderProps) 
               <button
           onClick={prev}
                 aria-label="Previous testimonial"
-                className="hidden md:flex absolute left-4 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full border border-[#4A4A4A] bg-white text-[#1D1D1D] items-center justify-center shadow-[0_12px_30px_rgba(0,0,0,0.1)] hover:bg-[#4A4A4A]/5 transition"
+                className="hidden md:flex absolute left-4 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full ws-double-ring bg-white text-[#1D1D1D] items-center justify-center shadow-[0_12px_30px_rgba(0,0,0,0.1)] hover:bg-[#4A4A4A]/5 transition"
         >
                 ←
               </button>
               <button
           onClick={next}
                 aria-label="Next testimonial"
-                className="hidden md:flex absolute right-4 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full text-white items-center justify-center shadow-[0_18px_45px_rgba(26,29,41,0.08)] hover:opacity-90 transition"
+                className="hidden md:flex absolute right-4 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full ws-double-ring ws-double-ring--on-dark text-white items-center justify-center shadow-[0_18px_45px_rgba(26,29,41,0.08)] hover:opacity-90 transition"
                 style={{ backgroundColor: '#F04E22' }}
         >
                 →

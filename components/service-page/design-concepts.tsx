@@ -222,7 +222,7 @@ export default function DesignConcepts({ service }: DesignConceptsProps) {
                       {concept.palette.slice(0, 5).map((color, i) => (
                         <div
                           key={i}
-                          className="w-8 h-8 rounded-full border border-[#4A4A4A]"
+                          className="w-8 h-8 rounded-full ws-double-ring ws-double-ring--tight"
                           style={{ backgroundColor: color }}
                           title={color}
                         />
@@ -252,7 +252,7 @@ export default function DesignConcepts({ service }: DesignConceptsProps) {
             {/* Close Button */}
             <button
               onClick={closeLightbox}
-              className="absolute top-4 right-4 z-10 w-10 h-10 rounded-full bg-white/90 backdrop-blur border border-[#4A4A4A] flex items-center justify-center hover:bg-white transition-colors"
+              className="absolute top-4 right-4 z-10 w-10 h-10 rounded-full ws-double-ring ws-double-ring--tight bg-white/90 backdrop-blur flex items-center justify-center hover:bg-white transition-colors"
               aria-label="Close lightbox"
             >
               <X className="text-[#214B57]" size={20} />
@@ -278,7 +278,7 @@ export default function DesignConcepts({ service }: DesignConceptsProps) {
                           e.stopPropagation();
                           prevImage();
                         }}
-                        className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/90 backdrop-blur border border-[#4A4A4A] flex items-center justify-center hover:bg-white transition-colors"
+                        className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full ws-double-ring ws-double-ring--tight bg-white/90 backdrop-blur flex items-center justify-center hover:bg-white transition-colors"
                         aria-label="Previous image"
                       >
                         <svg className="w-5 h-5 text-[#214B57]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -290,7 +290,7 @@ export default function DesignConcepts({ service }: DesignConceptsProps) {
                           e.stopPropagation();
                           nextImage();
                         }}
-                        className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/90 backdrop-blur border border-[#4A4A4A] flex items-center justify-center hover:bg-white transition-colors"
+                        className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full ws-double-ring ws-double-ring--tight bg-white/90 backdrop-blur flex items-center justify-center hover:bg-white transition-colors"
                         aria-label="Next image"
                       >
                         <svg className="w-5 h-5 text-[#214B57]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
