@@ -107,22 +107,27 @@ export default function MonogramUnderlay({
             "translateY(-50%) translate3d(var(--ws-ring-tx), var(--ws-ring-ty), 0)",
           opacity: "var(--ws-ring-opacity)" as any,
         }}
-        loading="eager"
+        loading="lazy"
+        fetchPriority="low"
         decoding="async"
       />
-      {/* Desktop: ring positioned at 120% */}
-      <div
-        className="hidden md:block absolute inset-0"
+      {/* Desktop: decorative ring (kept off-edge, low priority) */}
+      <img
+        src="/assets/ring.png"
+        alt=""
+        className="hidden md:block absolute"
         style={{
-          backgroundImage: "url(/assets/ring.png)",
-          backgroundRepeat: "no-repeat",
-          backgroundSize: `auto ${ringSize}%`,
-          backgroundPosition: "125% center",
-          width: "100%",
-          height: "100%",
-          transform: "translate3d(var(--ws-ring-tx), var(--ws-ring-ty), 0)",
+          height: `${ringSize}%`,
+          width: "auto",
+          right: "-25%",
+          top: "50%",
+          transform:
+            "translateY(-50%) translate3d(var(--ws-ring-tx), var(--ws-ring-ty), 0)",
           opacity: "var(--ws-ring-opacity)" as any,
         }}
+        loading="lazy"
+        fetchPriority="low"
+        decoding="async"
       />
     </div>
   );
