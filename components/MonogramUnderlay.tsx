@@ -30,19 +30,19 @@ export default function MonogramUnderlay({
     [sizePercent]
   );
 
-  // Mobile should be smaller than desktop and never exceed the container height,
-  // otherwise the ring gets clipped (top/bottom).
-  const mobileRingSize = useMemo(() => clamp(ringSize * 0.72, 55, 90), [ringSize]);
+  // ✅ Mobile-specific safe scaling
+const mobileRingSize = useMemo(
+  () => clamp(ringSize * 0.45, 35, 65),
+  [ringSize]
+);
 
-  // Scroll-based parallax (unchanged)
+
+  /* Scroll-based parallax (unchanged) */
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
 
-    const prefersReducedMotion =
-      window.matchMedia?.("(prefers-reduced-motion: reduce)").matches;
-
-    if (prefersReducedMotion) return;
+    if (window.matchMedia?.("(prefers-reduced-motion: reduce)").matches) return;
 
     let rafId = 0;
 
@@ -60,36 +60,33 @@ export default function MonogramUnderlay({
       const t = 1 - Math.min(1, Math.abs(progress));
       const o = minOpacity + (maxOpacity - minOpacity) * t;
 
-      el.style.setProperty("--ws-ring-tx", `${tx.toFixed(2)}px`);
-      el.style.setProperty("--ws-ring-ty", `${ty.toFixed(2)}px`);
-      el.style.setProperty("--ws-ring-opacity", `${o.toFixed(4)}`);
+      el.style.setProperty("--ws-ring-tx", `${tx}px`);
+      el.style.setProperty("--ws-ring-ty", `${ty}px`);
+      el.style.setProperty("--ws-ring-opacity", `${o}`);
     };
 
-    const onScrollOrResize = () => {
+    const onScroll = () => {
       if (rafId) return;
       rafId = requestAnimationFrame(update);
     };
 
     update();
-    window.addEventListener("scroll", onScrollOrResize, { passive: true });
-    window.addEventListener("resize", onScrollOrResize, { passive: true });
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll, { passive: true });
 
     return () => {
       if (rafId) cancelAnimationFrame(rafId);
-      window.removeEventListener("scroll", onScrollOrResize);
-      window.removeEventListener("resize", onScrollOrResize);
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
     };
   }, [maxOpacity]);
 
-  // 🔥 Faster idle motion
+  /* Idle motion */
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
 
-    const prefersReducedMotion =
-      window.matchMedia?.("(prefers-reduced-motion: reduce)").matches;
-
-    if (prefersReducedMotion) return;
+    if (window.matchMedia?.("(prefers-reduced-motion: reduce)").matches) return;
 
     let rafId = 0;
     const start = performance.now();
@@ -97,12 +94,11 @@ export default function MonogramUnderlay({
     const loop = (time: number) => {
       const t = (time - start) / 1000;
 
-      // Increased speed + slightly larger amplitude
-      const ix = Math.sin(t * 0.9) * 5; // was 0.35 / 3px
+      const ix = Math.sin(t * 0.9) * 5;
       const iy = Math.cos(t * 0.75) * 5;
 
-      el.style.setProperty("--ws-ring-idle-x", `${ix.toFixed(2)}px`);
-      el.style.setProperty("--ws-ring-idle-y", `${iy.toFixed(2)}px`);
+      el.style.setProperty("--ws-ring-idle-x", `${ix}px`);
+      el.style.setProperty("--ws-ring-idle-y", `${iy}px`);
 
       rafId = requestAnimationFrame(loop);
     };
@@ -113,9 +109,9 @@ export default function MonogramUnderlay({
 
   return (
     <div
-      aria-hidden="true"
+      aria-hidden
       ref={ref}
-      className={`absolute inset-0 z-[1] pointer-events-none select-none overflow-hidden ${className}`}
+      className={`absolute inset-0 z-[1] pointer-events-none overflow-hidden ${className}`}
       style={{
         ["--ws-ring-tx" as any]: "0px",
         ["--ws-ring-ty" as any]: "0px",
@@ -124,24 +120,22 @@ export default function MonogramUnderlay({
         ["--ws-ring-opacity" as any]: `${maxOpacity}`,
       }}
     >
-      {/* Mobile (use background-image to guarantee no vertical cropping) */}
+      {/* ✅ MOBILE — fixed sizing, no vertical cropping */}
       <div
         className="md:hidden absolute inset-0"
         style={{
           backgroundImage: "url(/assets/ring.png)",
           backgroundRepeat: "no-repeat",
-          // Scale with section height, always fully visible top/bottom
           backgroundSize: `auto ${mobileRingSize}%`,
           // Mobile: center vertically; push towards the right like desktop
           backgroundPosition: "115% center",
           transform:
-            // Mobile: no vertical drift (prevents top/bottom clipping)
             "translate3d(calc(var(--ws-ring-tx) + var(--ws-ring-idle-x)), 0px, 0)",
           opacity: "var(--ws-ring-opacity)" as any,
         }}
       />
 
-      {/* Desktop */}
+      {/* DESKTOP — untouched */}
       <div
         className="hidden md:block absolute inset-0"
         style={{
@@ -149,8 +143,6 @@ export default function MonogramUnderlay({
           backgroundRepeat: "no-repeat",
           backgroundSize: `auto ${ringSize}%`,
           backgroundPosition: "125% center",
-          width: "100%",
-          height: "100%",
           transform:
             "translate3d(calc(var(--ws-ring-tx) + var(--ws-ring-idle-x)), calc(var(--ws-ring-ty) + var(--ws-ring-idle-y)), 0)",
           opacity: "var(--ws-ring-opacity)" as any,

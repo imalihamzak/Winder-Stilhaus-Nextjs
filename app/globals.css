@@ -251,9 +251,11 @@ body,
 .ws-double-ring {
   position: relative;
   border-radius: 9999px;
-  --ws-ring-outer: rgba(33, 75, 87, 0.26); /* Ocean Blue */
-  --ws-ring-inner: rgba(33, 75, 87, 0.14);
-  --ws-ring-gap: 3px;
+  /* Outer ring is thicker but stays subtle */
+  --ws-ring-outer: rgba(33, 75, 87, 0.16); /* Ocean Blue */
+  --ws-ring-inner: rgba(33, 75, 87, 0.12);
+  /* Gap must exceed outer stroke (2px) to read as 2 rings */
+  --ws-ring-gap: 4px;
 }
 
 .ws-double-ring::before,
@@ -266,7 +268,7 @@ body,
 }
 
 .ws-double-ring::before {
-  border: 1px solid var(--ws-ring-outer);
+  border: 2px solid var(--ws-ring-outer);
 }
 
 .ws-double-ring::after {
@@ -276,11 +278,13 @@ body,
 
 /* Use on dark/colored backgrounds */
 .ws-double-ring--on-dark {
-  --ws-ring-outer: rgba(255, 255, 255, 0.28);
-  --ws-ring-inner: rgba(255, 255, 255, 0.14);
+  --ws-ring-outer: rgba(255, 255, 255, 0.18);
+  --ws-ring-inner: rgba(255, 255, 255, 0.12);
 }
+
+
 
 /* Tighter inner ring for smaller circles (e.g., step numbers) */
 .ws-double-ring--tight {
-  --ws-ring-gap: 2px;
+  --ws-ring-gap: 3px;
 }

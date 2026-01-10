@@ -104,7 +104,7 @@ export default function BrandStory() {
         <FadeIn direction="up" delay={0.5} duration={0.6}>
           <div className="grid md:grid-cols-2 gap-8">
             <div className="relative overflow-hidden rounded-[28px] border border-[#4A4A4A] bg-white p-8 sm:p-10">
-              <div className="w-14 h-14 rounded-full bg-[#214B57]/10 flex items-center justify-center mb-6">
+              <div className="w-14 h-14 rounded-full ws-double-ring bg-[#214B57]/10 flex items-center justify-center mb-6">
                 <Lightbulb className="text-2xl text-[#214B57]" size={28} />
               </div>
               <h3 className="font-semibold text-[#1D1D1D] mb-4 font-noto-serif" style={{ fontSize: 'clamp(1.5rem, 2.5vw, 2.17rem)', fontWeight: 400, lineHeight: '1.2', letterSpacing: '0px', fontFamily: 'Noto Serif, serif', color: '#1D1D1D' }}>Our Mission</h3>
@@ -116,7 +116,7 @@ export default function BrandStory() {
             </div>
 
             <div className="relative overflow-hidden rounded-[28px] border border-[#4A4A4A] bg-white p-8 sm:p-10">
-              <div className="w-14 h-14 rounded-full bg-[#214B57]/10 flex items-center justify-center mb-6">
+              <div className="w-14 h-14 rounded-full ws-double-ring bg-[#214B57]/10 flex items-center justify-center mb-6">
                 <Rocket className="text-2xl text-[#214B57]" size={28} />
               </div>
               <h3 className="font-semibold text-[#1D1D1D] mb-4 font-noto-serif" style={{ fontSize: 'clamp(1.5rem, 2.5vw, 2.17rem)', fontWeight: 400, lineHeight: '1.2', letterSpacing: '0px', fontFamily: 'Noto Serif, serif', color: '#1D1D1D' }}>Our Vision</h3>

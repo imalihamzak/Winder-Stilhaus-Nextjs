@@ -183,7 +183,7 @@ export default function ContactPageClient() {
 
               {submitted ? (
                 <div className="text-center py-8">
-                  <div className="w-16 h-16 rounded-full bg-[#214B57]/10 flex items-center justify-center mx-auto mb-4">
+                  <div className="w-16 h-16 rounded-full ws-double-ring bg-[#214B57]/10 flex items-center justify-center mx-auto mb-4">
                     <CheckCircle className="w-8 h-8 text-[#214B57]" size={32} />
                   </div>
                   <h3 className="font-semibold text-[#214B57] mb-2 font-noto-serif" style={{ fontSize: 'clamp(1.5rem, 2.5vw, 2.17rem)', fontWeight: 400, lineHeight: '1.2', letterSpacing: '0px', fontFamily: 'Noto Serif, serif' }}>

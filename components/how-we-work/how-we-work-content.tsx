@@ -174,7 +174,7 @@ export default function HowWeWorkContent() {
                     <div className="flex flex-col md:flex-row gap-6 md:gap-8">
                       {/* Step Number & Icon */}
                       <div className="flex-shrink-0 flex items-start gap-4">
-                        <div className="w-16 h-16 rounded-full bg-[#214B57] text-white flex items-center justify-center text-xl font-bold shadow-[0_14px_35px_rgba(33,75,87,0.08)]">
+                        <div className="w-16 h-16 rounded-full ws-double-ring ws-double-ring--on-dark bg-[#214B57] text-white flex items-center justify-center text-xl font-bold shadow-[0_14px_35px_rgba(33,75,87,0.08)]">
                           {step.number}
                         </div>
                         <div className="w-12 h-12 rounded-xl bg-[#214B57]/10 flex items-center justify-center text-[#214B57] text-xl mt-2">

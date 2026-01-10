@@ -42,7 +42,7 @@ export default function PricingLeadForm() {
   if (submitted) {
     return (
       <div className="text-center py-8">
-        <div className="w-16 h-16 rounded-full bg-[#214B57]/10 flex items-center justify-center mx-auto mb-4">
+        <div className="w-16 h-16 rounded-full ws-double-ring bg-[#214B57]/10 flex items-center justify-center mx-auto mb-4">
           <svg
             className="w-8 h-8 text-[#214B57]"
             fill="none"

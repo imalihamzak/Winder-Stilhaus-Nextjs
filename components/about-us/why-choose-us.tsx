@@ -68,7 +68,7 @@ export default function WhyChooseUs() {
             return (
               <FadeIn key={i} direction="up" delay={0.3 + (i * 0.1)} duration={0.6}>
                 <div className="bg-white border border-[#4A4A4A] p-6 rounded-[24px] hover:shadow-[0_18px_45px_rgba(0,0,0,0.1)] transition-all">
-                  <div className="w-12 h-12 rounded-full bg-[#214B57]/10 flex items-center justify-center mb-4">
+                  <div className="w-12 h-12 rounded-full ws-double-ring ws-double-ring--tight bg-[#214B57]/10 flex items-center justify-center mb-4">
                     <Icon className="text-xl text-[#214B57]" />
                   </div>
                   <h4 className="font-semibold text-[#1D1D1D] mb-2 font-noto-serif" style={{ fontSize: 'clamp(1rem, 1.5vw, 1.5rem)', fontWeight: 400, lineHeight: '1.2', letterSpacing: '0px', fontFamily: 'Noto Serif, serif', color: '#1D1D1D' }}>

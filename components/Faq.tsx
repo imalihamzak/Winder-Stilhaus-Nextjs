@@ -105,7 +105,7 @@ export default function FAQSection() {
                       <span
                         className={`
                           shrink-0 w-10 h-10 rounded-full
-                          border border-[#4A4A4A]/20 bg-[#FFFFFF]
+                          ws-double-ring ws-double-ring--tight bg-[#FFFFFF]
                           flex items-center justify-center
                           shadow-[0_12px_30px_rgba(0,0,0,0.05)]
                           transition-transform
