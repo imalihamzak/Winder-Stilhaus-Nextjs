@@ -20,13 +20,13 @@ export default function MonogramUnderlay({
   const ref = useRef<HTMLDivElement>(null);
 
   const maxOpacity = useMemo(
-    () => clamp(typeof opacity === "number" ? opacity : 0.06, 0.04, 0.07),
+    () => clamp(opacity, 0.04, 0.07),
     [opacity]
   );
   const minOpacity = 0.04;
 
   const ringSize = useMemo(
-    () => clamp(typeof sizePercent === "number" ? sizePercent : 100, 80, 240),
+    () => clamp(sizePercent, 80, 240),
     [sizePercent]
   );
 
@@ -34,27 +34,25 @@ export default function MonogramUnderlay({
   const mobileRingSize = useMemo(() => clamp(ringSize * 0.6, 45, 85), [ringSize]);
 
 
-  /* Scroll-based parallax (unchanged) */
+  /* Scroll parallax */
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
-    if (window.matchMedia?.("(prefers-reduced-motion: reduce)").matches) return;
-
-    let rafId = 0;
+    let raf = 0;
 
     const update = () => {
-      rafId = 0;
-
-      const viewportH = window.innerHeight || 1;
+      raf = 0;
+      const vh = window.innerHeight || 1;
       const rect = el.getBoundingClientRect();
-      const centerOffset = rect.top + rect.height / 2 - viewportH / 2;
-      const progress = clamp(centerOffset / viewportH, -1, 1);
+      const offset = rect.top + rect.height / 2 - vh / 2;
+      const p = clamp(offset / vh, -1, 1);
 
-      const tx = -progress * 10;
-      const ty = progress * 10;
+      const tx = -p * 10;
+      const ty = p * 10;
 
-      const t = 1 - Math.min(1, Math.abs(progress));
+      const t = 1 - Math.abs(p);
       const o = minOpacity + (maxOpacity - minOpacity) * t;
 
       el.style.setProperty("--ws-ring-tx", `${tx}px`);
@@ -75,8 +73,7 @@ export default function MonogramUnderlay({
     };
 
     const onScroll = () => {
-      if (rafId) return;
-      rafId = requestAnimationFrame(update);
+      if (!raf) raf = requestAnimationFrame(update);
     };
 
     update();
@@ -84,36 +81,30 @@ export default function MonogramUnderlay({
     window.addEventListener("resize", onScroll, { passive: true });
 
     return () => {
-      if (rafId) cancelAnimationFrame(rafId);
+      if (raf) cancelAnimationFrame(raf);
       window.removeEventListener("scroll", onScroll);
       window.removeEventListener("resize", onScroll);
     };
-  }, [maxOpacity, mobileRingSize]);
+  }, [maxOpacity]);
 
   /* Idle motion */
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
-    if (window.matchMedia?.("(prefers-reduced-motion: reduce)").matches) return;
-
-    let rafId = 0;
+    let raf = 0;
     const start = performance.now();
 
     const loop = (time: number) => {
       const t = (time - start) / 1000;
-
-      const ix = Math.sin(t * 0.9) * 5;
-      const iy = Math.cos(t * 0.75) * 5;
-
-      el.style.setProperty("--ws-ring-idle-x", `${ix}px`);
-      el.style.setProperty("--ws-ring-idle-y", `${iy}px`);
-
-      rafId = requestAnimationFrame(loop);
+      el.style.setProperty("--ws-ring-idle-x", `${Math.sin(t * 0.9) * 5}px`);
+      el.style.setProperty("--ws-ring-idle-y", `${Math.cos(t * 0.75) * 5}px`);
+      raf = requestAnimationFrame(loop);
     };
 
-    rafId = requestAnimationFrame(loop);
-    return () => cancelAnimationFrame(rafId);
+    raf = requestAnimationFrame(loop);
+    return () => cancelAnimationFrame(raf);
   }, []);
 
   return (
@@ -130,22 +121,25 @@ export default function MonogramUnderlay({
         ["--ws-ring-mobile-offset" as any]: "40px",
       }}
     >
-      {/* ✅ MOBILE — fixed sizing, no vertical cropping */}
-      <div
-        className="md:hidden absolute inset-0"
+      {/* ✅ MOBILE — FIXED & CONSISTENT */}
+      <img
+        src="/assets/ring.png"
+        alt=""
+        className="md:hidden absolute"
         style={{
-          backgroundImage: "url(/assets/ring.png)",
-          backgroundRepeat: "no-repeat",
-          backgroundSize: `auto ${mobileRingSize}%`,
-          // Mobile: center vertically; push right by a size-based offset.
-          backgroundPosition: "calc(100% + var(--ws-ring-mobile-offset)) center",
+          height: `${mobileRingSize}%`,
+          width: "auto",
+          right: "-35%",              // 👈 SAME in all sections
+          top: "50%",
           transform:
-            "translate3d(calc(var(--ws-ring-tx) + var(--ws-ring-idle-x)), 0px, 0)",
+            "translateY(-50%) translate3d(calc(var(--ws-ring-tx) + var(--ws-ring-idle-x)), 0, 0)",
           opacity: "var(--ws-ring-opacity)" as any,
         }}
+        loading="eager"
+        decoding="async"
       />
 
-      {/* DESKTOP — untouched */}
+      {/* ✅ DESKTOP — UNTOUCHED */}
       <div
         className="hidden md:block absolute inset-0"
         style={{
