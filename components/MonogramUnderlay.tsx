@@ -30,8 +30,8 @@ export default function MonogramUnderlay({
     [sizePercent]
   );
 
-  // ✅ Mobile-specific safe scaling
-  const mobileRingSize = useMemo(() => clamp(ringSize * 0.45, 35, 65), [ringSize]);
+  // ✅ Mobile-specific safe scaling (slightly larger than before)
+  const mobileRingSize = useMemo(() => clamp(ringSize * 0.6, 45, 85), [ringSize]);
 
 
   /* Scroll-based parallax (unchanged) */
@@ -68,7 +68,8 @@ export default function MonogramUnderlay({
       const isMobile = window.matchMedia?.("(max-width: 767px)").matches;
       if (isMobile) {
         const ringPx = (rect.height * mobileRingSize) / 100;
-        const mobileOffsetPx = clamp(ringPx * 0.35, 32, 140);
+        // Move ring less to the right on mobile (brings it left/more visible)
+        const mobileOffsetPx = clamp(ringPx * 0.15, 0, 80);
         el.style.setProperty("--ws-ring-mobile-offset", `${mobileOffsetPx.toFixed(0)}px`);
       }
     };
@@ -126,7 +127,7 @@ export default function MonogramUnderlay({
         ["--ws-ring-idle-x" as any]: "0px",
         ["--ws-ring-idle-y" as any]: "0px",
         ["--ws-ring-opacity" as any]: `${maxOpacity}`,
-        ["--ws-ring-mobile-offset" as any]: "80px",
+        ["--ws-ring-mobile-offset" as any]: "40px",
       }}
     >
       {/* ✅ MOBILE — fixed sizing, no vertical cropping */}
