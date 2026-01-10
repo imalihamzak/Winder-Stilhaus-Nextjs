@@ -132,8 +132,8 @@ export default function MonogramUnderlay({
           backgroundRepeat: "no-repeat",
           // Scale with section height, always fully visible top/bottom
           backgroundSize: `auto ${mobileRingSize}%`,
-          // Keep it inside the section on the right (slightly inset)
-          backgroundPosition: "right 12px center",
+          // Mobile: center vertically; push towards the right like desktop
+          backgroundPosition: "115% center",
           transform:
             // Mobile: no vertical drift (prevents top/bottom clipping)
             "translate3d(calc(var(--ws-ring-tx) + var(--ws-ring-idle-x)), 0px, 0)",
