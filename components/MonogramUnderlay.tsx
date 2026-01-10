@@ -63,6 +63,14 @@ const mobileRingSize = useMemo(
       el.style.setProperty("--ws-ring-tx", `${tx}px`);
       el.style.setProperty("--ws-ring-ty", `${ty}px`);
       el.style.setProperty("--ws-ring-opacity", `${o}`);
+
+      // Mobile: scale the "push-right" offset with section height so it looks
+      // consistent across Hero/FAQ/Footer (which have very different heights).
+      const isMobile = window.matchMedia?.("(max-width: 767px)").matches;
+      if (isMobile) {
+        const mobileOffsetPx = clamp(rect.height * 0.25, 120, 260);
+        el.style.setProperty("--ws-ring-mobile-offset", `${mobileOffsetPx.toFixed(0)}px`);
+      }
     };
 
     const onScroll = () => {
@@ -118,6 +126,7 @@ const mobileRingSize = useMemo(
         ["--ws-ring-idle-x" as any]: "0px",
         ["--ws-ring-idle-y" as any]: "0px",
         ["--ws-ring-opacity" as any]: `${maxOpacity}`,
+        ["--ws-ring-mobile-offset" as any]: "180px",
       }}
     >
       {/* ✅ MOBILE — fixed sizing, no vertical cropping */}
@@ -127,10 +136,8 @@ const mobileRingSize = useMemo(
           backgroundImage: "url(/assets/ring.png)",
           backgroundRepeat: "no-repeat",
           backgroundSize: `auto ${mobileRingSize}%`,
-          // Mobile: center vertically; push right reliably.
-          // Use a viewport-based offset instead of % (percentages can shift the
-          // *opposite* direction when the image is wider than the container).
-          backgroundPosition: "calc(100% + 85vw) center",
+          // Mobile: center vertically; push towards the right consistently.
+          backgroundPosition: "calc(100% + var(--ws-ring-mobile-offset)) center",
           transform:
             "translate3d(calc(var(--ws-ring-tx) + var(--ws-ring-idle-x)), 0px, 0)",
           opacity: "var(--ws-ring-opacity)" as any,
