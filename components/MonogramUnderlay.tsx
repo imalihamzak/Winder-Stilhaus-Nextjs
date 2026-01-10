@@ -31,10 +31,11 @@ export default function MonogramUnderlay({
   );
 
   // ✅ Mobile-specific safe scaling
-  const mobileRingSize = useMemo(
-    () => clamp(ringSize * 0.6, 50, 80),
-    [ringSize]
-  );
+const mobileRingSize = useMemo(
+  () => clamp(ringSize * 0.45, 35, 65),
+  [ringSize]
+);
+
 
   /* Scroll-based parallax (unchanged) */
   useEffect(() => {
