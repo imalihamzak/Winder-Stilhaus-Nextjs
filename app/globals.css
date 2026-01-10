@@ -282,6 +282,12 @@ body,
   --ws-ring-inner: rgba(255, 255, 255, 0.12);
 }
 
+/* Footer-only mobile ring positioning */
+.ws-footer [aria-hidden="true"] > div.md\:hidden {
+  background-position: 90% 50% !important;
+}
+
+
 /* Tighter inner ring for smaller circles (e.g., step numbers) */
 .ws-double-ring--tight {
   --ws-ring-gap: 3px;
