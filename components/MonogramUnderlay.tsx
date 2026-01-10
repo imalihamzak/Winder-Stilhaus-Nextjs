@@ -130,7 +130,7 @@ const mobileRingSize = useMemo(
           // Mobile: center vertically; push right reliably.
           // Use a viewport-based offset instead of % (percentages can shift the
           // *opposite* direction when the image is wider than the container).
-          backgroundPosition: "calc(100% + 75vw) center",
+          backgroundPosition: "calc(100% + 85vw) center",
           transform:
             "translate3d(calc(var(--ws-ring-tx) + var(--ws-ring-idle-x)), 0px, 0)",
           opacity: "var(--ws-ring-opacity)" as any,
