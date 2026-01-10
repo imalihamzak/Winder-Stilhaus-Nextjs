@@ -31,10 +31,7 @@ export default function MonogramUnderlay({
   );
 
   // ✅ Mobile-specific safe scaling
-const mobileRingSize = useMemo(
-  () => clamp(ringSize * 0.45, 35, 65),
-  [ringSize]
-);
+  const mobileRingSize = useMemo(() => clamp(ringSize * 0.45, 35, 65), [ringSize]);
 
 
   /* Scroll-based parallax (unchanged) */
@@ -64,11 +61,13 @@ const mobileRingSize = useMemo(
       el.style.setProperty("--ws-ring-ty", `${ty}px`);
       el.style.setProperty("--ws-ring-opacity", `${o}`);
 
-      // Mobile: scale the "push-right" offset with section height so it looks
-      // consistent across Hero/FAQ/Footer (which have very different heights).
+      // Mobile: scale the "push-right" offset with the ring's rendered size.
+      // This keeps positioning consistent across sections of different heights
+      // (Hero is short, Footer is tall).
       const isMobile = window.matchMedia?.("(max-width: 767px)").matches;
       if (isMobile) {
-        const mobileOffsetPx = clamp(rect.height * 0.25, 120, 260);
+        const ringPx = (rect.height * mobileRingSize) / 100;
+        const mobileOffsetPx = clamp(ringPx * 0.35, 40, 180);
         el.style.setProperty("--ws-ring-mobile-offset", `${mobileOffsetPx.toFixed(0)}px`);
       }
     };
@@ -87,7 +86,7 @@ const mobileRingSize = useMemo(
       window.removeEventListener("scroll", onScroll);
       window.removeEventListener("resize", onScroll);
     };
-  }, [maxOpacity]);
+  }, [maxOpacity, mobileRingSize]);
 
   /* Idle motion */
   useEffect(() => {
@@ -126,7 +125,7 @@ const mobileRingSize = useMemo(
         ["--ws-ring-idle-x" as any]: "0px",
         ["--ws-ring-idle-y" as any]: "0px",
         ["--ws-ring-opacity" as any]: `${maxOpacity}`,
-        ["--ws-ring-mobile-offset" as any]: "180px",
+        ["--ws-ring-mobile-offset" as any]: "90px",
       }}
     >
       {/* ✅ MOBILE — fixed sizing, no vertical cropping */}
