@@ -138,7 +138,7 @@ export default function MonogramUnderlay({
           height: "var(--ws-ring-mobile-size)" as any,
           width: "auto",
           // Anchor by center so position is consistent across sections
-          left: "72%",
+          left: "80%",
           top: "50%",
           transform:
             "translate(-50%, -50%) translate3d(calc(var(--ws-ring-tx) + var(--ws-ring-idle-x)), 0, 0)",
