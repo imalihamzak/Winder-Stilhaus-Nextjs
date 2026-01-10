@@ -129,10 +129,11 @@ export default function MonogramUnderlay({
         style={{
           height: `${mobileRingSize}%`,
           width: "auto",
-          right: "-20%",              // 👈 move ring left (more visible)
+          // Anchor by center so position is consistent across sections
+          left: "72%",
           top: "50%",
           transform:
-            "translateY(-50%) translate3d(calc(var(--ws-ring-tx) + var(--ws-ring-idle-x)), 0, 0)",
+            "translate(-50%, -50%) translate3d(calc(var(--ws-ring-tx) + var(--ws-ring-idle-x)), 0, 0)",
           opacity: "var(--ws-ring-opacity)" as any,
         }}
         loading="eager"
