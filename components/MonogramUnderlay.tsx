@@ -60,16 +60,6 @@ export default function MonogramUnderlay({
       el.style.setProperty("--ws-ring-tx", `${tx}px`);
       el.style.setProperty("--ws-ring-ty", `${ty}px`);
       el.style.setProperty("--ws-ring-opacity", `${o}`);
-
-      // Mobile: scale the "push-right" offset with the ring's rendered size.
-      // This keeps positioning consistent across sections of different heights
-      // (Hero is short, Footer is tall).
-      const isMobile = window.matchMedia?.("(max-width: 767px)").matches;
-      if (isMobile) {
-        const ringPx = (rect.height * mobileRingSize) / 100;
-        const mobileOffsetPx = clamp(ringPx * 0.35, 40, 180);
-        el.style.setProperty("--ws-ring-mobile-offset", `${mobileOffsetPx.toFixed(0)}px`);
-      }
     };
 
     const onScroll = () => {
@@ -86,7 +76,7 @@ export default function MonogramUnderlay({
       window.removeEventListener("scroll", onScroll);
       window.removeEventListener("resize", onScroll);
     };
-  }, [maxOpacity, mobileRingSize]);
+  }, [maxOpacity]);
 
   /* Idle motion */
   useEffect(() => {
@@ -125,7 +115,6 @@ export default function MonogramUnderlay({
         ["--ws-ring-idle-x" as any]: "0px",
         ["--ws-ring-idle-y" as any]: "0px",
         ["--ws-ring-opacity" as any]: `${maxOpacity}`,
-        ["--ws-ring-mobile-offset" as any]: "90px",
       }}
     >
       {/* ✅ MOBILE — fixed sizing, no vertical cropping */}
@@ -135,8 +124,9 @@ export default function MonogramUnderlay({
           backgroundImage: "url(/assets/ring.png)",
           backgroundRepeat: "no-repeat",
           backgroundSize: `auto ${mobileRingSize}%`,
-          // Mobile: center vertically; push towards the right consistently.
-          backgroundPosition: "calc(100% + var(--ws-ring-mobile-offset)) center",
+          // Mobile: same position in every section (simple + consistent).
+          // Use a fixed pixel nudge rather than % (more predictable).
+          backgroundPosition: "calc(100% + 120px) center",
           transform:
             "translate3d(calc(var(--ws-ring-tx) + var(--ws-ring-idle-x)), 0px, 0)",
           opacity: "var(--ws-ring-opacity)" as any,
