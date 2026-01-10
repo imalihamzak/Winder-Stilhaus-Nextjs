@@ -69,6 +69,12 @@ export default function MonogramUnderlay({
         // Move ring less to the right on mobile (brings it left/more visible)
         const mobileOffsetPx = clamp(ringPx * 0.15, 0, 80);
         el.style.setProperty("--ws-ring-mobile-offset", `${mobileOffsetPx.toFixed(0)}px`);
+
+        // Also cap the ring size to the available section height (prevents cropping).
+        const availableH = Math.max(0, rect.height - 24);
+        const desired = Math.min(availableH, (window.innerWidth || 0) * 0.95);
+        const sizePx = clamp(desired, 180, 420);
+        el.style.setProperty("--ws-ring-mobile-size", `${Math.round(sizePx)}px`);
       }
     };
 
@@ -119,6 +125,7 @@ export default function MonogramUnderlay({
         ["--ws-ring-idle-y" as any]: "0px",
         ["--ws-ring-opacity" as any]: `${maxOpacity}`,
         ["--ws-ring-mobile-offset" as any]: "40px",
+        ["--ws-ring-mobile-size" as any]: "300px",
       }}
     >
       {/* ✅ MOBILE — FIXED & CONSISTENT */}
@@ -127,10 +134,11 @@ export default function MonogramUnderlay({
         alt=""
         className="md:hidden absolute"
         style={{
-          height: `${mobileRingSize}%`,
+          // Mobile: size in px, capped to section height to avoid bottom cropping
+          height: "var(--ws-ring-mobile-size)" as any,
           width: "auto",
           // Anchor by center so position is consistent across sections
-          left: "72%",
+          left: "68%",
           top: "50%",
           transform:
             "translate(-50%, -50%) translate3d(calc(var(--ws-ring-tx) + var(--ws-ring-idle-x)), 0, 0)",
