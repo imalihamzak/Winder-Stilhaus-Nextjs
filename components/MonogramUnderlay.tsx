@@ -30,11 +30,9 @@ export default function MonogramUnderlay({
     [sizePercent]
   );
 
-  // ✅ Mobile: smaller, safe, predictable
-  const mobileRingSize = useMemo(
-    () => clamp(ringSize * 0.45, 35, 65),
-    [ringSize]
-  );
+  // ✅ Mobile-specific safe scaling (slightly larger than before)
+  const mobileRingSize = useMemo(() => clamp(ringSize * 0.6, 45, 85), [ringSize]);
+
 
   /* Scroll parallax */
   useEffect(() => {
@@ -60,6 +58,18 @@ export default function MonogramUnderlay({
       el.style.setProperty("--ws-ring-tx", `${tx}px`);
       el.style.setProperty("--ws-ring-ty", `${ty}px`);
       el.style.setProperty("--ws-ring-opacity", `${o}`);
+
+      // Mobile: keep position consistent across sections by scaling the
+      // "push-right" offset based on the ring's rendered size in THIS section.
+      // This avoids Hero (short) being pushed fully off-screen while Footer (tall)
+      // still looks correct.
+      const isMobile = window.matchMedia?.("(max-width: 767px)").matches;
+      if (isMobile) {
+        const ringPx = (rect.height * mobileRingSize) / 100;
+        // Move ring less to the right on mobile (brings it left/more visible)
+        const mobileOffsetPx = clamp(ringPx * 0.15, 0, 80);
+        el.style.setProperty("--ws-ring-mobile-offset", `${mobileOffsetPx.toFixed(0)}px`);
+      }
     };
 
     const onScroll = () => {
@@ -107,7 +117,8 @@ export default function MonogramUnderlay({
         ["--ws-ring-ty" as any]: "0px",
         ["--ws-ring-idle-x" as any]: "0px",
         ["--ws-ring-idle-y" as any]: "0px",
-        ["--ws-ring-opacity" as any]: maxOpacity,
+        ["--ws-ring-opacity" as any]: `${maxOpacity}`,
+        ["--ws-ring-mobile-offset" as any]: "40px",
       }}
     >
       {/* ✅ MOBILE — FIXED & CONSISTENT */}
