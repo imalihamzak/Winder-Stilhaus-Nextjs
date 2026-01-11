@@ -22,7 +22,7 @@ export default function MonogramUnderlay({
   const ringOpacity = useMemo(() => clamp(opacity, 0.04, 0.07), [opacity]);
   const ringSize = useMemo(() => clamp(sizePercent, 80, 240), [sizePercent]);
 
-  /* 🔥 STRONG, PERCEIVABLE SCROLL PARALLAX */
+  /* ✅ SECTION-BOUND PARALLAX */
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
@@ -36,18 +36,23 @@ export default function MonogramUnderlay({
       const rect = el.getBoundingClientRect();
       const vh = window.innerHeight || 1;
 
-      /*
-        React within FIRST 80px of scroll
-        This guarantees visible motion
-      */
-      const distance =
-        rect.top + rect.height / 2 - vh / 2;
+      /**
+       * Progress through THIS section:
+       * 0   → section just enters
+       * 0.5 → section center
+       * 1   → section leaves
+       */
+      const progress =
+        (vh - rect.top) / (vh + rect.height);
 
-      const p = clamp(distance / 80, -1, 1);
+      const p = clamp(progress, 0, 1);
 
-      // ⬅️⬆️ exaggerated but still "gentle"
-      const tx = -p * 26;
-      const ty = p * 22;
+      // map [0..1] → [-1..1]
+      const mapped = (p - 0.5) * 2;
+
+      // clear, noticeable but controlled
+      const tx = -mapped * 24;
+      const ty = mapped * 20;
 
       el.style.setProperty("--ring-x", `${tx}px`);
       el.style.setProperty("--ring-y", `${ty}px`);
@@ -88,8 +93,7 @@ export default function MonogramUnderlay({
           width: "auto",
           right: "-35%",
           top: "0",
-          transform:
-            "translate3d(var(--ring-x), var(--ring-y), 0)",
+          transform: "translate3d(var(--ring-x), var(--ring-y), 0)",
           opacity: ringOpacity,
         }}
         loading="eager"
@@ -104,8 +108,7 @@ export default function MonogramUnderlay({
           backgroundRepeat: "no-repeat",
           backgroundSize: `auto ${ringSize}%`,
           backgroundPosition: "125% center",
-          transform:
-            "translate3d(var(--ring-x), var(--ring-y), 0)",
+          transform: "translate3d(var(--ring-x), var(--ring-y), 0)",
           opacity: ringOpacity,
         }}
       />
