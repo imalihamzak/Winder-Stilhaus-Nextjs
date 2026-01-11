@@ -19,10 +19,10 @@ export default function MonogramUnderlay({
 }: MonogramUnderlayProps) {
   const ref = useRef<HTMLDivElement>(null);
 
-  const maxOpacity = useMemo(() => clamp(opacity, 0.04, 0.07), [opacity]);
+  const ringOpacity = useMemo(() => clamp(opacity, 0.04, 0.07), [opacity]);
   const ringSize = useMemo(() => clamp(sizePercent, 80, 240), [sizePercent]);
 
-  /* 🔥 STRONG, NOTICEABLE SCROLL PARALLAX */
+  /* 🔥 STRONG, PERCEIVABLE SCROLL PARALLAX */
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
@@ -37,21 +37,20 @@ export default function MonogramUnderlay({
       const vh = window.innerHeight || 1;
 
       /*
-        Normalize scroll reaction to FIRST ~140px
-        This makes movement immediately visible
+        React within FIRST 80px of scroll
+        This guarantees visible motion
       */
-      const distanceFromCenter =
+      const distance =
         rect.top + rect.height / 2 - vh / 2;
 
-      const p = clamp(distanceFromCenter / 140, -1, 1);
+      const p = clamp(distance / 80, -1, 1);
 
-      // ⬅️⬆️ hero-style direction
-      const tx = -p * 14; // stronger than spec, visually correct
-      const ty = p * 12;
+      // ⬅️⬆️ exaggerated but still "gentle"
+      const tx = -p * 26;
+      const ty = p * 22;
 
-      el.style.setProperty("--ws-ring-tx", `${tx}px`);
-      el.style.setProperty("--ws-ring-ty", `${ty}px`);
-      el.style.setProperty("--ws-ring-opacity", `${maxOpacity}`);
+      el.style.setProperty("--ring-x", `${tx}px`);
+      el.style.setProperty("--ring-y", `${ty}px`);
     };
 
     const onScroll = () => {
@@ -67,7 +66,7 @@ export default function MonogramUnderlay({
       window.removeEventListener("scroll", onScroll);
       window.removeEventListener("resize", onScroll);
     };
-  }, [maxOpacity]);
+  }, []);
 
   return (
     <div
@@ -75,12 +74,11 @@ export default function MonogramUnderlay({
       ref={ref}
       className={`absolute inset-0 z-[1] pointer-events-none overflow-hidden ${className}`}
       style={{
-        ["--ws-ring-tx" as any]: "0px",
-        ["--ws-ring-ty" as any]: "0px",
-        ["--ws-ring-opacity" as any]: maxOpacity,
+        ["--ring-x" as any]: "0px",
+        ["--ring-y" as any]: "0px",
       }}
     >
-      {/* ✅ MOBILE */}
+      {/* MOBILE */}
       <img
         src="/assets/ring.png"
         alt=""
@@ -91,14 +89,14 @@ export default function MonogramUnderlay({
           right: "-35%",
           top: "0",
           transform:
-            "translate3d(var(--ws-ring-tx), var(--ws-ring-ty), 0)",
-          opacity: "var(--ws-ring-opacity)" as any,
+            "translate3d(var(--ring-x), var(--ring-y), 0)",
+          opacity: ringOpacity,
         }}
         loading="eager"
         decoding="async"
       />
 
-      {/* ✅ DESKTOP */}
+      {/* DESKTOP */}
       <div
         className="hidden md:block absolute inset-0"
         style={{
@@ -107,8 +105,8 @@ export default function MonogramUnderlay({
           backgroundSize: `auto ${ringSize}%`,
           backgroundPosition: "125% center",
           transform:
-            "translate3d(var(--ws-ring-tx), var(--ws-ring-ty), 0)",
-          opacity: "var(--ws-ring-opacity)" as any,
+            "translate3d(var(--ring-x), var(--ring-y), 0)",
+          opacity: ringOpacity,
         }}
       />
     </div>
