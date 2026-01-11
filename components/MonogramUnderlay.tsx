@@ -30,10 +30,6 @@ export default function MonogramUnderlay({
     [sizePercent]
   );
 
-  // ✅ Mobile-specific safe scaling (slightly larger than before)
-  const mobileRingSize = useMemo(() => clamp(ringSize * 0.6, 45, 85), [ringSize]);
-
-
   /* Scroll parallax */
   useEffect(() => {
     const el = ref.current;
@@ -44,6 +40,7 @@ export default function MonogramUnderlay({
 
     const update = () => {
       raf = 0;
+
       const vh = window.innerHeight || 1;
       const rect = el.getBoundingClientRect();
       const offset = rect.top + rect.height / 2 - vh / 2;
@@ -58,24 +55,6 @@ export default function MonogramUnderlay({
       el.style.setProperty("--ws-ring-tx", `${tx}px`);
       el.style.setProperty("--ws-ring-ty", `${ty}px`);
       el.style.setProperty("--ws-ring-opacity", `${o}`);
-
-      // Mobile: keep position consistent across sections by scaling the
-      // "push-right" offset based on the ring's rendered size in THIS section.
-      // This avoids Hero (short) being pushed fully off-screen while Footer (tall)
-      // still looks correct.
-      const isMobile = window.matchMedia?.("(max-width: 767px)").matches;
-      if (isMobile) {
-        const ringPx = (rect.height * mobileRingSize) / 100;
-        // Move ring less to the right on mobile (brings it left/more visible)
-        const mobileOffsetPx = clamp(ringPx * 0.15, 0, 80);
-        el.style.setProperty("--ws-ring-mobile-offset", `${mobileOffsetPx.toFixed(0)}px`);
-
-        // Also cap the ring size to the available section height (prevents cropping).
-        const availableH = Math.max(0, rect.height - 24);
-        const desired = Math.min(availableH, (window.innerWidth || 0) * 0.95);
-        const sizePx = clamp(desired, 180, 420);
-        el.style.setProperty("--ws-ring-mobile-size", `${Math.round(sizePx)}px`);
-      }
     };
 
     const onScroll = () => {
@@ -123,32 +102,28 @@ export default function MonogramUnderlay({
         ["--ws-ring-ty" as any]: "0px",
         ["--ws-ring-idle-x" as any]: "0px",
         ["--ws-ring-idle-y" as any]: "0px",
-        ["--ws-ring-opacity" as any]: `${maxOpacity}`,
-        ["--ws-ring-mobile-offset" as any]: "40px",
-        ["--ws-ring-mobile-size" as any]: "300px",
+        ["--ws-ring-opacity" as any]: maxOpacity,
       }}
     >
-      {/* ✅ MOBILE — FIXED & CONSISTENT */}
+      {/* ✅ MOBILE — SIMPLE & FULL HEIGHT */}
       <img
         src="/assets/ring.png"
         alt=""
         className="md:hidden absolute"
         style={{
-          // Mobile: size in px, capped to section height to avoid bottom cropping
-          height: "var(--ws-ring-mobile-size)" as any,
+          height: "100%",
           width: "auto",
-          // Anchor by center so position is consistent across sections
-          left: "80%",
-          top: "50%",
+          right: "-35%", // push toward right, still visible
+          top: "0",
           transform:
-            "translate(-50%, -50%) translate3d(calc(var(--ws-ring-tx) + var(--ws-ring-idle-x)), 0, 0)",
+            "translate3d(calc(var(--ws-ring-tx) + var(--ws-ring-idle-x)), 0, 0)",
           opacity: "var(--ws-ring-opacity)" as any,
         }}
         loading="eager"
         decoding="async"
       />
 
-      {/* ✅ DESKTOP — UNTOUCHED */}
+      {/* ✅ DESKTOP — UNCHANGED */}
       <div
         className="hidden md:block absolute inset-0"
         style={{
