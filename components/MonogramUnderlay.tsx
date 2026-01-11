@@ -31,43 +31,49 @@ export default function MonogramUnderlay({
   );
 
   /* Scroll-reactive parallax ONLY */
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+useEffect(() => {
+  const el = ref.current;
+  if (!el) return;
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
-    let raf = 0;
+  let raf = 0;
 
-    const update = () => {
-      raf = 0;
+  const update = () => {
+    raf = 0;
 
-      const scrollY = window.scrollY || 0;
+    const rect = el.getBoundingClientRect();
+    const vh = window.innerHeight || 1;
 
-      // 100px scroll ≈ 10px movement
-      const factor = 0.1;
+    // Progress of section through viewport (-1 → 0 → 1)
+    const progress =
+      (rect.top + rect.height / 2 - vh / 2) / (vh / 2);
 
-      const tx = clamp(-scrollY * factor, -12, 12);
-      const ty = clamp(scrollY * factor, -12, 12);
+    const p = clamp(progress, -1, 1);
 
-      el.style.setProperty("--ws-ring-tx", `${tx}px`);
-      el.style.setProperty("--ws-ring-ty", `${ty}px`);
-      el.style.setProperty("--ws-ring-opacity", `${maxOpacity}`);
-    };
+    // 8–12px movement range
+    const tx = -p * 10;
+    const ty = p * 10;
 
-    const onScroll = () => {
-      if (!raf) raf = requestAnimationFrame(update);
-    };
+    el.style.setProperty("--ws-ring-tx", `${tx}px`);
+    el.style.setProperty("--ws-ring-ty", `${ty}px`);
+    el.style.setProperty("--ws-ring-opacity", `${maxOpacity}`);
+  };
 
-    update();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    window.addEventListener("resize", onScroll, { passive: true });
+  const onScroll = () => {
+    if (!raf) raf = requestAnimationFrame(update);
+  };
 
-    return () => {
-      if (raf) cancelAnimationFrame(raf);
-      window.removeEventListener("scroll", onScroll);
-      window.removeEventListener("resize", onScroll);
-    };
-  }, [maxOpacity]);
+  update();
+  window.addEventListener("scroll", onScroll, { passive: true });
+  window.addEventListener("resize", onScroll, { passive: true });
+
+  return () => {
+    if (raf) cancelAnimationFrame(raf);
+    window.removeEventListener("scroll", onScroll);
+    window.removeEventListener("resize", onScroll);
+  };
+}, [maxOpacity]);
+
 
   return (
     <div
