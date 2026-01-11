@@ -302,12 +302,13 @@ export default function HeroSection() {
     rounded-full
     flex items-center justify-center
     bg-white/10 backdrop-blur
-    border border-white/20
     text-white
     relative z-[120]
     transition-all duration-200
     hover:bg-white/20
     active:scale-95
+
+    ws-double-ring ws-double-ring--on-dark
   "
 >
   <div className="flex flex-col justify-center gap-1.5">
@@ -316,6 +317,7 @@ export default function HeroSection() {
     <span className="block w-5 h-[2px] bg-white rounded-full" />
   </div>
 </button>
+
 
             </div>
 
