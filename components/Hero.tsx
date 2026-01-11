@@ -291,21 +291,32 @@ export default function HeroSection() {
                 <span className="sm:hidden">Book</span>
               </a>
 
-              <button
-                ref={menuButtonRef}
-                onClick={() => setMenuOpen((v) => !v)}
-                aria-label="Toggle Menu"
-                aria-expanded={menuOpen}
-                className="
-                  md:hidden flex flex-col justify-between w-10 h-9 p-2
-                  rounded-full ws-double-ring ws-double-ring--on-dark border border-white/0 bg-white/10
-                  text-white relative z-[120]
-                "
-              >
-                <span className="w-full h-0.5 bg-current" />
-                <span className="w-full h-0.5 bg-current" />
-                <span className="w-full h-0.5 bg-current" />
-              </button>
+<button
+  ref={menuButtonRef}
+  onClick={() => setMenuOpen((v) => !v)}
+  aria-label="Toggle Menu"
+  aria-expanded={menuOpen}
+  className="
+    md:hidden
+    w-11 h-11
+    rounded-full
+    flex items-center justify-center
+    bg-white/10 backdrop-blur
+    border border-white/20
+    text-white
+    relative z-[120]
+    transition-all duration-200
+    hover:bg-white/20
+    active:scale-95
+  "
+>
+  <div className="flex flex-col justify-center gap-1.5">
+    <span className="block w-5 h-[2px] bg-white rounded-full" />
+    <span className="block w-5 h-[2px] bg-white rounded-full" />
+    <span className="block w-5 h-[2px] bg-white rounded-full" />
+  </div>
+</button>
+
             </div>
 
             {/* Mobile Menu Dropdown */}
